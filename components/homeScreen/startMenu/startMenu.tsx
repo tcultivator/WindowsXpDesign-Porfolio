@@ -19,6 +19,20 @@ import { GrLinkedin } from "react-icons/gr";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, } from "@/components/ui/navigation-menu"
 import { Popover, PopoverContent, PopoverTrigger, } from "@/components/ui/popover"
 import { Label } from '@/components/ui/label';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 //zustand store
 import { useApplicationStore } from '@/stores/application';
@@ -29,14 +43,14 @@ const startMenu = () => {
     const addWindowItem = useApplicationStore((state) => state.addWindowItem)
     return (
         <>
-            <Popover>
-                <PopoverTrigger asChild>
-                    <button className='flex items-center bg-gradient-to-b from-[#2eb32e] to-[#038200] max-h-8.5 px-2 py-2 pr-5 gap-1 rounded-tr-[6px] rounded-br-[10px] cursor-pointer inset-shadow-sm inset-shadow-black/50 shadow-[inset_0_2px_15px_rgba(1,107,1),inset_0_-2px_12px_rgba(1,107,1),0_2px_4px_rgba(1,107,1)] hover:brightness-110'>
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <button className='flex items-center bg-gradient-to-b from-[#2eb32e] to-[#038200] max-h-8.5 px-2 py-2 pr-5 gap-1 rounded-tr-[6px] rounded-br-[10px] cursor-pointer inset-shadow-sm inset-shadow-black/50 shadow-[inset_0_10px_25px_rgba(1,107,1),inset_0_-2px_12px_rgba(1,107,1),0_2px_4px_rgba(1,107,1)] hover:brightness-110'>
                         <Image src={Logo} alt='' width={20} height={20} className='w-[20px] mt-[3px]' />
                         <Label className='text-[18px] font-bold text-white/85 italic cursor-pointer'>start</Label>
                     </button>
-                </PopoverTrigger>
-                <PopoverContent className="w-95">
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-95" align="start">
                     <div className="grid gap-0 p-1">
                         <div className='flex items-center gap-1 p-1'>
                             <div className='p-[3px] w-max rounded-[7px] bg-[#587FDB] inset-shadow-sm inset-shadow-white '>
@@ -47,44 +61,55 @@ const startMenu = () => {
                         <div className='flex '>
                             <div className='p-1  bg-white flex flex-col  border-r border-[#aacaf2] w-[50%]'>
                                 <div className='flex flex-col gap-1 h-[300px]'>
-                                    {/* add function that open the browser using iframe */}
+
                                     <div className='flex flex-col gap-1 pb-2 border-b border-black/10'>
-                                        <div onClick={() => addWindowItem('Internet', <FaInternetExplorer className='text-[#3397e8] text-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                            <FaInternetExplorer className='text-[#3397e8] text-[25px]' />
-                                            <div>
-                                                <Label className='text-[13px] leading-none '>Internet</Label>
-                                                <Label className=' font-thin opacity-50 text-[13px] leading-none '>Internet Explorer</Label>
+                                        <DropdownMenuItem>
+                                            <div onClick={() => addWindowItem('Internet', <FaInternetExplorer className='text-[#3397e8] text-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                <FaInternetExplorer className='text-[#3397e8] text-[25px]' />
+                                                <div>
+                                                    <Label className='text-[13px] leading-none '>Internet</Label>
+                                                    <Label className=' font-thin opacity-50 text-[13px] leading-none '>Internet Explorer</Label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        {/* add function that open projects folder using iframe */}
-                                        <div onClick={() => addWindowItem('E-Mail', <TfiEmail className='text-[#d2e5fa] text-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                            <TfiEmail className='text-[#d2e5fa] text-[25px]' />
-                                            <div>
-                                                <Label className='text-[13px] leading-none'>E-Mail</Label>
-                                                <Label className=' font-thin opacity-50 text-[13px] leading-none'>google mail</Label>
+                                        </DropdownMenuItem>
+
+                                        <DropdownMenuItem>
+                                            <div onClick={() => addWindowItem('E-Mail', <TfiEmail className='text-[#d2e5fa] text-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                <TfiEmail className='text-[#d2e5fa] text-[25px]' />
+                                                <div>
+                                                    <Label className='text-[13px] leading-none'>E-Mail</Label>
+                                                    <Label className=' font-thin opacity-50 text-[13px] leading-none'>google mail</Label>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </DropdownMenuItem>
                                     </div>
 
+                                    <DropdownMenuItem>
+                                        <div onClick={() => addWindowItem('Projects', <FaFolderOpen className='text-[#f5d78c] text-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                            <FaFolderOpen className='text-[#f5d78c] text-[25px]' />
+                                            <div>
+                                                <Label className='text-[13px] leading-none font-normal'>Projects</Label>
+                                            </div>
+                                        </div>
+                                    </DropdownMenuItem>
 
-                                    <div onClick={() => addWindowItem('Projects', <FaFolderOpen className='text-[#f5d78c] text-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <FaFolderOpen className='text-[#f5d78c] text-[25px]' />
-                                        <div>
-                                            <Label className='text-[13px] leading-none font-normal'>Projects</Label>
+                                    <DropdownMenuItem>
+                                        <div className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                            <FaGithub className='text-black text-[25px]' />
+                                            <div>
+                                                <Label className='text-[13px] leading-none font-normal'>Github</Label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <FaGithub className='text-black text-[25px]' />
-                                        <div>
-                                            <Label className='text-[13px] leading-none font-normal'>Github</Label>
+                                    </DropdownMenuItem>
+
+                                    <DropdownMenuItem>
+                                        <div className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                            <GrLinkedin className='text-[#3397e8] text-[25px]' />
+                                            <div>
+                                                <Label className='text-[13px] leading-none font-normal'>Linkedin</Label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <GrLinkedin className='text-[#3397e8] text-[25px]' />
-                                        <div>
-                                            <Label className='text-[13px] leading-none font-normal'>Linkedin</Label>
-                                        </div>
-                                    </div>
+                                    </DropdownMenuItem>
 
                                 </div>
 
@@ -168,8 +193,9 @@ const startMenu = () => {
                             <button className='flex gap-1 items-center cursor-pointer bg-transparent hover:bg-black/10'><Image src="/poweroffbtn.ico" alt='folder icon' width={20} height={20} className='w-[22px]' /><Label className='font-thin text-[13px] cursor-pointer'>Turn Off Computer</Label></button>
                         </div>
                     </div>
-                </PopoverContent>
-            </Popover>
+                </DropdownMenuContent>
+            </DropdownMenu>
+
         </>
     )
 }
