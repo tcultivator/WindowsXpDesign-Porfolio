@@ -103,7 +103,7 @@ function NavigationMenuViewport({
   return (
     <div
       className={cn(
-        "absolute left-[100%] isolate z-50 flex justify-center"
+        "absolute left-[80%] isolate z-50 flex justify-center"
       )}
     >
       <NavigationMenuPrimitive.Viewport
@@ -126,7 +126,7 @@ function NavigationMenuLink({
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
       className={cn(
-        " data-[active=true]:hover:bg-accent  data-[active=true]:text-accent-foreground hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+        " data-[active=true]:hover:bg-accent  data-[active=true]:text-accent-foreground hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-t-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

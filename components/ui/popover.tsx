@@ -30,7 +30,7 @@ function PopoverContent({
         align={align}
         sideOffset={sideOffset}
         className={cn(
-          "bg-gradient-to-t from-[#235ddb] to-[#235ddb] inset-shadow-sm inset-shadow-black/50 border border-black/20 text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-0 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-0 data-[side=top]:slide-in-from-bottom-0 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border  shadow-md outline-hidden",
+          "bg-gradient-to-t from-[#235ddb] to-[#235ddb] inset-shadow-sm inset-shadow-white/50 shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] border border-black/20 text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-0 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-0 data-[side=top]:slide-in-from-bottom-0 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-t-md border  shadow-md outline-hidden",
           className
         )}
         {...props}
