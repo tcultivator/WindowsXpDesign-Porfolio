@@ -8,7 +8,7 @@ export default function Startup() {
     useEffect(() => {
         setTimeout(() => {
             setLoadingScreen(false)
-        }, 4000);
+        }, 3000);
     }, [])
     return (
         <AnimatePresence mode="wait">

@@ -5,8 +5,6 @@ import { Label } from '@/components/ui/label';
 import Image from "next/image";
 import Logo from '@/public/loadingscreenxplogo.png';
 const Loading_screen = () => {
-    const [progress, setProgress] = useState(0);
-    const [startupLoading, setStartupLoading] = useState(true)
     
     return (
         <div className="flex flex-col items-center gap-2 min-h-screen bg-black text-white relative">
