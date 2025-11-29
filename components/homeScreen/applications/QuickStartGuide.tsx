@@ -4,14 +4,8 @@ import Image from 'next/image';
 import { useApplicationStore } from '@/stores/application';
 
 // icons
-import { FaInternetExplorer } from "react-icons/fa";
-import { FaPowerOff } from "react-icons/fa6";
-import { LuKeyRound } from "react-icons/lu";
-import { FaPlay } from "react-icons/fa";
 import { FaFolderOpen } from "react-icons/fa6";
-import { TfiEmail } from "react-icons/tfi";
-import { FaGithub } from "react-icons/fa";
-import { GrLinkedin } from "react-icons/gr";
+
 
 //shadcn components
 import { Label } from '@/components/ui/label';
@@ -26,15 +20,7 @@ const QuickStartItem = ({ icon, label, onClick }: {
 }) => (
     <div
         onClick={onClick}
-        className="
-            flex  items-center 
-            gap-2 p-2
-             cursor-pointer
-            hover:underline
-            text-white
-            transition-all
-            
-        "
+        className="flex items-center gap-2 p-2 cursor-pointer hover:underline text-white transition-all"
     >
         {icon}
         <Label className="text-[14px] cursor-pointer">{label}</Label>
@@ -45,7 +31,7 @@ const QuickStartItem = ({ icon, label, onClick }: {
 const QuickStartGuide = () => {
     const addWindowItem = useApplicationStore((state) => state.addWindowItem)
     return (
-        <div className="flex flex-col  p-4 px-10 gap-4 text-black ">
+        <div className="flex flex-col  p-4 px-10 gap-4 text-black bg-[#6374d6] w-full ">
             {/* Header text */}
             <Label className="text-[20px] text-white font-semibold text-center leading-none">
                 Welcome to My Personal Portfolio! Inspired by (Windows XP Edition)
@@ -59,12 +45,12 @@ const QuickStartGuide = () => {
 
                 {/* Projects */}
                 <QuickStartItem
-                    label="Projects"
+                    label="My Work"
                     icon={<Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[50px]' />}
                     onClick={() => addWindowItem(
-                        "Projects",
+                        "My Work",
                         <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[15px]' />,
-                        <Projects />
+                        <Projects />, 800, 500
                     )}
                 />
 
@@ -75,7 +61,7 @@ const QuickStartGuide = () => {
                     onClick={() => addWindowItem(
                         "Skills",
                         <FaFolderOpen className="text-[#f5d78c] text-[15px]" />,
-                        <Projects />
+                        <Projects />, 800, 500
                     )}
                 />
 
@@ -86,7 +72,7 @@ const QuickStartGuide = () => {
                     onClick={() => addWindowItem(
                         "About Me",
                         <FaFolderOpen className="text-[#f5d78c] text-[15px]" />,
-                        <Projects />
+                        <Projects />, 800, 500
                     )}
                 />
 
@@ -97,7 +83,7 @@ const QuickStartGuide = () => {
                     onClick={() => addWindowItem(
                         "Contact",
                         <FaFolderOpen className="text-[#f5d78c] text-[15px]" />,
-                        <Projects />
+                        <Projects />, 800, 500
                     )}
                 />
 
@@ -108,7 +94,7 @@ const QuickStartGuide = () => {
                     onClick={() => addWindowItem(
                         "Resume",
                         <FaFolderOpen className="text-[#f5d78c] text-[15px]" />,
-                        <Projects />
+                        <Projects />, 800, 500
                     )}
                 />
             </div>

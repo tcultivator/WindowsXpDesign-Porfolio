@@ -26,6 +26,7 @@ import { useApplicationStore } from '@/stores/application';
 // applications components
 import Projects from '../applications/projects';
 import QuickStartGuide from '@/components/homeScreen/applications/QuickStartGuide'
+import InternetExplorer from '../applications/InternetExplorer';
 const startMenu = () => {
     const addWindowItem = useApplicationStore((state) => state.addWindowItem)
     return (
@@ -51,7 +52,7 @@ const startMenu = () => {
 
                                     <div className='flex flex-col gap-1 pb-2 border-b border-black/10'>
                                         <DropdownMenuItem>
-                                            <div onClick={() => addWindowItem('Internet', <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                            <div onClick={() => addWindowItem('Internet', <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[15px]' />, <InternetExplorer url={'https://www.google.com/'} />, 1200, 700)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
                                                 <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[30px]' />
                                                 <div>
                                                     <Label className='text-[13px] leading-none '>Internet</Label>
@@ -61,7 +62,7 @@ const startMenu = () => {
                                         </DropdownMenuItem>
 
                                         <DropdownMenuItem>
-                                            <div onClick={() => addWindowItem('E-Mail', <TfiEmail className='text-[#d2e5fa] text-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                            <div onClick={() => addWindowItem('E-Mail', <TfiEmail className='text-[#d2e5fa] text-[15px]' />, <Projects />, 800, 500)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
                                                 <TfiEmail className='text-[#d2e5fa] text-[25px]' />
                                                 <div>
                                                     <Label className='text-[13px] leading-none'>E-Mail</Label>
@@ -72,7 +73,7 @@ const startMenu = () => {
                                     </div>
 
                                     <DropdownMenuItem>
-                                        <div onClick={() => addWindowItem('Quick Start Guide', <Image src={QuickStartGuideIcon} alt='' width={20} height={20} className='w-[20px]' />, <QuickStartGuide />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                        <div onClick={() => addWindowItem('Quick Start Guide', <Image src={QuickStartGuideIcon} alt='' width={20} height={20} className='w-[20px]' />, <QuickStartGuide />, 800, 500)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
                                             <Image src={QuickStartGuideIcon} alt='' width={20} height={20} className='w-[30px]' />
                                             <div>
                                                 <Label className='text-[13px] leading-none font-normal'>Quick Start Guide</Label>
@@ -81,10 +82,10 @@ const startMenu = () => {
                                     </DropdownMenuItem>
 
                                     <DropdownMenuItem>
-                                        <div onClick={() => addWindowItem('Projects', <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[15px]' />, <Projects />)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                        <div onClick={() => addWindowItem('My Work', <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[15px]' />, <Projects />, 800, 500)} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
                                             <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[30px]' />
                                             <div>
-                                                <Label className='text-[13px] leading-none font-normal'>Projects</Label>
+                                                <Label className='text-[13px] leading-none font-normal'>My Work</Label>
                                             </div>
                                         </div>
                                     </DropdownMenuItem>

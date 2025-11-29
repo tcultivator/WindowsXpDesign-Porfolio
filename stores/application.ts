@@ -8,10 +8,12 @@ type WindowItemType = {
     content: React.ReactNode;
     startX: number;
     startY: number;
+    defaultWidth: number;
+    defaultHeight: number;
 }
 type Applications = {
     windowItem: WindowItemType[],
-    addWindowItem: (title: string, icon: React.ReactNode, content: React.ReactNode) => void,
+    addWindowItem: (title: string, icon: React.ReactNode, content: React.ReactNode, defaultWidth: number, defaultHeight: number) => void,
     activeId: string | null,
     setActiveId: (id: string) => void,
     closeWindowItem: (id: string) => void
@@ -24,10 +26,11 @@ export const useApplicationStore = create<Applications>((set) => ({
         icon: QuickStartGuideData.icon,
         startX: 620,
         startY: 220,
+        defaultWidth: 800,
+        defaultHeight: 500
+
     }],
-    addWindowItem: (title, icon, content) => {
-        const defaultWidth = 320;
-        const defaultHeight = 120;
+    addWindowItem: (title, icon, content, defaultWidth, defaultHeight) => {
         const centerX = window.innerWidth / 2 - 320;
         const centerY = window.innerHeight / 2 - 320;
 
@@ -56,6 +59,8 @@ export const useApplicationStore = create<Applications>((set) => ({
                     content,
                     startX,
                     startY,
+                    defaultWidth,
+                    defaultHeight,
                 },
             ],
             activeId: id
