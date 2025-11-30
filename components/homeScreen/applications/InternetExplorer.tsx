@@ -70,7 +70,7 @@ const iframeContent = `
   </head>
   <body>
     <Image 
-    src="/google.png" 
+    src="/googleLogo.png" 
     alt="Google Logo"
     width={50} 
     height={50} 

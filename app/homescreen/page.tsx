@@ -34,125 +34,157 @@ const HomeScreen = () => {
 
     return (
         <div className="flex flex-col  w-screen h-screen text-white relative bg-cover bg-center overflow-hidden select-none "
-            style={{ backgroundImage: "url('/xpbg.jpg')" }}
+            style={{ backgroundImage: "url('/bg2.webp')" }}
 
         >
             <div className='p-1  h-full w-max flex flex-col gap-10 items-center justify-start px-3 py-10'>
                 <button id='QS' onDoubleClick={openQuickStart} className='flex flex-col items-center gap-1 justify-center aspect-square w-[70px] cursor-pointer  ' >
-                    <Image id='QSImage' src="/QuickStartGuideIcon.ico" alt='' width={20} height={20} className='w-[35px] bg-clip-text select-none' draggable={false} />
-                    <Label id='QSLabel' className='font-light break-words text-[12px] leading-none text-center  p-1 cursor-pointer'>Quick Start</Label>
+                    <Image id='QSImage' src="/QuickStartGuideIcon.ico" alt='' width={20} height={20} className='w-[30px] bg-clip-text select-none' draggable={false} />
+                    <Label id='QSLabel' className='font-semibold break-words text-[10px] leading-tight text-center  p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.1px_black]'>Quick Start</Label>
                 </button>
                 <button id='IE' onDoubleClick={() => openInternetExplorer('https://www.google.com/')} className='flex flex-col items-center gap-1 justify-center aspect-square w-[70px] cursor-pointer '>
-                    <Image id='IEImage' src="/internetIcon.ico" alt='' width={20} height={20} className='w-[35px] bg-clip-text select-none' draggable={false} />
-                    <Label id='IELabel' className='font-light break-words text-[12px] leading-none text-center p-1 cursor-pointer'>Internet Explorer</Label>
+                    <Image id='IEImage' src="/internetIcon.ico" alt='' width={20} height={20} className='w-[30px] bg-clip-text select-none' draggable={false} />
+                    <Label id='IELabel' className='font-semibold break-words text-[10px] leading-tight  text-center  p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.1px_black]'>Internet Explorer</Label>
                 </button>
                 <button id='EM' onDoubleClick={openEmail} className='flex flex-col items-center gap-1 justify-center aspect-square w-[70px] cursor-pointer '>
-                    <Image id='EMImage' src="/email.webp" alt='' width={20} height={20} className='w-[35px] bg-clip-text select-none' draggable={false} />
-                    <Label id='EMLabel' className='font-light break-words text-[12px] leading-none text-center p-1 cursor-pointer'>E-mail</Label>
+                    <Image id='EMImage' src="/email.webp" alt='' width={20} height={20} className='w-[30px] bg-clip-text select-none' draggable={false} />
+                    <Label id='EMLabel' className='font-semibold break-words text-[10px] leading-tight  text-center  p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.1px_black]'>E-mail</Label>
                 </button>
                 <button id='MW' onDoubleClick={openMyWorks} className='flex flex-col items-center gap-1 justify-center aspect-square w-[70px] cursor-pointer'>
-                    <Image id='MWImage' src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[35px] bg-clip-text select-none' draggable={false} />
-                    <Label id='MWLabel' className='font-light break-words text-[12px] leading-none text-center p-1 cursor-pointer'>My Works</Label>
+                    <Image id='MWImage' src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[30px] bg-clip-text select-none' draggable={false} />
+                    <Label id='MWLabel' className='font-semibold break-words text-[10px] leading-tight  text-center  p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.1px_black]'>My Works</Label>
                 </button>
 
             </div>
 
 
 
-            {windowItem.map((data) => (
-                <Rnd
+            {
+                windowItem.map((data) => (
+                    <Rnd
 
-                    onMouseDown={() => setActiveId(data.id)}
-                    className={activeId === data.id ? `z-40 ${data.display ? 'opacity-100' : 'opacity-0'}` : `z-10 ${data.display ? 'opacity-100' : 'opacity-0'}`}
-                    key={data.id}
-                    bounds="parent"
-                    minWidth={800}
-                    minHeight={500}
-                    position={{ x: data.fullScreen ? 0 : data.startX, y: data.fullScreen ? 0 : data.startY }}
-                    size={{ height: data.fullScreen ? window.innerHeight : data.defaultHeight, width: data.fullScreen ? window.innerWidth : data.defaultWidth }}
-                    dragHandleClassName="drag-handle"
-                    enableResizing={{
-                        top: true,
-                        right: true,
-                        bottom: true,
-                        left: true,
-                        topRight: true,
-                        bottomRight: true,
-                        bottomLeft: true,
-                        topLeft: true,
-                    }}
-                    onDragStop={(e, d) => {
-                        updateWindow(data.id, {
-                            startX: d.x,
-                            startY: d.y
-                        });
-                    }}
+                        onMouseDown={() => setActiveId(data.id)}
+                        className={activeId === data.id ? `z-40 ${data.display ? 'opacity-100' : 'opacity-0'}` : `z-10 ${data.display ? 'opacity-100' : 'opacity-0'}`}
+                        key={data.id}
+                        bounds="parent"
+                        minWidth={700}
+                        minHeight={400}
+                        position={{ x: data.fullScreen ? 0 : data.startX, y: data.fullScreen ? 0 : data.startY }}
+                        size={{ height: data.fullScreen ? window.innerHeight : data.defaultHeight, width: data.fullScreen ? window.innerWidth : data.defaultWidth }}
+                        dragHandleClassName="drag-handle"
+                        enableResizing={{
+                            top: true,
+                            right: true,
+                            bottom: true,
+                            left: true,
+                            topRight: true,
+                            bottomRight: true,
+                            bottomLeft: true,
+                            topLeft: true,
+                        }}
+                        onDragStop={(e, d) => {
+                            updateWindow(data.id, {
+                                startX: d.x,
+                                startY: d.y
+                            });
+                        }}
 
-                    onResizeStop={(e, dir, ref, delta, pos) => {
-                        updateWindow(data.id, {
-                            defaultWidth: parseFloat(ref.style.width),
-                            defaultHeight: parseFloat(ref.style.height),
-                        });
-                    }}
+                        onResizeStop={(e, dir, ref, delta, pos) => {
+                            updateWindow(data.id, {
+                                defaultWidth: parseFloat(ref.style.width),
+                                defaultHeight: parseFloat(ref.style.height),
+                            });
+                        }}
 
-                >
-                    <div className={`w-full h-full ${activeId === data.id ? 'bg-[#235ddb]' : 'bg-[#3d82f2]'} rounded-t-[10px] p-1 flex flex-col shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]`}>
-                        {/* Drag handle */}
-                        <div className=" w-full h-6 cursor-move rounded-t-[5px] pb-1 px-1 flex justify-between items-center">
-                            <div className='flex items-center gap-1 w-full drag-handle'>
-                                {/* <FaFolderOpen className='text-[#f5d78c] text-[15px]' /> */}
-                                {data.icon}
-                                <Label>{data.title}</Label>
-                            </div>
-                            <div className={`${activeId === data.id ? 'opacity-100' : 'opacity-70'} flex items-center gap-1`}>
-                                <button onClick={() => minimizeWindow(data.id)} className='bg-[#235ddb] p-[2px] rounded border border-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),inset_0_-2px_3px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 cursor-pointer'>
-                                    <FaWindowMinimize className='p-[2px] text-[17px]' />
-                                </button>
+                    >
 
-                                <button onClick={() => maximizeWindow(data.id)} className='bg-[#235ddb] p-[2px] rounded border border-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),inset_0_-2px_3px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 cursor-pointer'>
-                                    <FaRegWindowMaximize className='p-[2px] text-[17px]' />
-                                </button>
-
-                                <button onClick={() => closeWindowItem(data.id)} className='bg-red-400 p-[2px] rounded border border-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),inset_0_-2px_3px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 cursor-pointer'>
-                                    <LiaTimesSolid className='text-[17px]' />
-                                </button>
-
-                            </div>
-
-                        </div>
-
-
-                        {data.title != 'Internet' && <XPExplorerBar
-                            title={data.title}
-                            icon={data.icon}
-                        />}
-                        {/* Content */}
-                        <div className="h-full flex   ">
-                            {data.content}
-                        </div>
-                    </div>
-                </Rnd>
-            ))}
-
-
-
-            <div className='bg-[#235ddb] z-50 w-full h-8 max-h-8 absolute bottom-0 gap-1 flex items-center shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]'>
-                <StartMenu />
-                <div className='flex items-center'>
-                    {
-                        windowItem.map((data) => (
-                            <div onClick={() => cancelMinimize(data.id)} key={data.id} className='max-h-8 h-8 w-[150px] py-[3px]'>
-                                <div className={`px-3 flex gap-1 items-center ${activeId === data.id ? 'bg-[#235ddb]' : 'bg-[#3d82f2]'}  rounded-[3px] w-full h-full border border-black/20  hover:brightness-110 cursor-pointer`}>
-                                    <Label className='text-[12px]'>{data.icon}</Label>
-                                    <Label className='font-thin text-[12px]'>{data.title}</Label>
+                        <div className={`w-full h-full ${activeId === data.id ? 'bg-[#0f4fd6]' : 'bg-[#3d82f2]'} rounded-t-[10px] p-[3px] flex flex-col shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] border border-[#023bb5]`}>
+                            {/* Drag handle */}
+                            <div className=" w-full h-6 cursor-move rounded-t-[5px] pb-1 px-1 flex justify-between items-center">
+                                <div className='flex items-center gap-1 w-full drag-handle'>
+                                    {/* <FaFolderOpen className='text-[#f5d78c] text-[15px]' /> */}
+                                    <div className='w-[20px] aspect-square'>
+                                        {data.icon}
+                                    </div>
+                                    <Label className='text-[12px]'>{data.title}</Label>
                                 </div>
+                                <div className={`${activeId === data.id ? 'opacity-100' : 'opacity-70'} flex items-center gap-1`}>
+                                    <button onClick={() => minimizeWindow(data.id)} className='bg-[#0f4fd6] p-[2px] rounded border border-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),inset_0_-2px_3px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 cursor-pointer'>
+                                        <FaWindowMinimize className='p-[2px] text-[15px]' />
+                                    </button>
+
+                                    <button onClick={() => maximizeWindow(data.id)} className='bg-[#0f4fd6] p-[2px] rounded border border-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),inset_0_-2px_3px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 cursor-pointer'>
+                                        <FaRegWindowMaximize className='p-[2px] text-[15px]' />
+                                    </button>
+
+                                    <button onClick={() => closeWindowItem(data.id)} className='bg-red-400 p-[2px] rounded border border-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),inset_0_-2px_3px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] hover:brightness-110 cursor-pointer'>
+                                        <LiaTimesSolid className='text-[15px]' />
+                                    </button>
+
+                                </div>
+
                             </div>
-                        ))
-                    }
+
+
+                            {data.title != 'Internet' && <XPExplorerBar
+                                title={data.title}
+                                icon={data.icon}
+                            />}
+                            {/* Content */}
+                            <div className="h-full flex   ">
+                                {data.content}
+                            </div>
+                        </div>
+                    </Rnd>
+                ))
+            }
+
+
+
+            <div className='bg-[#235ddb] z-50 w-full h-8 max-h-8 absolute bottom-0 gap-2 flex items-center shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]'>
+                <StartMenu />
+
+                <div className='flex items-center h-full w-full py-[2px] overflow-hidden whitespace-nowrap box-border'>
+                    {windowItem.map((data) => (
+                        <div
+                            key={data.id}
+                            onClick={() => cancelMinimize(data.id)}
+                            className="h-full flex-1 min-w-0 max-w-[150px]"
+                        >
+                            <div
+                                className={`
+                        px-1 flex items-center gap-1
+                        ${activeId === data.id ? 'bg-[#235ddb]' : 'bg-[#3d82f2]'}
+                        rounded-[3px] w-full h-full border border-black/20
+                        hover:brightness-110 cursor-pointer
+                        min-w-0 pr-[10%]
+                    `}
+                            >
+                                <div className="min-w-[20px] max-w-[20px] aspect-square">
+                                    {data.icon}
+                                </div>
+
+                                
+                                <Label
+                                    className="
+                            font-thin text-[11px]
+                            overflow-ellipsis
+                            min-w-0 inline-block overflow-hidden whitespace-nowrap
+                        "
+                                >
+                                    {data.title}
+                                </Label>
+                            </div>
+                        </div>
+                    ))}
                 </div>
 
-
+                <div className='bg-[#1393e8] p-1 w-[150px] min-w-[150px] h-full'>
+                    {/* time */}
+                </div>
             </div>
+
+
         </div >
     )
 }

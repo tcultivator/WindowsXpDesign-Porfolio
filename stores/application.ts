@@ -32,8 +32,8 @@ export const useApplicationStore = create<Applications>((set) => ({
         icon: QuickStartGuideData.icon,
         startX: 620,
         startY: 220,
-        defaultWidth: 800,
-        defaultHeight: 500,
+        defaultWidth: 700,
+        defaultHeight: 400,
         fullScreen: false,
         display: true,
 
@@ -84,6 +84,11 @@ export const useApplicationStore = create<Applications>((set) => ({
         set((state) => ({
             windowItem: state.windowItem.filter(item => item.id != id)
         }))
+        if (useApplicationStore.getState().windowItem.length >= 1) {
+            useApplicationStore.getState().setActiveId(useApplicationStore.getState().windowItem[useApplicationStore.getState().windowItem.length - 1].id)
+        }
+
+
     },
     maximizeWindow: (id) => {
         const selectedWindow = useApplicationStore.getState().windowItem.filter(item => item.id == id)
@@ -138,7 +143,7 @@ export const useApplicationStore = create<Applications>((set) => ({
             windowItem: state.windowItem.map((item) =>
                 item.id === id ? { ...item, display: false } : item
             ),
-            activeId: useApplicationStore.getState().windowItem[useApplicationStore.getState().windowItem.length - 1].id
+            activeId: useApplicationStore.getState().windowItem.length == 1 ? null : useApplicationStore.getState().windowItem[useApplicationStore.getState().windowItem.length - 1].id
         }))
         console.log(useApplicationStore.getState().windowItem)
     },

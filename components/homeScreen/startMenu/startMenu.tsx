@@ -22,7 +22,7 @@ const startMenu = () => {
 
         <DropdownMenu>
             <DropdownMenuTrigger asChild className='outline-none'>
-                <button className='flex items-center bg-gradient-to-b from-[#2eb32e] to-[#038200] max-h-8.5 px-2 py-2 pr-5 gap-1 rounded-tr-[6px] rounded-br-[10px] cursor-pointer inset-shadow-sm inset-shadow-black/50 shadow-[inset_0_10px_25px_rgba(1,107,1),inset_0_-2px_12px_rgba(1,107,1),0_2px_4px_rgba(1,107,1)] hover:brightness-110'>
+                <button className='flex items-center bg-gradient-to-b from-[#4ae84a] to-[#2eb32e] min-h-8.5 max-h-8.5 px-2 py-2 pr-5 gap-1 rounded-tr-[6px] rounded-br-[10px] cursor-pointer inset-shadow-sm inset-shadow-black/50 shadow-[inset_0_10px_25px_rgba(1,107,1),inset_0_-2px_12px_rgba(1,107,1),0_2px_4px_rgba(1,107,1)] hover:brightness-110'>
                     <Image src="/loadingscreenxplogo.png" alt='' width={20} height={20} className='w-[20px] mt-[3px] select-none ' draggable={false} />
                     <Label className='text-[18px] font-bold text-white/85 italic cursor-pointer'>start</Label>
                 </button>

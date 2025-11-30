@@ -12,18 +12,18 @@ import InternetExplorer from '@/components/homeScreen/applications/InternetExplo
 
 
 export function openInternetExplorer(url: string) {
-    useApplicationStore.getState().addWindowItem('Internet', <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[15px] select-none' draggable={false} />, <InternetExplorer url={url} />, 1400, 800)
+    useApplicationStore.getState().addWindowItem('Internet', <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <InternetExplorer url={url} />, 1300, 800)
 
 }
 
 export function openQuickStart() {
-    useApplicationStore.getState().addWindowItem('Quick Start Guide', <Image src="/QuickStartGuideIcon.ico" alt='' width={20} height={20} className='w-[15px] select-none' draggable={false} />, <QuickStartGuide />, 800, 500)
+    useApplicationStore.getState().addWindowItem('Quick Start Guide', <Image src="/QuickStartGuideIcon.ico" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <QuickStartGuide />, 700, 400)
 }
 
 export function openMyWorks() {
-    useApplicationStore.getState().addWindowItem('My Work', <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[15px] select-none' draggable={false} />, <Projects />, 800, 500)
+    useApplicationStore.getState().addWindowItem('My Work', <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <Projects />, 700, 400)
 }
 
 export function openEmail() {
-    useApplicationStore.getState().addWindowItem('E-Mail', <Image src="/email.webp" alt='' width={20} height={20} className='w-[15px] select-none' draggable={false} />, <Projects />, 800, 500)
+    useApplicationStore.getState().addWindowItem('E-Mail', <Image src="/email.webp" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <Projects />, 700, 400)
 }

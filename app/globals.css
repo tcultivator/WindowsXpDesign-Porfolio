@@ -185,61 +185,22 @@ button#MW:focus #MWImage {
 
 
 
-button#p1:focus #p1label {
-  background-color: #0a60ff;
-  width: 100%;
-  text-align: center;
-  color: white;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
 button#p1:focus #p1image {
   opacity: .6;
 }
 
 
-button#p2:focus #p2label {
-  background-color: #0a60ff;
-  width: 100%;
-  text-align: center;
-  color: white;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
 
 button#p2:focus #p2image {
   opacity: .6;
 }
 
 
-button#p3:focus #p3label {
-  background-color: #0a60ff;
-  width: 100%;
-  text-align: center;
-  color: white;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
 
 button#p3:focus #p3image {
   opacity: .6;
 }
 
-
-button#p4:focus #p4label {
-  background-color: #0a60ff;
-  width: 100%;
-  text-align: center;
-  color: white;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
 
 button#p4:focus #p4image {
   opacity: .6;
