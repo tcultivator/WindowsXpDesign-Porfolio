@@ -21,7 +21,7 @@ export function openQuickStart() {
 }
 
 export function openMyWorks() {
-    useApplicationStore.getState().addWindowItem('My Work', <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <Projects />, 700, 400)
+    useApplicationStore.getState().addWindowItem('My Works', <Image src="/cmdIcon.png" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <Projects />, 700, 400)
 }
 
 export function openEmail() {

@@ -51,7 +51,7 @@ const HomeScreen = () => {
                     <Label id='EMLabel' className='font-semibold break-words text-[10px] leading-tight  text-center  p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.1px_black]'>E-mail</Label>
                 </button>
                 <button id='MW' onDoubleClick={openMyWorks} className='flex flex-col items-center gap-1 justify-center aspect-square w-[70px] cursor-pointer'>
-                    <Image id='MWImage' src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[30px] bg-clip-text select-none' draggable={false} />
+                    <Image id='MWImage' src="/cmdIcon.png" alt='' width={20} height={20} className='w-[30px] bg-clip-text select-none' draggable={false} />
                     <Label id='MWLabel' className='font-semibold break-words text-[10px] leading-tight  text-center  p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.1px_black]'>My Works</Label>
                 </button>
 
@@ -67,7 +67,7 @@ const HomeScreen = () => {
                         className={activeId === data.id ? `z-40 ${data.display ? 'opacity-100' : 'opacity-0'}` : `z-10 ${data.display ? 'opacity-100' : 'opacity-0'}`}
                         key={data.id}
                         bounds="parent"
-                        minWidth={700}
+                        minWidth={600}
                         minHeight={400}
                         position={{ x: data.fullScreen ? 0 : data.startX, y: data.fullScreen ? 0 : data.startY }}
                         size={{ height: data.fullScreen ? window.innerHeight : data.defaultHeight, width: data.fullScreen ? window.innerWidth : data.defaultWidth }}

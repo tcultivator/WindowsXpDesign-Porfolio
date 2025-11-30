@@ -15,7 +15,7 @@ import { openInternetExplorer, openQuickStart, openMyWorks, openEmail } from '@/
 
 const Projects = () => {
     return (
-        <div className='flex gap-4 text-black bg-[#ffffff] w-full border-b border-b-[#023bb5] border-r border-r-[#023bb5] ' draggable={false}>
+        <div className='@container flex gap-4 text-black bg-[#ffffff] w-full border-b border-b-[#023bb5] border-r border-r-[#023bb5] ' draggable={false}>
             <div className='max-w-[180px] min-w-[180px] bg-gradient-to-t from-[#6374d6] to-[#79a3e8] flex flex-col gap-2 p-2 border-x border-l-[#023bb5] border-r-black/20'>
                 <div className='bg-white/50 rounded-t '>
                     <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
@@ -54,9 +54,8 @@ const Projects = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div className="w-full p-2 grid grid-cols-3 gap-2 auto-rows-fr">
+            <div className="w-full p-2 grid grid-cols-2 gap-2 @2xl:grid-cols-3 @4xl:grid-cols-4">
                 <button onDoubleClick={() => openInternetExplorer('https://overclockedx-client.vercel.app')}
                     className="flex w-max h-max p-1 justify-start cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]" id='p1'>
                     <div className="flex flex-col gap-1 items-center justify-start">
@@ -66,7 +65,7 @@ const Projects = () => {
                                 alt="OverClockedX-Client-Image"
                                 width={130}
                                 height={130}
-                                className="border border-black/50 select-none"
+                                className="border border-black/50 select-none @7xl:w-full"
                                 id='p1image'
                                 draggable={false}
                             />
@@ -77,7 +76,7 @@ const Projects = () => {
                 <button id='p2' onDoubleClick={() => openInternetExplorer('https://overclockedx-admin.vercel.app')} className='flex  w-max h-max p-1 justify-start cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
                     <div className='flex flex-col gap-1 items-center justify-start'>
                         <div className='aspect-video flex items-center justify-center'>
-                            <Image id='p2image' src="/myWorks/overclockedx-admin.webp" alt='OverClockedX-Admin-Image' width={130} height={130} className='border border-black/50 select-none' draggable={false} />
+                            <Image id='p2image' src="/myWorks/overclockedx-admin.webp" alt='OverClockedX-Admin-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
                         </div>
                         <Label id='p2label' className='font-normal text-black text-[11px]'>OverClockedX-Admin</Label>
                     </div>
@@ -85,7 +84,7 @@ const Projects = () => {
                 <button id='p3' onDoubleClick={() => openInternetExplorer('https://tcultivator.github.io/instagramClone-DevelopmentPhaseV2')} className='flex  w-max h-max p-1 cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
                     <div className='flex flex-col gap-1 items-center'>
                         <div className='aspect-video flex items-center justify-center'>
-                            <Image id='p3image' src="/myWorks/instagram-clone.webp" alt='Instagram-clone-Image' width={130} height={130} className='border border-black/50 select-none' draggable={false} />
+                            <Image id='p3image' src="/myWorks/instagram-clone.webp" alt='Instagram-clone-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
                         </div>
                         <Label id='p3label' className='font-normal text-black text-[11px]'>Instagram Clone</Label>
                     </div>
@@ -93,7 +92,7 @@ const Projects = () => {
                 <button id='p4' onDoubleClick={() => openInternetExplorer('https://tcultivator.github.io/myPortfolio/')} className='flex  w-max h-max p-1 cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
                     <div className='flex flex-col gap-1 items-center'>
                         <div className='aspect-video flex items-center justify-center'>
-                            <Image id='p4image' src="/myWorks/portfolio-v1.webp" alt='Portfolio-V1-Image' width={130} height={130} className='border border-black/50 select-none' draggable={false} />
+                            <Image id='p4image' src="/myWorks/portfolio-v1.webp" alt='Portfolio-V1-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
                         </div>
                         <Label id='p4label' className='font-normal text-black text-[11px]'>Portfolio V1</Label>
                     </div>

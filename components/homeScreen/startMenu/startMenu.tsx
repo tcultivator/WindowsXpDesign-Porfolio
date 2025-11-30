@@ -72,9 +72,9 @@ const startMenu = () => {
 
                                 <DropdownMenuItem>
                                     <div onClick={openMyWorks} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <Image src="/projectsIcon.ico" alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false} />
+                                        <Image src="/cmdIcon.png" alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false} />
                                         <div>
-                                            <Label className='text-[13px] leading-none font-normal'>My Work</Label>
+                                            <Label className='text-[13px] leading-none font-normal'>My Works</Label>
                                         </div>
                                     </div>
                                 </DropdownMenuItem>

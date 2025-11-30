@@ -8,7 +8,7 @@ const Signin = () => {
     useEffect(() => {
         setTimeout(() => {
             router.push('/homescreen')
-        }, 2000);
+        }, 1000);
     }, [])
 
     return (
