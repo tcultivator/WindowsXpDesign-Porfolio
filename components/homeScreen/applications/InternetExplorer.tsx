@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 //resuable components
 import XPExplorerBar from '@/utils/XPExplorerBar';
+import IEBar from '@/utils/IEBar';
 const iframeContent = `
   <!DOCTYPE html>
   <html lang="en">
@@ -69,7 +70,7 @@ const iframeContent = `
     </style>
   </head>
   <body>
-    <Image 
+    <img 
     src="/googleLogo.png" 
     alt="Google Logo"
     width={50} 
@@ -113,7 +114,7 @@ export default function IframeGoogleReplica({ url }: { url: string }) {
 
   return (
     <div className='flex flex-col w-full'>
-      <XPExplorerBar
+      <IEBar
         title={url}
         icon={<Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[15px] select-none' draggable={false} />}
       />
