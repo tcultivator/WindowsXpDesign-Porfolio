@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image'
-
+import { useState } from 'react'
 // start menu components
 import StartMenu from '@/components/homeScreen/startMenu/startMenu'
 
@@ -9,21 +9,7 @@ import StartMenu from '@/components/homeScreen/startMenu/startMenu'
 import { Rnd } from 'react-rnd'
 // shadcn components
 import { Label } from '@/components/ui/label'
-import {
-    ContextMenu,
-    ContextMenuCheckboxItem,
-    ContextMenuContent,
-    ContextMenuItem,
-    ContextMenuLabel,
-    ContextMenuRadioGroup,
-    ContextMenuRadioItem,
-    ContextMenuSeparator,
-    ContextMenuShortcut,
-    ContextMenuSub,
-    ContextMenuSubContent,
-    ContextMenuSubTrigger,
-    ContextMenuTrigger,
-} from "@/components/ui/context-menu"
+import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuTrigger } from "@/components/ui/context-menu"
 
 // icons
 import { FaRegWindowMaximize } from "react-icons/fa";
@@ -36,7 +22,9 @@ import { LiaTimesSolid } from "react-icons/lia";
 import XPExplorerBar from '@/utils/XPExplorerBar';
 import { openInternetExplorer, openQuickStart, openMyWorks, openEmail, openResume } from '@/utils/OpenApplication'
 import { AppInHomePage } from '@/utils/AppInHomePage'
-import { useState } from 'react'
+
+
+import SystemTray from '@/components/homeScreen/SystemTray/SystemTray'
 
 const HomeScreen = () => {
 
@@ -57,6 +45,11 @@ const HomeScreen = () => {
             setRefresh(true)
         }, 50);
     }
+
+
+
+
+
 
     return (
         <div className='h-screen'>
@@ -258,8 +251,8 @@ const HomeScreen = () => {
                     ))}
                 </div>
 
-                <div className='bg-[#1393e8] p-1 w-[150px] min-w-[150px] h-full'>
-                    {/* time */}
+                <div className='bg-[#1393e8] w-[150px] min-w-[150px] h-full border-l border-black/50 shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]'>
+                    <SystemTray />
                 </div>
             </div>
         </div>
