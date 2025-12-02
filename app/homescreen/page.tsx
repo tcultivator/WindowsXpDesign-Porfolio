@@ -184,7 +184,7 @@ const HomeScreen = () => {
                                         </div>
 
 
-                                        {data.title != 'Internet' && data.title != 'Resume' && <XPExplorerBar
+                                        {data.title != 'Internet' && data.title != 'Resume' && data.title != 'E-Mail' && <XPExplorerBar
                                             title={data.title}
                                             icon={data.icon}
                                         />}
@@ -199,7 +199,7 @@ const HomeScreen = () => {
 
                     </div >
                 </ContextMenuTrigger>
-                <ContextMenuContent className="w-52">
+                <ContextMenuContent className="w-45">
                     <ContextMenuItem inset >View</ContextMenuItem>
                     <ContextMenuItem inset>Sort by</ContextMenuItem>
                     <ContextMenuItem inset onClick={refreshTheScreen}>Refresh</ContextMenuItem>

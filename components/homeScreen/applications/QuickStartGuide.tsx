@@ -81,33 +81,21 @@ const QuickStartGuide = () => {
                     <QuickStartItem
                         label="Tech Stacks"
                         icon={<Image src="/techstackIcon.ico" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
-                        onClick={() => addWindowItem(
-                            "Tech Stacks",
-                            <Image src="/techstackIcon.ico" alt='' width={20} height={20} className='w-full select-none' draggable={false} />,
-                            <Projects />, 800, 500
-                        )}
+                        onClick={openEmail}
                     />
 
                     {/* About Me */}
                     <QuickStartItem
                         label="About Me"
                         icon={<Image src="/aboutmeIcon.ico" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
-                        onClick={() => addWindowItem(
-                            "About Me",
-                            <Image src="/aboutmeIcon.ico" alt='' width={20} height={20} className='w-full select-none' draggable={false} />,
-                            <Projects />, 800, 500
-                        )}
+                        onClick={openEmail}
                     />
 
                     {/* Contact */}
                     <QuickStartItem
                         label="Send E-mail"
                         icon={<Image src="/email.webp" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
-                        onClick={() => addWindowItem(
-                            "E-mail",
-                            <Image src="/email.webp" alt='' width={20} height={20} className='w-full select-none' draggable={false} />,
-                            <Projects />, 800, 500
-                        )}
+                        onClick={openEmail}
                     />
 
                     {/* Resume */}
