@@ -65,7 +65,7 @@ export const useApplicationStore = create<Applications>((set) => ({
                     startY,
                     defaultWidth,
                     defaultHeight,
-                    fullScreen: false,
+                    fullScreen: title == 'Resume' ? true : false,
                     display: true,
                 },
             ],

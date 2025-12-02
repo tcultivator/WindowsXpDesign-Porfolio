@@ -19,13 +19,14 @@ import folderwithicon from '@/public/folderwithicon.ico'
 import searchIcon from '@/public/searchIcon.ico'
 import folderIcon from '@/public/folderIcon.ico'
 import folderLayoutIcon from '@/public/folderLayoutIcon.ico'
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 type props = {
     title: string;
     icon: React.ReactNode;
 }
 const topMenuItems = ["File", "Edit", "View", "Favourites", "Tools", "Help"];
-const XPExplorerBar = ({ icon, title }: props) => {
+const IEBar = ({ icon, title }: props) => {
     return (
         <div className='flex flex-col gap-[.5px] bg-[#ffffff] border-x border-x-[#023bb5] border-t border-t-[#023bb5]'>
             <div className='bg-[#edebd8]   flex items-center justify-between border-b-[.5px] border-b-black/15'>
@@ -52,8 +53,14 @@ const XPExplorerBar = ({ icon, title }: props) => {
                         <FaArrowRight className=' bg-[#b0b0b0] shadow-[inset_0_2px_5px_rgba(255,255,255,0.5),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] text-white p-[3px] text-[18px] rounded-[50%]' />
                         <IoMdArrowDropdown className='text-[11px] mt-[2px]' />
                     </button>
+                    <button className='relative h-full  py-1 rounded px-[1px] border hover:border-black/30 '>
+                        <Image src="/internetExplorerHeaderTab/IE Stop.png" alt='folder icon' width={20} height={20} className='w-[20px] select-none' draggable={false} />
+                    </button>
                     <button className='relative h-full  py-1 rounded px-[2px] border hover:border-black/30'>
-                        <Image src={folderwithicon} alt='folder icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
+                        <Image src="/internetExplorerHeaderTab/IE Refresh.png" alt='folder icon' width={20} height={20} className='w-[20px] select-none' draggable={false} />
+                    </button>
+                    <button className='relative h-full  py-1 rounded px-[2px] border hover:border-black/30'>
+                        <Image src="/internetExplorerHeaderTab/IE Home.png" alt='folder icon' width={20} height={20} className='w-[20px] select-none' draggable={false} />
                     </button>
                 </div>
                 <div className='flex items-center w-max border-r border-black/20 px-1'>
@@ -62,14 +69,27 @@ const XPExplorerBar = ({ icon, title }: props) => {
                         <Label className='text-black font-normal text-[11px]'>Search</Label>
                     </button>
                     <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1'>
-                        <Image src={folderIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
-                        <Label className='text-black font-normal text-[11px]'>Folders</Label>
+                        <Image src="/internetExplorerHeaderTab/favouriteIcon.ico" alt='fovourite icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
+                        <Label className='text-black font-normal text-[11px]'>Favourites</Label>
+                    </button>
+                    <button className=' h-full  py-1 rounded px-[0px] pr-1 border hover:border-black/30 flex items-center gap-1'>
+                        <Image src="/internetExplorerHeaderTab/IE History.png" alt='History Icon' width={20} height={20} className='w-[22px] select-none' draggable={false} />
+
                     </button>
                 </div>
                 <div className='flex items-center w-max px-1'>
-                    <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1 text-black'>
-                        <Image src={folderLayoutIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
+                    <button className=' h-full  py-1 rounded px-[1px] pr-1 border hover:border-black/30 flex items-center text-black'>
+                        <Image src="/internetExplorerHeaderTab/Email.png" alt='Email Icon' width={20} height={20} className='w-[20px] select-none' draggable={false} />
                         <IoMdArrowDropdown className='text-[11px] mt-[2px]' />
+                    </button>
+                    <button className=' h-full  py-1 rounded px-[1px] pr-1 border hover:border-black/30 flex items-center gap-1 text-black'>
+                        <Image src="/internetExplorerHeaderTab/print.ico" alt='print Icon' width={20} height={20} className='w-[20px] select-none' draggable={false} />
+                    </button>
+                    <button className=' h-full  py-1 rounded px-[1px] pr-1 border hover:border-black/30 flex items-center gap-1 text-black'>
+                        <Image src="/internetExplorerHeaderTab/IE Edit.png" alt='edit Icon' width={20} height={20} className='w-[20px] select-none' draggable={false} />
+                    </button>
+                    <button className=' h-full  py-1 rounded px-[1px] pr-1 border hover:border-black/30 flex items-center gap-1 text-black'>
+                        <Image src="/internetExplorerHeaderTab/Windows Messenger.png" alt='wm Icon' width={20} height={20} className='w-[20px] select-none' draggable={false} />
                     </button>
 
                 </div>
@@ -88,9 +108,13 @@ const XPExplorerBar = ({ icon, title }: props) => {
                     <FaArrowRight className=' bg-[#2eb32e] shadow-[inset_0_2px_5px_rgba(255,255,255,0.5),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] text-white p-[2px] text-[16px] rounded-[2px]' />
                     <Label className='font-thin text-black text-[10px]'>Go</Label>
                 </div>
+                <div className='flex items-center gap-1 p-[2px] pr-2'>
+                    <Label className='font-thin text-black/50 text-[10px]'>Links</Label>
+                    <MdKeyboardDoubleArrowRight className='text-black/50 text-[12px] h-full'/>
+                </div>
             </div>
         </div>
     )
 }
 
-export default XPExplorerBar
+export default IEBar

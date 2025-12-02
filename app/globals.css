@@ -141,37 +141,6 @@
 
 
 
-button#QS:focus #QSLabel {
-  background-color: #0a60ff;
-}
-
-button#QS:focus #QSImage {
-  opacity: .5;
-}
-
-
-
-
-button#IE:focus #IELabel {
-  background-color: #0a60ff;
-}
-
-
-button#IE:focus #IEImage {
-  opacity: .5;
-}
-
-
-
-button#EM:focus #EMLabel {
-  background-color: #0a60ff;
-}
-
-
-button#EM:focus #EMImage {
-  opacity: .5;
-}
-
 
 
 button#MW:focus #MWLabel {
@@ -184,25 +153,6 @@ button#MW:focus #MWImage {
 
 
 
-
-button#p1:focus #p1image {
-  opacity: .6;
+button#p1:focus #p1label {
+  color: rgb(255, 255, 255);
 }
-
-
-
-button#p2:focus #p2image {
-  opacity: .6;
-}
-
-
-
-button#p3:focus #p3image {
-  opacity: .6;
-}
-
-
-button#p4:focus #p4image {
-  opacity: .6;
-}
-

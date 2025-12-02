@@ -73,28 +73,28 @@ const Projects = () => {
                         <Label id='p1label' className="font-normal text-black text-[11px]">OverClockedX-Client</Label>
                     </div>
                 </button>
-                <button id='p2' onDoubleClick={() => openInternetExplorer('https://overclockedx-admin.vercel.app')} className='flex  w-max h-max p-1 justify-start cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
+                <button id='p1' onDoubleClick={() => openInternetExplorer('https://overclockedx-admin.vercel.app')} className='flex  w-max h-max p-1 justify-start cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
                     <div className='flex flex-col gap-1 items-center justify-start'>
                         <div className='aspect-video flex items-center justify-center'>
-                            <Image id='p2image' src="/myWorks/overclockedx-admin.webp" alt='OverClockedX-Admin-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
+                            <Image id='p1image' src="/myWorks/overclockedx-admin.webp" alt='OverClockedX-Admin-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
                         </div>
-                        <Label id='p2label' className='font-normal text-black text-[11px]'>OverClockedX-Admin</Label>
+                        <Label id='p1label' className='font-normal text-black text-[11px]'>OverClockedX-Admin</Label>
                     </div>
                 </button>
-                <button id='p3' onDoubleClick={() => openInternetExplorer('https://tcultivator.github.io/instagramClone-DevelopmentPhaseV2')} className='flex  w-max h-max p-1 cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
+                <button id='p1' onDoubleClick={() => openInternetExplorer('https://tcultivator.github.io/instagramClone-DevelopmentPhaseV2')} className='flex  w-max h-max p-1 cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
                     <div className='flex flex-col gap-1 items-center'>
                         <div className='aspect-video flex items-center justify-center'>
-                            <Image id='p3image' src="/myWorks/instagram-clone.webp" alt='Instagram-clone-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
+                            <Image id='p1image' src="/myWorks/instagram-clone.webp" alt='Instagram-clone-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
                         </div>
-                        <Label id='p3label' className='font-normal text-black text-[11px]'>Instagram Clone</Label>
+                        <Label id='p1label' className='font-normal text-black text-[11px]'>Instagram Clone</Label>
                     </div>
                 </button>
-                <button id='p4' onDoubleClick={() => openInternetExplorer('https://tcultivator.github.io/myPortfolio/')} className='flex  w-max h-max p-1 cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
+                <button id='p1' onDoubleClick={() => openInternetExplorer('https://tcultivator.github.io/myPortfolio/')} className='flex  w-max h-max p-1 cursor-pointer border rounded border-black/20 focus:bg-[#0a60ff]'>
                     <div className='flex flex-col gap-1 items-center'>
                         <div className='aspect-video flex items-center justify-center'>
-                            <Image id='p4image' src="/myWorks/portfolio-v1.webp" alt='Portfolio-V1-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
+                            <Image id='p1image' src="/myWorks/portfolio-v1.webp" alt='Portfolio-V1-Image' width={130} height={130} className='border border-black/50 select-none @7xl:w-full' draggable={false} />
                         </div>
-                        <Label id='p4label' className='font-normal text-black text-[11px]'>Portfolio V1</Label>
+                        <Label id='p1label' className='font-normal text-black text-[11px]'>Portfolio V1</Label>
                     </div>
                 </button>
 

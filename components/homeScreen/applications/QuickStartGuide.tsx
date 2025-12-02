@@ -5,10 +5,7 @@ import Link from 'next/link';
 import { useApplicationStore } from '@/stores/application';
 
 // icons
-import { FaFolderOpen } from "react-icons/fa6";
 import { RiArrowUpDoubleFill } from "react-icons/ri";
-import { FaSquareJs } from "react-icons/fa6";
-import { RiNextjsFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 import { GrLinkedin } from "react-icons/gr";
 //shadcn components
@@ -16,9 +13,9 @@ import { Label } from '@/components/ui/label';
 
 // applications components
 import Projects from '../applications/projects';
-
+import Resume from './Resume';
 //resuable components
-import { openInternetExplorer, openQuickStart, openMyWorks, openEmail } from '@/utils/OpenApplication'
+import { openInternetExplorer, openQuickStart, openMyWorks, openEmail, openResume } from '@/utils/OpenApplication'
 
 const QuickStartItem = ({ icon, label, onClick }: {
     icon: React.ReactNode;
@@ -77,11 +74,7 @@ const QuickStartGuide = () => {
                     <QuickStartItem
                         label="My Works"
                         icon={<Image src="/cmdIcon.png" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
-                        onClick={() => addWindowItem(
-                            "My Works",
-                            <Image src="/cmdIcon.png" alt='' width={20} height={20} className='w-full select-none' draggable={false} />,
-                            <Projects />, 800, 500
-                        )}
+                        onClick={openMyWorks}
                     />
 
                     {/* Skills/TechStack */}
@@ -121,11 +114,7 @@ const QuickStartGuide = () => {
                     <QuickStartItem
                         label="Resume"
                         icon={<Image src="/1336.ico" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
-                        onClick={() => addWindowItem(
-                            "Resume",
-                            <FaFolderOpen className="text-[#f5d78c] text-[15px]" />,
-                            <Projects />, 800, 500
-                        )}
+                        onClick={openResume}
                     />
                 </div>
             </div>
