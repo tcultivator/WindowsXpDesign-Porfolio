@@ -16,8 +16,14 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 //reusable components that open application
 import { openInternetExplorer, openQuickStart, openMyWorks, openEmail } from '@/utils/OpenApplication'
 
-const startMenu = () => {
 
+//zustand store data
+import { useApplicationStore } from '@/stores/application';
+
+const startMenu = () => {
+    const applicationData = useApplicationStore((state) => state.applicationsData)
+    const setErrorWindowItem = useApplicationStore((state) => state.setErrorWindowItem)
+    const sysAppData = useApplicationStore((state) => state.sysAppData)
     return (
 
         <DropdownMenu>
@@ -36,66 +42,44 @@ const startMenu = () => {
 
                     </div>
                     <div className='flex '>
+
+                        {/* left side of start menu */}
                         <div className='p-1  bg-white flex flex-col  border-r border-[#aacaf2] w-[50%]'>
-                            <div className='flex flex-col gap-1 h-[300px]'>
 
+                            <div className='flex flex-col gap-1 h-[330px]'>
                                 <div className='flex flex-col gap-1 pb-2 border-b border-black/10'>
-                                    <DropdownMenuItem>
-                                        <div onClick={() => openInternetExplorer('https://www.google.com/')} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                            <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false}/>
-                                            <div>
-                                                <Label className='text-[13px] leading-none '>Internet</Label>
-                                                <Label className=' font-thin opacity-50 text-[13px] leading-none '>Internet Explorer</Label>
+                                    {
+                                        applicationData.slice(0, 2).map((data, index) => (
+                                            <div key={index}>
+                                                <DropdownMenuItem>
+                                                    <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                        <Image src={data.applicationIcon} alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false} />
+                                                        <div>
+                                                            <Label className='text-[13px] leading-none '>{data.applicationName}</Label>
+                                                            <Label className=' font-thin opacity-50 text-[13px] leading-none '>{data.applicationSubName}</Label>
+                                                        </div>
+                                                    </div>
+                                                </DropdownMenuItem>
                                             </div>
-                                        </div>
-                                    </DropdownMenuItem>
+                                        ))
+                                    }
 
-                                    <DropdownMenuItem>
-                                        <div onClick={openEmail} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                            <Image src="/email.webp" alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false} />
-                                            <div>
-                                                <Label className='text-[13px] leading-none'>E-mail</Label>
-                                                <Label className=' font-thin opacity-50 text-[13px] leading-none'>Outlook Express</Label>
-                                            </div>
-                                        </div>
-                                    </DropdownMenuItem>
                                 </div>
-
-                                <DropdownMenuItem>
-                                    <div onClick={openQuickStart} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <Image src="/QuickStartGuideIcon.ico" alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false}/>
-                                        <div>
-                                            <Label className='text-[13px] leading-none font-normal'>Quick Start Guide</Label>
+                                {
+                                    applicationData.slice(2).map((data, index) => (
+                                        <div key={index}>
+                                            <DropdownMenuItem>
+                                                <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                    <Image src={data.applicationIcon} alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false} />
+                                                    <div>
+                                                        <Label className='text-[13px] leading-none font-normal'>{data.applicationName}</Label>
+                                                    </div>
+                                                </div>
+                                            </DropdownMenuItem>
                                         </div>
-                                    </div>
-                                </DropdownMenuItem>
+                                    ))
+                                }
 
-                                <DropdownMenuItem>
-                                    <div onClick={openMyWorks} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <Image src="/cmdIcon.png" alt='' width={20} height={20} className='w-[30px] select-none ' draggable={false} />
-                                        <div>
-                                            <Label className='text-[13px] leading-none font-normal'>My Works</Label>
-                                        </div>
-                                    </div>
-                                </DropdownMenuItem>
-
-                                <DropdownMenuItem>
-                                    <div className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <FaGithub className='text-black text-[30px]' />
-                                        <div>
-                                            <Label className='text-[13px] leading-none font-normal'>Github</Label>
-                                        </div>
-                                    </div>
-                                </DropdownMenuItem>
-
-                                <DropdownMenuItem>
-                                    <div className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
-                                        <GrLinkedin className='text-[#3397e8] text-[30px]' />
-                                        <div>
-                                            <Label className='text-[13px] leading-none font-normal'>Linkedin</Label>
-                                        </div>
-                                    </div>
-                                </DropdownMenuItem>
 
                             </div>
 
@@ -108,59 +92,22 @@ const startMenu = () => {
                                                     <div>
                                                         <Label className='text-[12px] font-bold'>All Programs</Label>
                                                     </div>
-                                                    <FaPlay className='text-[#04b504] text-[15px]' />
+                                                    <Image src="/876.ico" alt='' width={20} height={20} className='w-[17px] select-none ' draggable={false} />
                                                 </div>
                                             </NavigationMenuTrigger>
                                             <NavigationMenuContent>
-                                                <div className='bg-white w-[200px] border border-black/10 text-black p-2 flex flex-col gap-2'>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
-                                                    <div className='flex items-center gap-1 p-1 rounded hover:bg-[#afd3f0] cursor-pointer'>
-                                                        <FaInternetExplorer className='text-[#3397e8] text-[20px]' />
-                                                        <div>
-                                                            <Label className='text-black/80 font-thin'>Internet Explorer</Label>
-                                                        </div>
-                                                    </div>
+                                                <div className='bg-white w-[150px] border border-black/10 text-black  flex flex-col gap-2'>
+                                                    {
+                                                        applicationData.map((data, index) => (
+                                                            <div key={index} onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                                <Image src={data.applicationIcon} alt='' width={20} height={20} className='w-[18px] select-none ' draggable={false} />
+                                                                <div>
+                                                                    <Label className='text-[12px] leading-none font-normal'>{data.applicationName}</Label>
+                                                                </div>
+                                                            </div>
+                                                        ))
+                                                    }
+
                                                 </div>
                                             </NavigationMenuContent>
                                         </NavigationMenuItem>
@@ -170,7 +117,53 @@ const startMenu = () => {
 
                             </div>
                         </div>
-                        <div className='p-1 bg-[#d2e5fa] border-r border-[#235ddb] w-[50%]'>
+
+                        {/* right side of start menu */}
+                        <div className='p-1 flex flex-col gap-1 bg-[#d2e5fa]  w-[50%]'>
+                            <div className='flex flex-col gap-1 py-1 border-b-[1px] border-transparent [border-image:linear-gradient(90deg,#d2e5fa,#80a1e8,#d2e5fa)_1]'>
+                                {
+                                    sysAppData.slice(0, 5).map((data, index) => (
+                                        <DropdownMenuItem key={index}>
+                                            <div onClick={setErrorWindowItem} className='flex items-center gap-1  text-[#073bab]  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                <Image src={data.sysAppIcon} alt='' width={20} height={20} className='w-[25px] select-none ' draggable={false} />
+                                                <div>
+                                                    <Label className='text-[12px] leading-none  font-bold '>{data.sysAppName}</Label>
+
+                                                </div>
+                                            </div>
+                                        </DropdownMenuItem>
+                                    ))
+                                }
+
+                            </div>
+
+
+                            <div className='flex flex-col gap-1 py-1 border-b-[1px] border-transparent [border-image:linear-gradient(90deg,#d2e5fa,#80a1e8,#d2e5fa)_1]'>
+                                {sysAppData.slice(5, 8).map((data, index) => (
+                                    <DropdownMenuItem key={index}>
+                                        <div onClick={setErrorWindowItem} className='flex items-center gap-1  text-[#073bab]  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                            <Image src={data.sysAppIcon} alt='' width={20} height={20} className='w-[25px] select-none ' draggable={false} />
+                                            <div>
+                                                <Label className='text-[12px] leading-none  font-bold '>{data.sysAppName}</Label>
+
+                                            </div>
+                                        </div>
+                                    </DropdownMenuItem>
+                                ))}
+                            </div>
+                            {
+                                sysAppData.slice(8).map((data, index) => (
+                                    <DropdownMenuItem key={index}>
+                                        <div onClick={setErrorWindowItem} className='flex items-center gap-1    hover:bg-[#346eed] text-[#073bab] hover:text-white cursor-pointer'>
+                                            <Image src={data.sysAppIcon} alt='' width={20} height={20} className='w-[25px] select-none ' draggable={false} />
+                                            <div>
+                                                <Label className='text-[12px] leading-none  font-bold '>{data.sysAppName}</Label>
+
+                                            </div>
+                                        </div>
+                                    </DropdownMenuItem>
+                                ))
+                            }
 
                         </div>
                     </div>

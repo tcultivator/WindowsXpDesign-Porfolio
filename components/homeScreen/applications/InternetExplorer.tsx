@@ -18,6 +18,10 @@ const iframeContent = `
         justify-content: center;
         height: 100vh;
         background-color: white;
+        border-right-style: solid;
+        border-left-style: solid;
+        border-color: #023bb5;
+        border-width: 1px;
       }
       input {
         font-size: 16px;
@@ -122,9 +126,10 @@ export default function IframeGoogleReplica({ url }: { url: string }) {
         src={`${url && url}`}
         ref={iframeRef}
         title="Google Replica"
-        style={{ width: '100%', height: '100%', border: 'none' }}
+        style={{ width: '100%', height: '100%' }}
         sandbox="allow-scripts allow-same-origin"
       />
+      
     </div>
 
   );

@@ -18,7 +18,6 @@ import { Label } from '@/components/ui/label'
 import Image from 'next/image'
 
 export const AppInHomePage = ({ icon, label, onClick }: {
-    
     icon: React.ReactNode;
     label: React.ReactNode;
     onClick: () => void;

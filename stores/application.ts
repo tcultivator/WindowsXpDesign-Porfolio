@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { QuickStartGuideData } from '@/utils/defaultAppData'
-
+import { openInternetExplorer, openQuickStart, openMyWorks, openEmail, openResume } from '@/utils/OpenApplication'
 type WindowItemType = {
     id: string;
     title: string;
@@ -13,6 +13,22 @@ type WindowItemType = {
     fullScreen: boolean;
     display: boolean;
 }
+type applicationDataType = {
+    applicationIcon: string;
+    applicationName: string;
+    applicationSubName: string;
+    applicationOpenFunction: () => void;
+}
+
+type sysAppData = {
+    sysAppIcon: string;
+    sysAppName: string;
+
+}
+
+type errorWindowItemType = {
+    id: string;
+}
 type Applications = {
     windowItem: WindowItemType[],
     addWindowItem: (title: string, icon: React.ReactNode, content: React.ReactNode, defaultWidth: number, defaultHeight: number) => void,
@@ -23,7 +39,13 @@ type Applications = {
     updateWindow: (id: string, data: Partial<WindowItemType>) => void;
     minimizeWindow: (id: string) => void,
     cancelMinimize: (id: string) => void,
+    errorWindowItem: errorWindowItemType[],
+    setErrorWindowItem: () => void,
+    closeErrorWindowItem: (id: string) => void,
+    applicationsData: applicationDataType[],
+    sysAppData: sysAppData[]
 }
+
 export const useApplicationStore = create<Applications>((set) => ({
     windowItem: [{
         id: QuickStartGuideData.id,
@@ -120,7 +142,6 @@ export const useApplicationStore = create<Applications>((set) => ({
 
 
 
-
     updateWindow: (id, data) => {
         console.log('gumana ung update Window')
         console.log(data)
@@ -130,9 +151,6 @@ export const useApplicationStore = create<Applications>((set) => ({
             ),
         }))
     },
-
-
-
 
 
 
@@ -155,6 +173,131 @@ export const useApplicationStore = create<Applications>((set) => ({
             activeId: id
         }))
         console.log(useApplicationStore.getState().windowItem)
-    }
+    },
+
+    errorWindowItem: [],
+    setErrorWindowItem: () => {
+        const id = crypto.randomUUID();
+        set((state) => ({
+            errorWindowItem: [
+                ...state.errorWindowItem,
+                {
+                    id
+                },
+            ],
+            activeId: id
+        }));
+    },
+    closeErrorWindowItem: (id) => {
+        set((state) => ({
+            errorWindowItem: state.errorWindowItem.filter(item => item.id != id)
+        }))
+
+    },
+
+
+
+
+    applicationsData: [{
+        applicationIcon: '/internetIcon.ico',
+        applicationName: 'Internet',
+        applicationSubName: 'Internet Explorer',
+        applicationOpenFunction: () => openInternetExplorer('https://www.google.com/')
+    },
+    {
+        applicationIcon: '/email.webp',
+        applicationName: 'E-mail',
+        applicationSubName: 'Outlook Express',
+        applicationOpenFunction: openEmail
+    },
+    {
+        applicationIcon: '/QuickStartGuideIcon.ico',
+        applicationName: 'Quick Start Guide',
+        applicationSubName: '',
+        applicationOpenFunction: openQuickStart
+    },
+    {
+        applicationIcon: '/cmdIcon.png',
+        applicationName: 'My Works',
+        applicationSubName: '',
+        applicationOpenFunction: openMyWorks
+    },
+
+    {
+        applicationIcon: '/gihubIcon.png',
+        applicationName: 'Github',
+        applicationSubName: '',
+        applicationOpenFunction: openMyWorks
+    },
+
+    {
+        applicationIcon: '/linkedinIcon.png',
+        applicationName: 'Linkedin',
+        applicationSubName: '',
+        applicationOpenFunction: openMyWorks
+    },
+
+    {
+        applicationIcon: '/1336.ico',
+        applicationName: 'Resume',
+        applicationSubName: '',
+        applicationOpenFunction: openResume
+    },
+
+    ],
+
+
+    sysAppData: [{
+        sysAppIcon: '/RightSideOfStartMenuIcons/myDocumentsIcon.ico',
+        sysAppName: 'My Documents'
+    },
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/Recent Documents.png',
+        sysAppName: 'My Recent Documents'
+    },
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/myPictureIcon.ico',
+        sysAppName: 'My Pictures'
+    },
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/myMusicIcon.ico',
+        sysAppName: 'My Music'
+    },
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/myComputerIcon.ico',
+        sysAppName: 'My Computer'
+    },
+
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/controlPanelIcon.ico',
+        sysAppName: 'Control Panel'
+    },
+
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/Default Programs.png',
+        sysAppName: 'Default Programs'
+    },
+
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/printerIcon.ico',
+        sysAppName: 'Printers'
+    },
+
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/helpandsupportIcon.ico',
+        sysAppName: 'Help and Support'
+    },
+
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/searchIcon.ico',
+        sysAppName: 'Search'
+    },
+    {
+        sysAppIcon: '/RightSideOfStartMenuIcons/runIcon.ico',
+        sysAppName: 'Run'
+    },
+
+
+    ]
 
 }))
