@@ -1,6 +1,10 @@
 import { create } from 'zustand'
 import { QuickStartGuideData } from '@/utils/defaultAppData'
+
+//reusable function that opens application
 import { openInternetExplorer, openQuickStart, openMyWorks, openEmail, openResume } from '@/utils/OpenApplication'
+
+
 type WindowItemType = {
     id: string;
     title: string;
@@ -217,7 +221,7 @@ export const useApplicationStore = create<Applications>((set) => ({
         applicationOpenFunction: openQuickStart
     },
     {
-        applicationIcon: '/cmdIcon.png',
+        applicationIcon: '/internetIcon.ico',
         applicationName: 'My Works',
         applicationSubName: '',
         applicationOpenFunction: openMyWorks
@@ -238,7 +242,7 @@ export const useApplicationStore = create<Applications>((set) => ({
     },
 
     {
-        applicationIcon: '/1336.ico',
+        applicationIcon: '/pdfIcon.webp',
         applicationName: 'Resume',
         applicationSubName: '',
         applicationOpenFunction: openResume

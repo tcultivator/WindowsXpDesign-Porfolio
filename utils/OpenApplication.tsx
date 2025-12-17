@@ -13,22 +13,22 @@ import Resume from '@/components/homeScreen/applications/Resume';
 import SendEmail from '@/components/homeScreen/applications/SendEmail';
 
 export function openInternetExplorer(url: string) {
-    useApplicationStore.getState().addWindowItem('Internet', <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <InternetExplorer url={url} />, 1300, 800)
+    useApplicationStore.getState().addWindowItem('Internet', <Image src="/internetIcon.ico" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <InternetExplorer url={url} />, 1300, 800)
 
 }
 
 export function openQuickStart() {
-    useApplicationStore.getState().addWindowItem('Quick Start Guide', <Image src="/QuickStartGuideIcon.ico" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <QuickStartGuide />, 700, 400)
+    useApplicationStore.getState().addWindowItem('Quick Start Guide', <Image src="/QuickStartGuideIcon.ico" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <QuickStartGuide />, 700, 400)
 }
 
 export function openMyWorks() {
-    useApplicationStore.getState().addWindowItem('My Works', <Image src="/cmdIcon.png" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <Projects />, 700, 400)
+    useApplicationStore.getState().addWindowItem('My Works', <Image src="/internetIcon.ico" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <Projects />, 1300, 800)
 }
 
 export function openEmail() {
-    useApplicationStore.getState().addWindowItem('E-Mail', <Image src="/email.webp" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <SendEmail />, 500, 500)
+    useApplicationStore.getState().addWindowItem('E-Mail', <Image src="/email.webp" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <SendEmail />, 500, 500)
 }
 
 export function openResume() {
-    useApplicationStore.getState().addWindowItem('Resume', <Image src="/1336.ico" alt='' width={20} height={20} className='w-full aspect-square select-none' draggable={false} />, <Resume />, 800, 800)
+    useApplicationStore.getState().addWindowItem('Resume', <Image src="/pdfIcon.webp" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <Resume />, 800, 800)
 }

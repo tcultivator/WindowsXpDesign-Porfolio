@@ -27,7 +27,7 @@ type props = {
 const topMenuItems = ["File", "Edit", "View", "Favourites", "Tools", "Help"];
 const XPExplorerBar = ({ icon, title }: props) => {
     return (
-        <div className='flex flex-col gap-[.5px] bg-[#ffffff] border-x border-x-[#023bb5] border-t border-t-[#023bb5]'>
+        <div className='flex flex-col gap-[.5px] bg-[#ffffff]  border-t border-t-[#023bb5]'>
             <div className='bg-[#edebd8]   flex items-center justify-between border-b-[.5px] border-b-black/15'>
                 <div className='flex items-center text-black p-[2px]'>
                     {
@@ -38,7 +38,7 @@ const XPExplorerBar = ({ icon, title }: props) => {
 
                 </div>
                 <div className='px-2 border-l border-black/30 bg-white'>
-                    <Image src={Logo} alt='' width={50} height={50} className='w-[15px] select-none' draggable={false} />
+                    <Image src={Logo} alt='' width={50} height={50} className='w-[15px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                 </div>
             </div>
             <div className='bg-[#edebd8] p-1 flex items-center border-b-[.5px] border-b-black/15'>
@@ -53,22 +53,22 @@ const XPExplorerBar = ({ icon, title }: props) => {
                         <IoMdArrowDropdown className='text-[11px] mt-[2px]' />
                     </button>
                     <button className='relative h-full  py-1 rounded px-[2px] border hover:border-black/30'>
-                        <Image src={folderwithicon} alt='folder icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
+                        <Image src={folderwithicon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                     </button>
                 </div>
                 <div className='flex items-center w-max border-r border-black/20 px-1'>
                     <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1'>
-                        <Image src={searchIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
+                        <Image src={searchIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         <Label className='text-black font-normal text-[11px]'>Search</Label>
                     </button>
                     <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1'>
-                        <Image src={folderIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
+                        <Image src={folderIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         <Label className='text-black font-normal text-[11px]'>Folders</Label>
                     </button>
                 </div>
                 <div className='flex items-center w-max px-1'>
                     <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1 text-black'>
-                        <Image src={folderLayoutIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none' draggable={false} />
+                        <Image src={folderLayoutIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         <IoMdArrowDropdown className='text-[11px] mt-[2px]' />
                     </button>
 

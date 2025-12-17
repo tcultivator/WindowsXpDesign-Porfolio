@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 //resuable components
@@ -117,7 +118,7 @@ export default function IframeGoogleReplica({ url }: { url: string }) {
   }, []);
 
   return (
-    <div className='flex flex-col w-full'>
+    <div className='flex flex-col w-full h-full'>
       <IEBar
         title={url}
         icon={<Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[15px] select-none' draggable={false} />}
@@ -128,6 +129,7 @@ export default function IframeGoogleReplica({ url }: { url: string }) {
         title="Google Replica"
         style={{ width: '100%', height: '100%' }}
         sandbox="allow-scripts allow-same-origin"
+        className=''
       />
       
     </div>

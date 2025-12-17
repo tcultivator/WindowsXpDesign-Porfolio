@@ -1,22 +1,12 @@
 
+"use client"
 import Image from 'next/image'
 // shadcn components
 import { Label } from '@/components/ui/label'
-// icons
-import { FaRegWindowMaximize } from "react-icons/fa";
-import { FaWindowMinimize } from "react-icons/fa";
-import { useApplicationStore } from '@/stores/application'
-import { FaArrowLeft } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { LiaTimesSolid } from "react-icons/lia";
-import { RiArrowDownSLine } from "react-icons/ri";
+
 // images
 import Logo from '@/public/loadingscreenxplogo.png';
-import folderwithicon from '@/public/folderwithicon.ico'
-import searchIcon from '@/public/searchIcon.ico'
-import folderIcon from '@/public/folderIcon.ico'
-import folderLayoutIcon from '@/public/folderLayoutIcon.ico'
+
 import { useState } from 'react';
 const topMenuItems = ["File", "Edit", "View", "Insert", "Format", "Tools", "Message"];
 const SendEmail = () => {
@@ -44,7 +34,7 @@ const SendEmail = () => {
         setSubject('')
     }
     return (
-        <div className='bg-white flex flex-col w-full border-x border-x-[#023bb5] border-t border-t-[#023bb5]'>
+        <div className='bg-white flex flex-col w-full h-full border-x border-x-[#023bb5] border-t border-t-[#023bb5]'>
             <form onSubmit={sendEmailMessage} className='flex flex-col h-full gap-[.5px] bg-[#ffffff] '>
                 <div className='bg-[#edebd8]   flex items-center justify-between border-b-[.5px] border-b-black/15'>
                     <div className='flex items-center text-black p-[2px]'>

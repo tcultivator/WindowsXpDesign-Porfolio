@@ -35,9 +35,9 @@ const QuickStartItem = ({ icon, label, onClick }: {
 const QuickStartGuide = () => {
     const addWindowItem = useApplicationStore((state) => state.addWindowItem)
     return (
-        <div className="@container flex text-black bg-[#6374d6] w-full ">
+        <div className="@container flex h-full text-black bg-[#6374d6] w-full ">
 
-            <div className='max-w-[180px] min-w-[180px] bg-gradient-to-t from-[#6374d6] to-[#79a3e8] flex flex-col gap-2 p-2 border-x border-l-[#023bb5] border-r-white/20'>
+            <div className='max-w-[180px] min-w-[180px] bg-gradient-to-t from-[#6374d6] to-[#79a3e8] flex flex-col gap-2 p-2 '>
                 <div className='bg-white/50 rounded-t '>
                     <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
                         <Label className='text-[11px] text-[#0f4fd6] font-bold'>See Also</Label>
@@ -45,7 +45,7 @@ const QuickStartGuide = () => {
                     </div>
                     <div className='flex flex-col gap-1 p-1 px-3'>
                         <div className='flex items-center gap-1'>
-                            <Image src="/internetIcon.ico" alt='' width={20} height={20} className='w-[16px] select-none ' draggable={false} />
+                            <Image src="/internetIcon.ico" alt='' width={500} height={500} className='w-[16px] select-none ' draggable={false} />
                             <Label onClick={() => openInternetExplorer('https://www.google.com/')} className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false}>Internet Explorer</Label>
                         </div>
                         <div className='flex items-center gap-1'>
@@ -73,35 +73,35 @@ const QuickStartGuide = () => {
                     {/* Projects */}
                     <QuickStartItem
                         label="My Works"
-                        icon={<Image src="/cmdIcon.png" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
+                        icon={<Image src="/internetIcon.ico" alt='' width={500} height={500} className='w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />}
                         onClick={openMyWorks}
                     />
 
                     {/* Skills/TechStack */}
                     <QuickStartItem
                         label="Tech Stacks"
-                        icon={<Image src="/techstackIcon.ico" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
+                        icon={<Image src="/techstackIcon.ico" alt='' width={500} height={500} className='w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />}
                         onClick={openEmail}
                     />
 
                     {/* About Me */}
                     <QuickStartItem
                         label="About Me"
-                        icon={<Image src="/aboutmeIcon.ico" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
+                        icon={<Image src="/aboutmeIcon.ico" alt='' width={500} height={500} className='w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />}
                         onClick={openEmail}
                     />
 
                     {/* Contact */}
                     <QuickStartItem
                         label="Send E-mail"
-                        icon={<Image src="/email.webp" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
+                        icon={<Image src="/email.webp" alt='' width={500} height={500} className='w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />}
                         onClick={openEmail}
                     />
 
                     {/* Resume */}
                     <QuickStartItem
                         label="Resume"
-                        icon={<Image src="/1336.ico" alt='' width={20} height={20} className='w-[40px] select-none' draggable={false} />}
+                        icon={<Image src="/pdfIcon.webp" alt='' width={500} height={500} className='w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />}
                         onClick={openResume}
                     />
                 </div>
