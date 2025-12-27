@@ -131,13 +131,8 @@ export const useApplicationStore = create<Applications>((set) => ({
 
     },
     maximizeWindow: (id) => {
-        const selectedWindow = useApplicationStore.getState().windowItem.filter(item => item.id == id)
-        const prevStartX = selectedWindow[0].startX
-        const prevStartY = selectedWindow[0].startY
-
-        console.log(prevStartX)
-        console.log(prevStartY)
-
+        
+    
         const currentWindowItems = useApplicationStore.getState().windowItem
         const MaximizeSelectedWindow = currentWindowItems.map(item => {
             if (item.id == id) {
@@ -161,8 +156,7 @@ export const useApplicationStore = create<Applications>((set) => ({
 
 
     updateWindow: (id, data) => {
-        console.log('gumana ung update Window')
-        console.log(data)
+       
         set((state) => ({
             windowItem: state.windowItem.map((item) =>
                 item.id === id ? { ...item, ...data } : item
@@ -181,7 +175,7 @@ export const useApplicationStore = create<Applications>((set) => ({
             ),
             activeId: useApplicationStore.getState().windowItem.length == 1 ? null : useApplicationStore.getState().windowItem[useApplicationStore.getState().windowItem.length - 1].id
         }))
-        console.log(useApplicationStore.getState().windowItem)
+       
     },
     cancelMinimize: (id) => {
         set((state) => ({
@@ -190,7 +184,7 @@ export const useApplicationStore = create<Applications>((set) => ({
             ),
             activeId: id
         }))
-        console.log(useApplicationStore.getState().windowItem)
+        
     },
 
     errorWindowItem: [],

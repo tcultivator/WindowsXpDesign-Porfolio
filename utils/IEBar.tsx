@@ -57,7 +57,7 @@ const IEBar = ({ icon, title }: props) => {
             <div className='bg-[#edebd8] p-1 flex items-center border-b-[.5px] border-b-black/15'>
                 <div className='flex items-center w-max border-r border-black/20 px-1'>
                     <button disabled={addressBarHistory.length <= 0} onClick={() => {
-                        console.log('click prev')
+                        
                         prevHistory()
                     }} className='text-black flex items-center gap-1  p-1 cursor-pointer'>
                         <FaArrowLeft className={`${addressBarHistory.length <= 0 ? 'bg-[#b0b0b0]' : 'bg-[#3CC711] border-[#2BB800]'} border  shadow-[inset_0_2px_5px_rgba(255,255,255,0.5),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]  text-white p-[3px] text-[21px] rounded-[50%]`} />

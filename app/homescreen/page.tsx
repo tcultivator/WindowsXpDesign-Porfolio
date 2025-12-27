@@ -108,27 +108,34 @@ const HomeScreen = () => {
     const [windowHeight, setWindowHeight] = useState(0);
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-
-            const handleResize = () => {
-                setWindowWidth(window.innerWidth);
-                setWindowHeight(window.innerHeight);
-            };
-
-            window.addEventListener('resize', handleResize);
 
 
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            };
-        }
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+            setWindowHeight(window.innerHeight);
+
+        };
+
+        setWindowWidth(window.innerWidth);
+        setWindowHeight(window.innerHeight);
+       
+
+        window.addEventListener('resize', handleResize);
+
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+
     }, []);
 
 
     useEffect(() => {
         if (windowWidth < 400) {
+            
             setIsMobileDevice(true)
         } else {
+            
             setIsMobileDevice(false)
         }
     }, [windowWidth]);
@@ -331,8 +338,8 @@ const HomeScreen = () => {
                                     className={activeId === data.id ? `z-40 ${data.display ? 'scale-100' : 'scale-0'}` : `z-10 ${data.display ? 'scale-100' : 'scale-0'} h-full `}
                                     key={data.id}
                                     bounds="parent"
-                                    minWidth={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 450) : (0)}
-                                    minHeight={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 500) : (0)}
+                                    minWidth={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 450) : (450)}
+                                    minHeight={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 500) : (500)}
                                     position={{ x: data.fullScreen ? 0 : data.startX, y: data.fullScreen ? 0 : data.startY }}
                                     size={{ height: data.fullScreen ? windowHeight - 28 : data.defaultHeight, width: data.fullScreen ? windowWidth : data.defaultWidth }}
                                     dragHandleClassName="drag-handle"
@@ -432,8 +439,8 @@ const HomeScreen = () => {
                                     key={data.id}
                                     className={activeId === data.id ? `z-40` : `z-10`}
                                     default={{
-                                        x: windowWidth / 2 - 320 / 2,
-                                        y: windowHeight / 2 - 150 / 2,
+                                        x: window.innerWidth / 2 - 320 / 2,
+                                        y: window.innerHeight / 2 - 150 / 2,
                                         width: 320,
                                         height: 150,
                                     }}

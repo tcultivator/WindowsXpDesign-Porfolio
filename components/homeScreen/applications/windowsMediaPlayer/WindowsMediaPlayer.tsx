@@ -31,7 +31,7 @@ const WindowsMediaPlayer = () => {
     const currentMusicPlaying = useWindowsMediaPlayerStore((state) => state.currentMusicPlaying)
     const setCurrentMusicPlaying = useWindowsMediaPlayerStore((state) => state.setCurrentMusicPlaying)
     const togglePlay = () => {
-        console.log('toggleplay click')
+        
         const audio = playerRef.current?.audio.current
         if (!audio) return
 
@@ -39,12 +39,12 @@ const WindowsMediaPlayer = () => {
             audio.play()
             vidRef.current?.play()
             setIsPlaying(true)
-            console.log('toggleplay click, audio played')
+            
         } else {
             audio.pause()
             setIsPlaying(false)
             vidRef.current?.pause()
-            console.log('toggleplay click, audio paused')
+            
         }
     }
 

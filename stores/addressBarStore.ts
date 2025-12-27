@@ -43,7 +43,7 @@ export const useAddressbarStore = create<addressBar>((set) => ({
     prevHistory: () => {
 
         const historyData = useAddressbarStore.getState().addressBarHistory
-        console.log(historyData.length)
+        
         set({
             addressBarCurrent: historyData[historyData.length - 1]
         })
