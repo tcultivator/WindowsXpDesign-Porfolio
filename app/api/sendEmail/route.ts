@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { sendMail } from "@/lib/sendGrid";
 export async function POST(req: NextRequest) {
     const body = await req.json()
-    console.log(body)
     try {
         await sendMail({
             to: body.messageFrom,
