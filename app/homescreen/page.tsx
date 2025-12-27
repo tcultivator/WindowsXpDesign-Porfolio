@@ -338,8 +338,8 @@ const HomeScreen = () => {
                                     className={activeId === data.id ? `z-40 ${data.display ? 'scale-100' : 'scale-0'}` : `z-10 ${data.display ? 'scale-100' : 'scale-0'} h-full `}
                                     key={data.id}
                                     bounds="parent"
-                                    minWidth={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 450) : (450)}
-                                    minHeight={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 500) : (500)}
+                                    minWidth={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 450) : 0}
+                                    minHeight={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 500) : 0}
                                     position={{ x: data.fullScreen ? 0 : data.startX, y: data.fullScreen ? 0 : data.startY }}
                                     size={{ height: data.fullScreen ? windowHeight - 28 : data.defaultHeight, width: data.fullScreen ? windowWidth : data.defaultWidth }}
                                     dragHandleClassName="drag-handle"
