@@ -170,18 +170,28 @@ button#p1:focus #p1label {
   background-color: white;
   bottom: 210%;
   right: -60%;
-  opacity: 0;
   z-index: 999;
-
   isolation: isolate;
-  /* 🔑 creates stacking context */
-
-  transition: opacity 800ms ease;
+  transition: opacity 800ms ease, visibility 800ms linear;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .custom-tooltip[data-open="true"] {
   opacity: 1;
+  visibility: visible;
+  
 }
+
+
+
+.custom-tooltip[data-open="false"] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
 
 
 .custom-tooltip::before {
