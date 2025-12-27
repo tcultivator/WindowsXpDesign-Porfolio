@@ -70,7 +70,7 @@ const SystemTray = () => {
                                     <Image id='MWImage' src="/systemTrayIcons/popupHelp.ico" alt='' width={500} height={500} className='w-[13px] cursor-pointer  select-none  mt-[2px] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                     <Label className='text-[12.5px] font-semibold text-black [text-shadow:.3px_.3px_.3px_black/50] [-webkit-text-stroke:0.1px_black]'>Welcome to my portfolio</Label>
                                 </div>
-                                <LiaTimesSolid onClick={() => setTooltip(false)} className='text-black text-[13px] cursor-pointer hover:bg-red-400 hover:text-white rounded-[2px]' />
+                                <LiaTimesSolid onClick={() => setTooltip(false)} className='text-black text-[13px] cursor-pointer active:bg-red-400 active:text-white hover:bg-red-400 hover:text-white rounded-[2px]' />
                             </div>
                             <div className='w-full h-full px-1'>
                                 <Label className='text-[12px] leading-tight font-thin text-black [text-shadow:.3px_.3px_.3px_black/50] [-webkit-text-stroke:0.1px_black]'>A Windows XP inspired interface highlighting frontend skills and attention to detail.</Label>

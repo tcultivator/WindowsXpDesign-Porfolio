@@ -47,23 +47,15 @@ type Applications = {
     setErrorWindowItem: () => void,
     closeErrorWindowItem: (id: string) => void,
     applicationsData: applicationDataType[],
-    sysAppData: sysAppData[]
+    sysAppData: sysAppData[],
+    isMobileDevice: boolean,
+    setIsMobileDevice: (value: boolean) => void
 }
 
-export const useApplicationStore = create<Applications>((set) => ({
-    windowItem: [{
-        id: QuickStartGuideData.id,
-        title: QuickStartGuideData.title,
-        content: QuickStartGuideData.content,
-        icon: QuickStartGuideData.icon,
-        startX: 620,
-        startY: 220,
-        defaultWidth: 700,
-        defaultHeight: 400,
-        fullScreen: false,
-        display: true,
 
-    }],
+
+export const useApplicationStore = create<Applications>((set) => ({
+    windowItem: [],
     addWindowItem: (title, icon, content, defaultWidth, defaultHeight) => {
 
         // if the my works app is already open, it doenst open new my works app, it just set it to active windows so it go at front of other application open
@@ -111,7 +103,7 @@ export const useApplicationStore = create<Applications>((set) => ({
                     startY,
                     defaultWidth,
                     defaultHeight,
-                    fullScreen: title == 'Resume' ? true : false,
+                    fullScreen: title == 'Resume' || useApplicationStore.getState().isMobileDevice == true ? true : false,
                     display: true,
                 },
             ],
@@ -268,7 +260,7 @@ export const useApplicationStore = create<Applications>((set) => ({
         applicationSubName: '',
         applicationOpenFunction: openWindowsMediaPlayer
     },
-   
+
     ],
 
 
@@ -323,8 +315,12 @@ export const useApplicationStore = create<Applications>((set) => ({
     },
 
 
-    ]
+    ],
+    isMobileDevice: false,
+    setIsMobileDevice: (value: boolean) => {
+        set({
+            isMobileDevice: value
+        })
+    }
 
 }))
-
-

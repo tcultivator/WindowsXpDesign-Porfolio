@@ -29,7 +29,6 @@ import { useSelectionContainer, boxesIntersect } from '@air/react-drag-to-select
 
 import AccessDenied from '@/components/homeScreen/accessDenied/AccessDenied'
 
-import { AudioPlayer } from 'react-audio-play';
 
 const HomeScreen = () => {
 
@@ -43,8 +42,9 @@ const HomeScreen = () => {
     const cancelMinimize = useApplicationStore((state) => state.cancelMinimize)
 
     const errorWindowItem = useApplicationStore((state) => state.errorWindowItem)
-    const closeErrorWindowItem = useApplicationStore((state) => state.closeErrorWindowItem)
 
+    const isMobileDevice = useApplicationStore((state) => state.isMobileDevice)
+    const setIsMobileDevice = useApplicationStore((state) => state.setIsMobileDevice)
     const [refresh, setRefresh] = useState(true)
 
     const refreshTheScreen = () => {
@@ -101,22 +101,46 @@ const HomeScreen = () => {
         },
     });
 
-    // const handlePlay = () => {
-    //     console.log('Audio started playing');
-    // };
 
-    // useEffect(() => {
-    //     handlePlay()
-    // }, [])
+
+
+    const [windowWidth, setWindowWidth] = useState(0);
+    const [windowHeight, setWindowHeight] = useState(0);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+
+            const handleResize = () => {
+                setWindowWidth(window.innerWidth);
+                setWindowHeight(window.innerHeight);
+            };
+
+            window.addEventListener('resize', handleResize);
+
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
+    }, []);
+
+
+    useEffect(() => {
+        if (windowWidth < 400) {
+            setIsMobileDevice(true)
+        } else {
+            setIsMobileDevice(false)
+        }
+    }, [windowWidth]);
+
 
     return (
-        <div className='h-screen'>
-            {/* <AudioPlayer src="/sounds/windows-xp-startup.mp3" onPlay={handlePlay} className='hidden'/> */}
+        <div className='h-[100dvh] overflow-hidden'>
 
             <ContextMenu>
                 <ContextMenuTrigger>
                     <div
-                        className="flex flex-col w-screen h-full relative bg-cover bg-center overflow-hidden"
+                        className="flex flex-col h-[100dvh] relative  bg-cover bg-center overflow-hidden"
                         style={{ backgroundImage: "url('/bg2.webp')" }}
                         onMouseDown={(e) => {
                             const target = e.target as HTMLElement
@@ -134,7 +158,7 @@ const HomeScreen = () => {
                         {
                             refresh &&
 
-                            <div className='p-1  h-full w-max flex flex-col gap-5 items-center justify-start px-3 py-10'>
+                            <div className='p-1 h-[80dvh] md:h-[90dvh]  w-max grid grid-cols-2 grid-rows-5 md:grid-rows-7 grid-flow-col gap-5 items-center justify-start md:px-3 md:py-10 py-5'>
 
                                 {/* QUICK START GUIDE APP */}
                                 <div
@@ -304,13 +328,13 @@ const HomeScreen = () => {
                                 <Rnd
                                     data-disableselect="true"
                                     onMouseDown={() => setActiveId(data.id)}
-                                    className={activeId === data.id ? `z-40 ${data.display ? 'opacity-100' : 'opacity-0'}` : `z-10 ${data.display ? 'opacity-100' : 'opacity-0'} h-full `}
+                                    className={activeId === data.id ? `z-40 ${data.display ? 'scale-100' : 'scale-0'}` : `z-10 ${data.display ? 'scale-100' : 'scale-0'} h-full `}
                                     key={data.id}
                                     bounds="parent"
-                                    minWidth={data.title == 'windows media player' ? 350 : 450}
-                                    minHeight={data.title == 'windows media player' ? 350 : 500}
+                                    minWidth={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 450) : (0)}
+                                    minHeight={!isMobileDevice ? (data.title == 'windows media player' ? 350 : 500) : (0)}
                                     position={{ x: data.fullScreen ? 0 : data.startX, y: data.fullScreen ? 0 : data.startY }}
-                                    size={{ height: data.fullScreen ? window.innerHeight - 28 : data.defaultHeight, width: data.fullScreen ? window.innerWidth : data.defaultWidth }}
+                                    size={{ height: data.fullScreen ? windowHeight - 28 : data.defaultHeight, width: data.fullScreen ? windowWidth : data.defaultWidth }}
                                     dragHandleClassName="drag-handle"
                                     enableResizing={{
                                         top: data.fullScreen ? false : true,
@@ -343,7 +367,8 @@ const HomeScreen = () => {
                                         {/* Drag handle */}
                                         <div className=" w-full  cursor-move rounded-t-[5px] pb-1 px-1 flex justify-between items-center pt-1">
                                             <div onDoubleClick={() => {
-                                                maximizeWindow(data.id)
+                                                if (!isMobileDevice) maximizeWindow(data.id)
+
                                             }} className='flex items-center gap-1 w-full drag-handle'>
                                                 {/* <FaFolderOpen className='text-[#f5d78c] text-[15px]' /> */}
                                                 <div className='w-[20px] aspect-square'>
@@ -361,12 +386,15 @@ const HomeScreen = () => {
                                                     className='w-[20px]  cursor-pointer hover:brightness-125'
                                                 />
                                                 <Image
-                                                    onClick={() => maximizeWindow(data.id)}
+                                                    onClick={() => {
+                                                        if (!isMobileDevice) maximizeWindow(data.id)
+                                                    }}
                                                     src={data.fullScreen ? '/applicationController/Restore.png' : '/applicationController/Maximize.png'}
                                                     alt=''
                                                     width={100}
                                                     height={100}
-                                                    className='w-[20px] cursor-pointer hover:brightness-125'
+                                                    className={`${isMobileDevice ? 'brightness-75' : 'hover:brightness-125'} w-[20px] cursor-pointer `}
+
                                                 />
                                                 <Image
                                                     onClick={() => closeWindowItem(data.id)}
@@ -404,8 +432,8 @@ const HomeScreen = () => {
                                     key={data.id}
                                     className={activeId === data.id ? `z-40` : `z-10`}
                                     default={{
-                                        x: window.innerWidth / 2 - 320 / 2,
-                                        y: window.innerHeight / 2 - 150 / 2,
+                                        x: windowWidth / 2 - 320 / 2,
+                                        y: windowHeight / 2 - 150 / 2,
                                         width: 320,
                                         height: 150,
                                     }}

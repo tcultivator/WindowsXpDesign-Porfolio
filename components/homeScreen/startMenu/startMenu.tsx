@@ -21,16 +21,16 @@ const startMenu = () => {
 
         <DropdownMenu>
             <DropdownMenuTrigger asChild className='outline-none'>
-                <button className='start-menu-button flex items-center w-[100px] bg-[#3DAA38] min-h-[29px] max-h-[29px] px-2 py-2 pr-5 gap-1 rounded-tr-[6px] rounded-br-[10px] cursor-pointer  hover:brightness-110'>
+                <button className='start-menu-button flex items-center min-w-[90px] bg-[#3DAA38] min-h-[29px] max-h-[29px] px-2 py-2 pr-5 gap-1 rounded-tr-[6px] rounded-br-[10px] cursor-pointer  hover:brightness-110'>
                     <Image src="/loadingscreenxplogo.png" alt='' width={1} height={1} className=' w-[20px]  mt-[3px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                     <Label className='text-[18px] font-bold [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black] text-white/85 italic cursor-pointer'>start</Label>
                 </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-95" align="start">
+            <DropdownMenuContent className="w-85 md:w-95" align="start">
                 <div className="grid gap-0 p-1">
                     <div className='flex items-center gap-1 p-1'>
                         <div className='p-[3px] w-max rounded-[7px] bg-[#587FDB] inset-shadow-sm inset-shadow-white '>
-                            <Image src="/profile.jpg" alt='' width={50} height={50} className='rounded select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                            <Image src="/profile.jpg" alt='' width={50} height={50} className='w-[40px] md:w-[50px] rounded select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         </div>
 
                     </div>
@@ -39,7 +39,7 @@ const startMenu = () => {
                         {/* left side of start menu */}
                         <div className='p-1  bg-white flex flex-col  border-r border-[#aacaf2] w-[50%]'>
 
-                            <div className='flex flex-col gap-1 h-[330px]'>
+                            <div className='flex flex-col gap-1 h-[315px]'>
                                 <div className='flex flex-col gap-1 pb-2 border-b border-black/10'>
                                     {
                                         applicationData.slice(0, 2).map((data, index) => (
@@ -48,8 +48,8 @@ const startMenu = () => {
                                                     <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
                                                         <Image src={data.applicationIcon} alt='' width={100} height={100} className='w-[30px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                         <div>
-                                                            <Label className='text-[13px] leading-none '>{data.applicationName}</Label>
-                                                            <Label className=' font-thin opacity-50 text-[13px] leading-none '>{data.applicationSubName}</Label>
+                                                            <Label className='text-[12px] leading-none '>{data.applicationName}</Label>
+                                                            <Label className=' font-thin opacity-50 text-[12px] leading-none '>{data.applicationSubName}</Label>
                                                         </div>
                                                     </div>
                                                 </DropdownMenuItem>
@@ -65,7 +65,7 @@ const startMenu = () => {
                                                 <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
                                                     <Image src={data.applicationIcon} alt='' width={100} height={100} className='w-[30px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                     <div>
-                                                        <Label className='text-[13px] leading-none font-normal'>{data.applicationName}</Label>
+                                                        <Label className='text-[12px] leading-none font-normal'>{data.applicationName}</Label>
                                                     </div>
                                                 </div>
                                             </DropdownMenuItem>
