@@ -2,6 +2,7 @@
 import React from 'react'
 import { Label } from '@/components/ui/label'
 import Image from 'next/image'
+import Link from 'next/link'
 // icons
 import { RiArrowUpDoubleFill } from "react-icons/ri";
 import { RiArrowDownDoubleFill } from "react-icons/ri";
@@ -23,7 +24,7 @@ import { FaGitAlt } from "react-icons/fa";
 import { PiFigmaLogo } from "react-icons/pi";
 import { SiPostman } from "react-icons/si";
 
-
+import { useApplicationStore } from '@/stores/application';
 
 
 import { useState } from 'react';
@@ -99,17 +100,19 @@ const AboutMe = () => {
 
     ]
 
-    return (
-        <div className="@container flex h-full text-black bg-gradient-to-t from-[#6374d6] to-[#0B51E8] w-full ">
+    const isMobileDevice = useApplicationStore((state) => state.isMobileDevice)
 
-            <div className='max-w-[180px] min-w-[180px] bg-gradient-to-t from-[#6374d6] to-[#79a3e8] gap-1 p-1 flex-1 overflow-y-auto no-scrollbar'>
+    return (
+        <div className="@container flex h-full text-black bg-gradient-to-t from-[#6374d6] to-[#0B51E8] w-full relative ">
+
+            <div className={` ${isMobileDevice ? 'max-w-[100px] min-w-[100px]' : 'max-w-[180px] min-w-[180px]'}   bg-gradient-to-t from-[#6374d6] to-[#79a3e8] gap-1 p-1 flex-1 overflow-y-auto no-scrollbar`}>
                 <div className='flex flex-col gap-1'>
                     <div className='bg-white/50 rounded-t  '>
                         <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
-                            <Label className='text-[11px] text-[#0f4fd6] font-bold'>Skills</Label>
+                            <Label className='text-[11px] text-[#0f4fd6] font-bold overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap'>Skills</Label>
                             <button onClick={() => toggleSection('skills')}>
-                                {toggles.skills ? <RiArrowUpDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
-                                    <RiArrowDownDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
+                                {toggles.skills ? <RiArrowUpDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
+                                    <RiArrowDownDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
                                 }
                             </button>
 
@@ -119,7 +122,8 @@ const AboutMe = () => {
                                 skills.map((data, i) => (
                                     <div key={i} className='flex items-center gap-1'>
                                         <Image src={data.icon} alt='' width={500} height={500} className='w-[16px] select-none ' draggable={false} />
-                                        <Label className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false} >{data.name}</Label>
+                                        <Label className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer overflow-ellipsis
+                            min-w-0 inline-block overflow-hidden whitespace-nowrap' draggable={false} >{data.name}</Label>
                                     </div>
                                 ))
                             }
@@ -128,10 +132,10 @@ const AboutMe = () => {
                     </div>
                     <div className='bg-white/50 rounded-t '>
                         <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
-                            <Label className='text-[11px] text-[#0f4fd6] font-bold'>FrontEnd</Label>
+                            <Label className='text-[11px] text-[#0f4fd6] font-bold overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap'>FrontEnd</Label>
                             <button onClick={() => toggleSection('frontend')}>
-                                {toggles.frontend ? <RiArrowUpDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
-                                    <RiArrowDownDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
+                                {toggles.frontend ? <RiArrowUpDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
+                                    <RiArrowDownDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
                                 }
                             </button>
                         </div>
@@ -140,7 +144,8 @@ const AboutMe = () => {
                                 Frontend.map((data, i) => (
                                     <div key={i} className="flex items-center gap-1">
                                         {data.icon}
-                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer" draggable={false}>
+                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer overflow-ellipsis
+                            min-w-0 inline-block overflow-hidden whitespace-nowrap" draggable={false}>
                                             {data.name}
                                         </Label>
                                     </div>
@@ -150,10 +155,10 @@ const AboutMe = () => {
                     </div>
                     <div className='bg-white/50 rounded-t '>
                         <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
-                            <Label className='text-[11px] text-[#0f4fd6] font-bold'>State Management</Label>
+                            <Label className='text-[11px] text-[#0f4fd6] font-bold overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap'>State Management</Label>
                             <button onClick={() => toggleSection('stateManagement')}>
-                                {toggles.stateManagement ? <RiArrowUpDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
-                                    <RiArrowDownDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
+                                {toggles.stateManagement ? <RiArrowUpDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
+                                    <RiArrowDownDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
                                 }
                             </button>
                         </div>
@@ -162,7 +167,7 @@ const AboutMe = () => {
                                 StateManagement.map((data, i) => (
                                     <div key={i} className="flex items-center gap-1">
                                         {data.icon}
-                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer" draggable={false}>
+                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap" draggable={false}>
                                             {data.name}
                                         </Label>
                                     </div>
@@ -172,10 +177,10 @@ const AboutMe = () => {
                     </div>
                     <div className='bg-white/50 rounded-t '>
                         <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
-                            <Label className='text-[11px] text-[#0f4fd6] font-bold'>BackEnd</Label>
+                            <Label className='text-[11px] text-[#0f4fd6] font-bold overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap'>BackEnd</Label>
                             <button onClick={() => toggleSection('backend')}>
-                                {toggles.backend ? <RiArrowUpDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
-                                    <RiArrowDownDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
+                                {toggles.backend ? <RiArrowUpDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
+                                    <RiArrowDownDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
                                 }
                             </button>
                         </div>
@@ -184,7 +189,7 @@ const AboutMe = () => {
                                 Backend.map((data, i) => (
                                     <div key={i} className="flex items-center gap-1">
                                         {data.icon}
-                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer" draggable={false}>
+                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap" draggable={false}>
                                             {data.name}
                                         </Label>
                                     </div>
@@ -194,10 +199,10 @@ const AboutMe = () => {
                     </div>
                     <div className='bg-white/50 rounded-t '>
                         <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
-                            <Label className='text-[11px] text-[#0f4fd6] font-bold'>Testing</Label>
+                            <Label className='text-[11px] text-[#0f4fd6] font-bold overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap'>Testing</Label>
                             <button onClick={() => toggleSection('testing')}>
-                                {toggles.testing ? <RiArrowUpDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
-                                    <RiArrowDownDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
+                                {toggles.testing ? <RiArrowUpDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
+                                    <RiArrowDownDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
                                 }
                             </button>
                         </div>
@@ -206,7 +211,7 @@ const AboutMe = () => {
                                 Testing.map((data, i) => (
                                     <div key={i} className="flex items-center gap-1">
                                         {data.icon}
-                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer" draggable={false}>
+                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap" draggable={false}>
                                             {data.name}
                                         </Label>
                                     </div>
@@ -216,10 +221,10 @@ const AboutMe = () => {
                     </div>
                     <div className='bg-white/50 rounded-t '>
                         <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
-                            <Label className='text-[11px] text-[#0f4fd6] font-bold'>Tools & Workflows</Label>
+                            <Label className='text-[11px] text-[#0f4fd6] font-bold overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap'>Tools & Workflows</Label>
                             <button onClick={() => toggleSection('toolsAndWorkflows')}>
-                                {toggles.toolsAndWorkflows ? <RiArrowUpDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
-                                    <RiArrowDownDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
+                                {toggles.toolsAndWorkflows ? <RiArrowUpDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
+                                    <RiArrowDownDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
                                 }
                             </button>
                         </div>
@@ -228,7 +233,7 @@ const AboutMe = () => {
                                 ToolsAndWorkflows.map((data, i) => (
                                     <div key={i} className="flex items-center gap-1">
                                         {data.icon}
-                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer" draggable={false}>
+                                        <Label className="text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap" draggable={false}>
                                             {data.name}
                                         </Label>
                                     </div>
@@ -238,25 +243,25 @@ const AboutMe = () => {
                     </div>
                     <div className='bg-white/50 rounded-t '>
                         <div className='flex items-center justify-between p-1 pl-2 rounded-t bg-gradient-to-r from-white to-[#79a3e8]'>
-                            <Label className='text-[11px] text-[#0f4fd6] font-bold'>Social Links</Label>
+                            <Label className='text-[11px] text-[#0f4fd6] font-bold overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap'>Social Links</Label>
                             <button onClick={() => toggleSection('social')}>
-                                {toggles.social ? <RiArrowUpDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
-                                    <RiArrowDownDoubleFill className='bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
+                                {toggles.social ? <RiArrowUpDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' /> :
+                                    <RiArrowDownDoubleFill className='active:bg-white/80 hover:bg-white/80 bg-white rounded-[50%] cursor-pointer hover:brightness-110  shadow-sm shadow-black/50 border border-black/30' />
                                 }
                             </button>
                         </div>
                         <div className={`${toggles.social ? 'h-[85px] p-1' : 'h-[0px]'} min-h-0 flex flex-col  gap-1  px-3 overflow-hidden transition-all transition-duration-300`}>
                             <div className='flex items-center gap-1'>
                                 <FaGithub className='text-black text-[16px]' />
-                                <Label className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false} >Github</Label>
+                                <Link href={"https://github.com/tcultivator"} target='_blank' className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false} >Github</Link>
                             </div>
                             <div className='flex items-center gap-1'>
                                 <GrLinkedin className='text-[#3397e8] text-[16px]' />
-                                <Label className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false} >Linkedin</Label>
+                                <Link href={"https://www.linkedin.com/in/luigie-panahon-541733367/"} target='_blank' className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false} >Linkedin</Link>
                             </div>
                             <div className='flex items-center gap-1'>
                                 <Image src="/Instagram_icon.png" alt='' width={500} height={500} className='w-[16px] select-none ' draggable={false} />
-                                <Label className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false}>Instagram</Label>
+                                <Link href={"https://www.instagram.com/panahonluigie/"} target='_blank' className='text-[10px] font-medium text-[#0f4fd6] hover:underline select-none cursor-pointer' draggable={false}>Instagram</Link>
                             </div>
                         </div>
                     </div>
@@ -268,7 +273,7 @@ const AboutMe = () => {
 
 
             </div>
-            <div className='@container w-full flex-1 min-h-0 overflow-auto gap-1 p-5'>
+            <div className={`@container w-full flex-1 min-h-0 overflow-auto gap-1  ${isMobileDevice ? 'p-1' : 'p-5'}`}>
                 <div className='p-5  w-full h-full max-w-[600px] text-white flex flex-col gap-10'>
                     <div className='w-full flex items-start gap-2'>
                         <Label className='text-[15px] font-mono font-normal [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.1px_black]'>Hi! I&apos;m Luigie Panahon, a Frontend Web Developer who is passionate, dedicated, and always eager to learn.
