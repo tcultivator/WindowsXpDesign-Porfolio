@@ -434,6 +434,7 @@ const HomeScreen = () => {
                             errorWindowItem.map((data) => (
                                 <Rnd
                                     data-disableselect="true"
+                                    dragHandleClassName="drag-handle"
                                     enableResizing={false}
                                     onMouseDown={() => setActiveId(data.id)}
                                     key={data.id}

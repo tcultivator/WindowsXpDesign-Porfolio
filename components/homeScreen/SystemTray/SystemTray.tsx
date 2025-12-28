@@ -56,7 +56,7 @@ const SystemTray = () => {
                 <div className='relative'>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Image onClick={() => setTooltip(true)} id='MWImage' src="/systemTrayIcons/popupHelp.ico" alt='' width={500} height={500} className='w-[15px] cursor-pointer  select-none  mt-[2px] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                            <Image onClick={() => setTooltip(true)} id='MWImage' src="/systemTrayIcons/popupHelp.ico" alt='' width={500} height={500} className='w-[15px] cursor-pointer active:brightness-125  select-none  mt-[2px] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>Portfolio Info</p>
@@ -80,7 +80,7 @@ const SystemTray = () => {
                 </div>
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Image onClick={setVolumeStatus} id='MWImage' src={`${volumeStatus ? '/systemTrayIcons/Volume.png' : '/systemTrayIcons/Mute.png'}`} alt='' width={500} height={500} className='w-[15px]  select-none  mt-[2px] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] cursor-pointer' draggable={false} />
+                        <Image onClick={setVolumeStatus} id='MWImage' src={`${volumeStatus ? '/systemTrayIcons/Volume.png' : '/systemTrayIcons/Mute.png'}`} alt='' width={500} height={500} className='w-[15px]  select-none active:brightness-125  mt-[2px] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] cursor-pointer' draggable={false} />
                     </TooltipTrigger>
                     <TooltipContent>
                         <p>{volumeStatus ? 'Volume On' : ' Volume Off'}</p>
