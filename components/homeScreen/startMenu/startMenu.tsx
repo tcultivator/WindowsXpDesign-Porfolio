@@ -45,7 +45,7 @@ const startMenu = () => {
                                         applicationData.slice(0, 2).map((data, index) => (
                                             <div key={index}>
                                                 <DropdownMenuItem>
-                                                    <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                    <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                                         <Image src={data.applicationIcon} alt='' width={100} height={100} className='w-[30px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                         <div>
                                                             <Label className='text-[12px] leading-none '>{data.applicationName}</Label>
@@ -62,7 +62,7 @@ const startMenu = () => {
                                     applicationData.slice(2, 7).map((data, index) => (
                                         <div key={index}>
                                             <DropdownMenuItem>
-                                                <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                <div onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1 text-black  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                                     <Image src={data.applicationIcon} alt='' width={100} height={100} className='w-[30px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                     <div>
                                                         <Label className='text-[12px] leading-none font-normal'>{data.applicationName}</Label>
@@ -76,7 +76,7 @@ const startMenu = () => {
 
                             </div>
 
-                            <div className='flex items-center border-t border-black/20 gap-1 justify-center  hover:bg-[#346eed] hover:text-white text-black cursor-pointer'>
+                            <div className='flex items-center border-t border-black/20 gap-1 justify-center  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white text-black cursor-pointer'>
                                 <NavigationMenu>
                                     <NavigationMenuList>
                                         <NavigationMenuItem>
@@ -92,7 +92,8 @@ const startMenu = () => {
                                                 <div className='bg-white w-[150px] border border-black/10 text-black  flex flex-col gap-2'>
                                                     {
                                                         applicationData.map((data, index) => (
-                                                            <div key={index} onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                            
+                                                            <div key={index} onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                                                 <Image src={data.applicationIcon} alt='' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                                 <div>
                                                                     <Label className='text-[12px] leading-none font-normal'>{data.applicationName}</Label>
@@ -100,14 +101,14 @@ const startMenu = () => {
                                                             </div>
                                                         ))
                                                     }
-                                                    <Link href={"https://github.com/tcultivator"} target='_blank' className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                    <Link href={"https://github.com/tcultivator"} target='_blank' className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                                         <Image src="/gihubIcon.png" alt='' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                         <div>
                                                             <Label className='text-[12px] leading-none font-normal'>Github</Label>
                                                         </div>
                                                     </Link>
 
-                                                    <Link href={"https://www.linkedin.com/in/luigie-panahon-541733367/"} target='_blank' className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                                    <Link href={"https://www.linkedin.com/in/luigie-panahon-541733367/"} target='_blank' className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                                         <Image src="/linkedinIcon.png" alt='' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                         <div>
                                                             <Label className='text-[12px] leading-none font-normal'>Linkedin</Label>
@@ -131,7 +132,7 @@ const startMenu = () => {
                                 {
                                     sysAppData.slice(0, 5).map((data, index) => (
                                         <DropdownMenuItem key={index}>
-                                            <div onClick={setErrorWindowItem} className='flex items-center gap-1  text-[#073bab]  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                            <div onClick={setErrorWindowItem} className='flex items-center gap-1  text-[#073bab]  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                                 <Image src={data.sysAppIcon} alt='' width={100} height={100} className='w-[25px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                 <div>
                                                     <Label className='text-[12px] leading-none  font-bold '>{data.sysAppName}</Label>
@@ -148,7 +149,7 @@ const startMenu = () => {
                             <div className='flex flex-col gap-1 py-1 border-b-[1px] border-transparent [border-image:linear-gradient(90deg,#d2e5fa,#80a1e8,#d2e5fa)_1]'>
                                 {sysAppData.slice(5, 8).map((data, index) => (
                                     <DropdownMenuItem key={index}>
-                                        <div onClick={setErrorWindowItem} className='flex items-center gap-1  text-[#073bab]  hover:bg-[#346eed] hover:text-white cursor-pointer'>
+                                        <div onClick={setErrorWindowItem} className='flex items-center gap-1  text-[#073bab]  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                             <Image src={data.sysAppIcon} alt='' width={100} height={100} className='w-[25px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                             <div>
                                                 <Label className='text-[12px] leading-none  font-bold '>{data.sysAppName}</Label>
@@ -161,7 +162,7 @@ const startMenu = () => {
                             {
                                 sysAppData.slice(8).map((data, index) => (
                                     <DropdownMenuItem key={index}>
-                                        <div onClick={setErrorWindowItem} className='flex items-center gap-1    hover:bg-[#346eed] text-[#073bab] hover:text-white cursor-pointer'>
+                                        <div onClick={setErrorWindowItem} className='flex items-center gap-1    hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white text-[#073bab] cursor-pointer'>
                                             <Image src={data.sysAppIcon} alt='' width={100} height={100} className='w-[25px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                             <div>
                                                 <Label className='text-[12px] leading-none  font-bold '>{data.sysAppName}</Label>

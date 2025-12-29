@@ -145,6 +145,32 @@
 
 
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+
+  /* Combine vertical + horizontal scanlines */
+  background-image:
+    /* horizontal lines */
+    repeating-linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 2px,
+      transparent 3px),
+    /* vertical lines */
+    repeating-linear-gradient(to right,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 2px,
+      transparent 3px);
+}
+
 
 
 button#MW:focus #MWLabel {
@@ -180,7 +206,7 @@ button#p1:focus #p1label {
 .custom-tooltip[data-open="true"] {
   opacity: 1;
   visibility: visible;
-  
+
 }
 
 
@@ -361,14 +387,31 @@ input[type="range"] {
 
 
 
+input::placeholder {
+  font-style: italic;
+}
 
-
+textarea::placeholder {
+  font-style: italic;
+}
 
 .logo-shadow {
   filter: drop-shadow(0px 2px 4px black), blur(.1px);
 
 
 }
+
+.disabled-button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.342);
+  top: 0;
+  right: 0;
+}
+
+
 
 
 

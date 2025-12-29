@@ -51,23 +51,11 @@ const Projects = () => {
         relative
       "
         >
-            {/* IE / XP HEADER */}
-            <IEBar
-                title="/MyWorks"
-                icon={
-                    <Image
-                        src="/internetIcon.ico"
-                        alt=""
-                        width={20}
-                        height={20}
-                        className="w-[15px] select-none "
-                        draggable={false}
-                    />
-                }
-            />
+
+
             {addressBarCurrent.label.includes('/MyWorks') ?
                 <div className="@container flex-1 min-h-0 relative overflow-hidden  ">
-                    {/* SLIDE MENU OVERLAY */}
+
                     {openMenu && (
                         <div className="absolute inset-0 z-50 bg-black/20">
                             <div
@@ -119,9 +107,9 @@ const Projects = () => {
                         </div>
                     )}
 
-                    {/* SCROLLABLE CONTENT ONLY */}
+
                     <div ref={scrollRef} className="flex flex-col h-full overflow-auto">
-                        {/* STICKY TOP BAR */}
+
                         <div className="sticky top-0 z-40 flex items-center justify-between p-3 bg-white/20 backdrop-blur-md border-b border-black/20">
                             <div className="flex items-center gap-5">
                                 <IoMenu
@@ -146,12 +134,12 @@ const Projects = () => {
                                 </Label>
                             </div>
 
-                            <FaGithub className="text-white text-[20px]" />
+                            <FaGithub className="text-black text-[20px]" />
                         </div>
 
-                        {/* MAIN BODY */}
+
                         <div className="flex">
-                            {/* DESKTOP SIDEBAR */}
+
                             <div className="hidden @2xl:flex flex-col gap-3 w-[200px] p-5 text-black">
                                 <div
                                     onClick={() => {
@@ -173,7 +161,7 @@ const Projects = () => {
                                 </div>
                             </div>
 
-                            {/* PROJECT CONTENT */}
+
                             <div
                                 key={addressBarCurrent?.label}
                                 className="flex-1 animate-fade"
@@ -191,20 +179,16 @@ const Projects = () => {
                         sandbox="allow-scripts allow-same-origin"
                         className=''
                     />
-                    {/* popup that say that some feature is locked due to security reason, please check the full demo */}
-                    {/* <div className='bg-red-400 p-5 absolute top-1/2 right-1/2'>
 
-                    </div> */}
                 </div>
 
             }
-            {/* CONTENT VIEWPORT (IMPORTANT) */}
 
 
-            {/* STATUS BAR */}
+
             <div className="p-[2px] bg-[#edebd8] border-t border-black/30">
                 <Label className="text-[10px] text-black/80 px-2">
-                    Select project for more details
+                    {addressBarCurrent?.label === '/MyWorks' ? 'Select a project to view details.' : 'Select a demo type, or click Play to watch a preview video.'}
                 </Label>
             </div>
         </div>

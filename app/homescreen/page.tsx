@@ -15,6 +15,7 @@ import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator,
 import { useApplicationStore } from '@/stores/application'
 
 
+import { motion, AnimatePresence } from "framer-motion";
 
 //resuable components
 import XPExplorerBar from '@/utils/XPExplorerBar';
@@ -28,6 +29,9 @@ import { useSelectionContainer, boxesIntersect } from '@air/react-drag-to-select
 
 
 import AccessDenied from '@/components/homeScreen/accessDenied/AccessDenied'
+import IEBar from '@/utils/IEBar'
+import EmailTopBar from '@/utils/EmailTopBar'
+import WindowsMediaPlayerTopBar from '@/utils/WindowsMediaPlayerTopBar'
 
 
 const HomeScreen = () => {
@@ -118,7 +122,7 @@ const HomeScreen = () => {
 
         setWindowWidth(window.innerWidth);
         setWindowHeight(window.innerHeight);
-       
+
 
         window.addEventListener('resize', handleResize);
 
@@ -132,10 +136,10 @@ const HomeScreen = () => {
 
     useEffect(() => {
         if (windowWidth < 400) {
-            
+
             setIsMobileDevice(true)
         } else {
-            
+
             setIsMobileDevice(false)
         }
     }, [windowWidth]);
@@ -165,27 +169,27 @@ const HomeScreen = () => {
                         {
                             refresh &&
 
-                            <div className='p-1 h-[80dvh] md:h-[90dvh]  w-max grid grid-cols-2 grid-rows-5 md:grid-rows-7 grid-flow-col gap-5 items-center justify-start md:px-3 md:py-10 py-5'>
+                            <div className='p-1 h-[80dvh] md:h-[90dvh]  w-max grid grid-cols-2 grid-rows-5 md:grid-rows-7 grid-flow-col gap-5 items-start justify-start md:px-3 md:py-10 py-5'>
 
                                 {/* QUICK START GUIDE APP */}
                                 <div
                                     id="item-quick-start"
                                     // make div focusable
-                                    className={`group rounded desktop-item`}
+                                    className={`${selected.includes('quick-start') ? 'bg-white/30 border-[1px]  border-white/60' : 'border-white/0'} border group rounded desktop-item`}
                                 >
                                     <AppInHomePage
                                         icon={
                                             <Image
                                                 src="/QuickStartGuideIcon.ico"
                                                 alt=""
-                                                width={500}
-                                                height={500}
-                                                className={`w-[40px] select-none`}
+                                                width={1000}
+                                                height={1000}
+                                                className={`w-[45px] select-none`}
                                                 draggable={false}
                                             />
                                         }
                                         label={
-                                            <Label className={`${selected.includes('quick-start') ? 'bg-[#0028F0]' : ''} group-focus:bg-[#0028F0] font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
+                                            <Label className={` font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
                                                 Quick Start
                                             </Label>
                                         }
@@ -198,21 +202,21 @@ const HomeScreen = () => {
                                 {/* MY WORKS APP */}
                                 <div
                                     id="item-my-works"
-                                    className={`group rounded desktop-item`}
+                                    className={`${selected.includes('my-works') ? 'bg-white/30 border-[1px]  border-white/60' : 'border-white/0'} border group rounded desktop-item`}
                                 >
                                     <AppInHomePage
                                         icon={
                                             <Image
                                                 src="/internetIcon.ico"
                                                 alt=""
-                                                width={500}
-                                                height={500}
-                                                className={`w-[40px] select-none filter drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] `}
+                                                width={1000}
+                                                height={1000}
+                                                className={`w-[45px] select-none filter drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] `}
                                                 draggable={false}
                                             />
                                         }
                                         label={
-                                            <Label className={`${selected.includes('my-works') ? 'bg-[#0028F0]' : ''} group-focus:bg-[#0028F0] font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
+                                            <Label className={` font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
                                                 My Works
                                             </Label>
                                         }
@@ -223,21 +227,21 @@ const HomeScreen = () => {
                                 {/* EMAIL APP */}
                                 <div
                                     id="item-email"
-                                    className={`group rounded desktop-item`}
+                                    className={`${selected.includes('email') ? 'bg-white/30 border-[1px]  border-white/60' : 'border-white/0'} border group rounded desktop-item`}
                                 >
                                     <AppInHomePage
                                         icon={
                                             <Image
                                                 src="/email.webp"
                                                 alt=""
-                                                width={500}
-                                                height={500}
-                                                className={`w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] `}
+                                                width={1000}
+                                                height={1000}
+                                                className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] `}
                                                 draggable={false}
                                             />
                                         }
                                         label={
-                                            <Label className={`${selected.includes('email') ? 'bg-[#0028F0]' : ''} group-focus:bg-[#0028F0] font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
+                                            <Label className={`  font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
                                                 E-mail
                                             </Label>
                                         }
@@ -248,21 +252,21 @@ const HomeScreen = () => {
                                 {/* RESUME APP */}
                                 <div
                                     id="item-resume"
-                                    className={`group rounded desktop-item`}
+                                    className={`${selected.includes('resume') ? 'bg-white/30 border-[1px]  border-white/60' : 'border-white/0'} border group  desktop-item`}
                                 >
                                     <AppInHomePage
                                         icon={
                                             <Image
                                                 src="/pdfIcon.webp"
                                                 alt=""
-                                                width={500}
-                                                height={500}
-                                                className={`w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
+                                                width={1000}
+                                                height={1000}
+                                                className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
                                                 draggable={false}
                                             />
                                         }
                                         label={
-                                            <Label className={`${selected.includes('resume') ? 'bg-[#0028F0]' : ''} group-focus:bg-[#0028F0] font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
+                                            <Label className={`  font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
                                                 Resume
                                             </Label>
                                         }
@@ -272,21 +276,21 @@ const HomeScreen = () => {
                                 {/* ABOUT ME */}
                                 <div
                                     id="item-about-me"
-                                    className={`group rounded desktop-item`}
+                                    className={`${selected.includes('about-me') ? 'bg-white/30 border-[1px]  border-white/60' : 'border-white/0'} border group rounded desktop-item`}
                                 >
                                     <AppInHomePage
                                         icon={
                                             <Image
                                                 src="/aboutmeIcon.ico"
                                                 alt=""
-                                                width={500}
-                                                height={500}
-                                                className={`w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
+                                                width={1000}
+                                                height={1000}
+                                                className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
                                                 draggable={false}
                                             />
                                         }
                                         label={
-                                            <Label className={`${selected.includes('about-me') ? 'bg-[#0028F0]' : ''} group-focus:bg-[#0028F0] font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
+                                            <Label className={`  font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
                                                 About Me
                                             </Label>
                                         }
@@ -298,21 +302,21 @@ const HomeScreen = () => {
                                 {/* WINDOWS MEDIA PLAYER */}
                                 <div
                                     id="item-windows-media-player"
-                                    className={`group rounded desktop-item`}
+                                    className={`${selected.includes('windows-media-player') ? 'bg-white/30 border-[1px]  border-white/60' : 'border-white/0'} border  group rounded desktop-item`}
                                 >
                                     <AppInHomePage
                                         icon={
                                             <Image
                                                 src="/windowsMediaPlayer/Windows Media Player 9.png"
                                                 alt=""
-                                                width={500}
-                                                height={500}
-                                                className={`w-[40px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
+                                                width={1000}
+                                                height={1000}
+                                                className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
                                                 draggable={false}
                                             />
                                         }
                                         label={
-                                            <Label className={`${selected.includes('windows-media-player') ? 'bg-[#0028F0]' : ''} group-focus:bg-[#0028F0] font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
+                                            <Label className={` font-semibold break-words text-[13px] leading-tight text-center p-1 cursor-pointer [text-shadow:1px_1px_1px_black] [-webkit-text-stroke:0.2px_black]`}>
                                                 Windows Media Player
                                             </Label>
                                         }
@@ -421,11 +425,43 @@ const HomeScreen = () => {
                                         {data.title != 'Internet' && data.title != 'Resume' && data.title != 'E-Mail' && data.title != 'My Works' && data.title != 'windows media player' && <XPExplorerBar
                                             title={data.title}
                                             icon={data.icon}
+                                            id={data.id}
+                                        />}
+
+                                        {data.title == 'My Works' && <IEBar
+                                            title={data.title}
+                                            icon={data.icon}
+                                            id={data.id}
+                                        />}
+                                         {data.title == 'Internet' && <IEBar
+                                            title={data.title}
+                                            icon={data.icon}
+                                            id={data.id}
+                                        />}
+                                        {data.title == 'E-Mail' && <EmailTopBar
+                                            title={data.title}
+                                            icon={data.icon}
+                                            id={data.id}
+                                        />}
+                                        {data.title == 'windows media player' && <WindowsMediaPlayerTopBar
+                                            title={data.title}
+                                            icon={data.icon}
+                                            id={data.id}
                                         />}
                                         {/* Content */}
                                         <div className="flex-1 min-h-0    ">
                                             {data.content}
                                         </div>
+                                        {/* Desscription bar */}
+                                        {
+                                            data.title != 'My Works' &&
+                                            <div className="p-[2px] bg-[#edebd8] border-t border-black/30">
+                                                <Label className="text-[10px] text-black/80 px-2">
+                                                    {data.description}
+                                                </Label>
+                                            </div>
+                                        }
+
                                     </div>
                                 </Rnd>
                             ))
@@ -478,40 +514,40 @@ const HomeScreen = () => {
             <div data-disableselect="true" className='task-bar bg-[#2755EA] z-50 w-full h-7 max-h-7 fixed   bottom-0 gap-1 flex items-center '>
                 <StartMenu />
 
-                <div className=' flex items-center h-full w-full py-[2px] overflow-hidden whitespace-nowrap box-border'>
-                    {windowItem.map((data) => (
-                        <div
-                            key={data.id}
-                            onClick={() => cancelMinimize(data.id)}
-                            className="h-full flex-1 min-w-0 max-w-[150px]"
-                        >
-                            <div
-                                className={`
-                        px-1 flex items-center gap-1
-                        ${activeId === data.id ? 'bg-[#235ddb]' : 'bg-[#3d82f2]'}
-                        rounded-[3px] w-full h-full border border-black/20
-                        hover:brightness-110 cursor-pointer
-                        min-w-0 pr-[10%]
-                    `}
+                <div className="flex items-center h-full w-full py-[2px] overflow-hidden">
+                    <AnimatePresence initial={false}>
+                        {(isMobileDevice ? windowItem.slice(0, 5) : windowItem).map((data) => (
+                            <motion.div
+                                key={data.id}
+                                layout
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.15, ease: "easeOut" }}
+                                onClick={() => cancelMinimize(data.id)}
+                                className="h-full flex-1 min-w-0 max-w-[150px]"
                             >
-                                <div className="min-w-[20px] max-w-[20px] aspect-square">
-                                    {data.icon}
-                                </div>
-
-
-                                <Label
-                                    className="
-                            font-thin text-[11px]
-                            overflow-ellipsis
-                            min-w-0 inline-block overflow-hidden whitespace-nowrap
-                        "
+                                <div
+                                    className={`
+            px-1 flex items-center gap-1
+            ${activeId === data.id ? 'bg-[#235ddb]' : 'bg-[#3d82f2]'}
+            rounded-[3px] w-full h-full border border-black/20
+            cursor-pointer min-w-0 pr-[10%]
+          `}
                                 >
-                                    {data.title}
-                                </Label>
-                            </div>
-                        </div>
-                    ))}
+                                    <div className="min-w-[15px] max-w-[20px] aspect-square">
+                                        {data.icon}
+                                    </div>
+
+                                    <span className="text-[11px] font-thin overflow-hidden whitespace-nowrap text-ellipsis">
+                                        {data.title}
+                                    </span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </div>
+
 
                 <div className='sys-tray bg-[#1393e8] w-[135px] min-w-[135px] h-full border-l border-black/50 '>
                     <SystemTray />

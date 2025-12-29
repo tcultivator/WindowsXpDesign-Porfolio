@@ -20,24 +20,70 @@ import searchIcon from '@/public/searchIcon.ico'
 import folderIcon from '@/public/folderIcon.ico'
 import folderLayoutIcon from '@/public/folderLayoutIcon.ico'
 
+import {
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarTrigger,
+} from "@/components/ui/menubar"
+
 type props = {
     title: string;
     icon: React.ReactNode;
+    id: string;
 }
-const topMenuItems = ["File", "Edit", "View", "Favourites", "Tools", "Help"];
-const XPExplorerBar = ({ icon, title }: props) => {
+
+
+import { topMenuItems } from './TopMenuItemsData';
+
+
+
+const XPExplorerBar = ({ icon, title, id }: props) => {
     return (
         <div className='flex flex-col gap-[.5px] bg-[#ffffff]  border-t border-t-[#023bb5]'>
             <div className='bg-[#edebd8]   flex items-center justify-between border-b-[.5px] border-b-black/15'>
-                <div className='flex items-center text-black p-[2px]'>
-                    {
+                <div className='flex items-center text-black'>
+                    <Menubar>
+                        {
+                            topMenuItems.map((data, index) => (
+                                <MenubarMenu key={index}>
+                                    <MenubarTrigger disabled={data.disabled}>{data.title}</MenubarTrigger>
+                                    <MenubarContent>
+                                        {
+                                            data.items.filter(item => item.group == 1).map((data, index) => (
+                                                <MenubarItem key={index} disabled={data.disabled} onClick={() => data.function(id)}>{data.label}</MenubarItem>
+                                            ))
+                                        }
+                                        {data.items.filter(item => item.group == 2).length > 0 && < MenubarSeparator />}
+                                        {
+                                            data.items.filter(item => item.group == 2).map((data, index) => (
+                                                <MenubarItem key={index} disabled={data.disabled} onClick={() => data.function(id)}>{data.label}</MenubarItem>
+                                            ))
+                                        }
+                                        {data.items.filter(item => item.group == 3).length > 0 && < MenubarSeparator />}
+                                        {
+                                            data.items.filter(item => item.group == 3).map((data, index) => (
+                                                <MenubarItem key={index} disabled={data.disabled} onClick={() => data.function(id)}>{data.label}</MenubarItem>
+                                            ))
+                                        }
+
+                                    </MenubarContent>
+                                </MenubarMenu>
+                            ))
+                        }
+
+                    </Menubar>
+                    {/* {
                         topMenuItems.map((data, index) => (
                             <Label key={index} className='text-[10px] font-normal  px-2 hover:bg-[#235ddb] hover:text-white'>{data}</Label>
                         ))
-                    }
+                    } */}
 
                 </div>
-                <div className='px-2 border-l border-black/30 bg-white'>
+                <div className='px-2 border-l border-black/30 bg-white h-full flex justify-center items-center'>
                     <Image src={Logo} alt='' width={50} height={50} className='w-[15px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                 </div>
             </div>
