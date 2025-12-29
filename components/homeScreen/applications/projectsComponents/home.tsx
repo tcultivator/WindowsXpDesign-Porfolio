@@ -50,13 +50,13 @@ const home = () => {
     const setAddressBarCurrent = useAddressbarStore((state) => state.setAddressBarCurrent)
     const addressBarCurrent = useAddressbarStore((state) => state.addressBarCurrent)
     return (
-        <div className=" w-full box-border h-full text-black p-5">
+        <div className=" w-full box-border h-full text-black p-1">
             <div className="grid gap-2 grid-cols-1 @2xl:grid-cols-2 @4xl:grid-cols-3 ">
                 {projectsSelection.map((data, index) => (
                     <div onClick={() => {
                         setAddressbarHistory(addressBarCurrent)
                         setAddressBarCurrent({ index: index, label: `/MyWorks/${data.label}` })
-                    }} key={index} className="group cursor-pointer flex hover:bg-black/10 flex-col gap-2 p-2 rounded-[16px]">
+                    }} key={index} className="group cursor-pointer flex hover:bg-black/10 flex-col gap-2 p-1 rounded-[16px]">
 
                         <div className="relative w-full aspect-video rounded-[10px] overflow-hidden border border-black/10">
                             <Image

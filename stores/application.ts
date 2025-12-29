@@ -16,6 +16,7 @@ type WindowItemType = {
     defaultHeight: number;
     fullScreen: boolean;
     display: boolean;
+    description: string;
 }
 type applicationDataType = {
     applicationIcon: string;
@@ -35,7 +36,7 @@ type errorWindowItemType = {
 }
 type Applications = {
     windowItem: WindowItemType[],
-    addWindowItem: (title: string, icon: React.ReactNode, content: React.ReactNode, defaultWidth: number, defaultHeight: number) => void,
+    addWindowItem: (title: string, icon: React.ReactNode, content: React.ReactNode, defaultWidth: number, defaultHeight: number, description: string) => void,
     activeId: string | null,
     setActiveId: (id: string) => void,
     closeWindowItem: (id: string) => void,
@@ -56,7 +57,7 @@ type Applications = {
 
 export const useApplicationStore = create<Applications>((set) => ({
     windowItem: [],
-    addWindowItem: (title, icon, content, defaultWidth, defaultHeight) => {
+    addWindowItem: (title, icon, content, defaultWidth, defaultHeight, description) => {
 
         // if the my works app is already open, it doenst open new my works app, it just set it to active windows so it go at front of other application open
         if (title == 'My Works') {
@@ -105,6 +106,7 @@ export const useApplicationStore = create<Applications>((set) => ({
                     defaultHeight,
                     fullScreen: title == 'Resume' || useApplicationStore.getState().isMobileDevice == true ? true : false,
                     display: true,
+                    description,
                 },
             ],
             activeId: id
@@ -131,8 +133,8 @@ export const useApplicationStore = create<Applications>((set) => ({
 
     },
     maximizeWindow: (id) => {
-        
-    
+
+
         const currentWindowItems = useApplicationStore.getState().windowItem
         const MaximizeSelectedWindow = currentWindowItems.map(item => {
             if (item.id == id) {
@@ -156,7 +158,7 @@ export const useApplicationStore = create<Applications>((set) => ({
 
 
     updateWindow: (id, data) => {
-       
+
         set((state) => ({
             windowItem: state.windowItem.map((item) =>
                 item.id === id ? { ...item, ...data } : item
@@ -175,7 +177,7 @@ export const useApplicationStore = create<Applications>((set) => ({
             ),
             activeId: useApplicationStore.getState().windowItem.length == 1 ? null : useApplicationStore.getState().windowItem[useApplicationStore.getState().windowItem.length - 1].id
         }))
-       
+
     },
     cancelMinimize: (id) => {
         set((state) => ({
@@ -184,7 +186,7 @@ export const useApplicationStore = create<Applications>((set) => ({
             ),
             activeId: id
         }))
-        
+
     },
 
     errorWindowItem: [],

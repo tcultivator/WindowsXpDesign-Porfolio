@@ -14,7 +14,7 @@ const SendEmail = () => {
     const [messageFrom, setMessageFrom] = useState('')
     const [subject, setSubject] = useState('')
 
-    const sendEmailMessage = async (e:  React.FormEvent<HTMLFormElement>) => {
+    const sendEmailMessage = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const sendMail = await fetch('/api/sendEmail', {
             method: 'POST',
@@ -34,9 +34,9 @@ const SendEmail = () => {
         setSubject('')
     }
     return (
-        <div className='bg-white flex flex-col w-full h-full border-x border-x-[#023bb5] border-t border-t-[#023bb5]'>
+        <div className='bg-white flex flex-col w-full h-full '>
             <form onSubmit={sendEmailMessage} className='flex flex-col h-full gap-[.5px] bg-[#ffffff] '>
-                <div className='bg-[#edebd8]   flex items-center justify-between border-b-[.5px] border-b-black/15'>
+                {/* <div className='bg-[#edebd8]   flex items-center justify-between border-b-[.5px] border-b-black/15'>
                     <div className='flex items-center text-black p-[2px]'>
                         {
                             topMenuItems.map((data, index) => (
@@ -48,40 +48,40 @@ const SendEmail = () => {
                     <div className='px-2 border-l border-black/30 bg-white'>
                         <Image src={Logo} alt='' width={50} height={50} className='w-[15px] select-none' draggable={false} />
                     </div>
-                </div>
+                </div> */}
 
                 <div className='bg-[#edebd8] p-1 flex items-center border-b-[.5px] border-b-black/15'>
                     <div className='flex items-center w-max border-r border-black/20 pr-1'>
-                        <button type='submit' disabled={message == '' || messageFrom == '' || subject == ''} className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border hover:border-black/30'>
+                        <button type='submit' disabled={message == '' || messageFrom == '' || subject == ''} className={`${message == '' || messageFrom == '' || subject == '' ? 'opacity-50':'opacity-100 hover:border-black/30'} text-black  relative  flex flex-col items-center  p-1 px-3 rounded cursor-pointer border `}>
                             <Image src="/outlookIcons/send.png" alt='email send icon' width={20} height={20} className='w-[25px] select-none' draggable={false} />
-                            <Label className='font-light text-black text-[11px] leading-none'>Send</Label>
+                            <Label className='font-light text-[11px] leading-none'>Send</Label>
                         </button>
                     </div>
                     <div className='flex items-center gap-1 w-max border-r border-black/20 px-1'>
-                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border hover:border-black/30'>
+                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border opacity-50'>
                             <Image src="/outlookIcons/Cut.png" alt='email send icon' width={20} height={20} className='w-[25px] select-none' draggable={false} />
                             <Label className='font-light text-black text-[11px] leading-none'>Cut</Label>
                         </button>
-                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border hover:border-black/30'>
+                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border opacity-50'>
                             <Image src="/outlookIcons/Copy.png" alt='email send icon' width={20} height={20} className='w-[25px] select-none' draggable={false} />
                             <Label className='font-light text-black text-[11px] leading-none'>Copy</Label>
                         </button>
-                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border hover:border-black/30'>
+                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border opacity-50'>
                             <Image src="/outlookIcons/Paste.png" alt='email send icon' width={20} height={20} className='w-[25px] select-none' draggable={false} />
                             <Label className='font-light text-black text-[11px] leading-none'>Paste</Label>
                         </button>
-                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border hover:border-black/30'>
+                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border opacity-50'>
                             <Image src="/outlookIcons/Undo.png" alt='email send icon' width={20} height={20} className='w-[25px] select-none' draggable={false} />
                             <Label className='font-light text-black text-[11px] leading-none'>Undo</Label>
                         </button>
                     </div>
 
                     <div className='flex items-center gap-1 w-max border-r border-black/20 px-1'>
-                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border hover:border-black/30'>
+                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border opacity-50'>
                             <Image src="/outlookIcons/OE Attatch.png" alt='email send icon' width={20} height={20} className='w-[25px] select-none' draggable={false} />
                             <Label className='font-light text-black text-[11px] leading-none'>Attach</Label>
                         </button>
-                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border hover:border-black/30'>
+                        <button className='text-black flex flex-col items-center  p-1 px-3 rounded cursor-pointer border opacity-50'>
                             <Image src="/outlookIcons/Question.png" alt='email send icon' width={20} height={20} className='w-[25px] select-none' draggable={false} />
                             <Label className='font-light text-black text-[11px] leading-none'>Info</Label>
                         </button>
@@ -93,42 +93,42 @@ const SendEmail = () => {
 
                     {/* From */}
                     <div className="flex items-center gap-2">
-                        <Label className="w-[80px] h-[26px] text-[12px] flex justify-end bg-white border border-blue-600/70 rounded px-1 font-light shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]">
+                        <Label className="w-[80px] h-[26px] text-[12px] flex justify-end   px-1 font-light ">
                             From:
                         </Label>
                         <input
                             value={messageFrom}
                             onChange={(e) => setMessageFrom(e.target.value)}
                             type="email"
-                            className="w-full h-[26px] px-2 border border-black/50  rounded bg-gray-100"
-                            placeholder='example@example.com'
+                            className="w-full h-[26px] px-2 border-[1px] shadow-[inset_1px_1px_0px_rgba(0,0,0,0.45)] border-black/30  rounded-[2px] outline-none  rounded bg-gray-100"
+                            placeholder='Your email address'
                         />
                     </div>
 
                     {/* To */}
                     <div className="flex items-center gap-2">
-                        <Label className="w-[80px] h-[26px] text-[12px] flex justify-end bg-white border border-blue-600/70 rounded px-1 font-light shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]">
+                        <Label className="w-[80px] h-[26px] text-[12px] flex justify-end  px-1 font-light ">
                             To:
                         </Label>
                         <input
                             type="email"
                             defaultValue="lpanahon06@gmail.com"
                             disabled
-                            className="w-full h-[26px] px-2 border border-black/50  rounded focus:outline-blue-600"
+                            className="w-full h-[26px] px-2 border-[1px] shadow-[inset_1px_1px_0px_rgba(0,0,0,0.45)] border-black/30 outline-none  rounded-[2px] "
                         />
                     </div>
 
                     {/* Subject */}
                     <div className="flex items-center gap-2">
-                        <Label className="w-[80px] h-[26px] text-[12px] flex justify-end bg-white border border-blue-600/70 rounded px-1 font-light shadow-[inset_0_2px_5px_rgba(103,169,246,0.95),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)]">
+                        <Label className="w-[80px] h-[26px] text-[12px] flex justify-end   px-1 font-light ">
                             Subject:
                         </Label>
                         <input
                             value={subject}
                             onChange={(e) => setSubject(e.target.value)}
                             type="text"
-                            className="w-full h-[26px] px-2 border border-black/50  rounded focus:outline-blue-600"
-                            placeholder='greetings...'
+                            className="w-full h-[26px] px-2 border-[1px] shadow-[inset_1px_1px_0px_rgba(0,0,0,0.45)] border-black/30 outline-none  rounded-[2px] "
+                            placeholder='Subject of your message'
                         />
                     </div>
                 </div>
@@ -139,8 +139,8 @@ const SendEmail = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         style={{ resize: 'none' }}
-                        placeholder="Type your message..."
-                        className="w-full h-full text-black text-[12px] border border-black/50  rounded p-2 outline-none resize-y focus:outline-blue-600 resize-none"
+                        placeholder="Write your message here..."
+                        className="w-full h-full text-black text-[12px] border-[1px] shadow-[inset_1px_1px_0px_rgba(0,0,0,0.45)] border-black/30  rounded-[2px] p-2 outline-none resize-y focus:outline-blue-600 resize-none"
                     ></textarea>
                 </div>
 

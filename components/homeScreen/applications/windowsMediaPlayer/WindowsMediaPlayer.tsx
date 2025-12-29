@@ -115,7 +115,7 @@ const WindowsMediaPlayer = () => {
         <div className="flex-1 h-full bg-[#ece9d8] flex flex-col border border-black/30">
 
             {/* Top Menu */}
-            <div className="flex items-center px-1 py-[2px] bg-[#edebd8] border-b border-black/20">
+            {/* <div className="flex items-center px-1 py-[2px] bg-[#edebd8] border-b border-black/20">
                 {topMenuItems.map((item) => (
                     <Label
                         key={item}
@@ -124,7 +124,7 @@ const WindowsMediaPlayer = () => {
                         {item}
                     </Label>
                 ))}
-            </div>
+            </div> */}
 
             {/* Main Content */}
             <div className="flex-1 flex bg-black  items-center justify-center relative">

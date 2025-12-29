@@ -13,7 +13,7 @@ const ProjectOverview = () => {
     const setAddressbarHistory = useAddressbarStore((state) => state.setAddressbarHistory)
     const setAddressBarCurrent = useAddressbarStore((state) => state.setAddressBarCurrent)
     return (
-        <div className="@container w-full h-full box-border text-black p-5">
+        <div className="@container w-full h-full box-border text-black p-2">
             <div className="flex flex-col @2xl:flex-row gap-6 justify-start h-full">
 
                
@@ -35,30 +35,30 @@ const ProjectOverview = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex flex-col gap-1'>
+                    <div className='flex flex-col gap-1 '>
                         
                         <Label className="text-lg font-normal font-orbitron leading-tight">
                             {projectsSelection[Number(addressBarCurrent.index)].label}
                         </Label>
-                        <div className='flex items-center gap-4'>
+                        <div className='flex items-center gap-1 @2xl:gap-4'>
                             <div className='flex items-center gap-1'>
-                                <FaGithub className='tet-white text-[35px]' />
-                                <Label className="text-sm text-white/60 font-normal">
+                                <FaGithub className='tet-black text-[25px] @2xl:text-[35px] ' />
+                                <Label className="text-[11px] @2xl:text-[13px] text-black/60 font-normal">
                                     tcultivator
                                 </Label>
                             </div>
                             {/* links and navigation */}
-                            <div className='flex items-center gap-2'>
-                                <Link className='bg-black hover:bg-black/80 rounded-[24px] text-white flex items-center justify-center  p-2 w-[70px] @2xl:w-[100px] ' href={'https://github.com/tcultivator'} target='_blank'>
+                            <div className='flex items-center gap-1 @2xl:gap-2'>
+                                <Link className='bg-black active:bg-black/80 hover:bg-black/80 rounded-[24px] text-white flex items-center justify-center  p-2 w-[70px] @2xl:w-[100px] ' href={'https://github.com/tcultivator'} target='_blank'>
                                     <Label className='text-[12px] mt-[-2px] cursor-pointer font-semibold'>Follow</Label>
                                 </Link>
-                                <Link className='bg-black/10    hover:bg-black/15 rounded-[24px] text-black flex items-center justify-center  p-2 w-[80px] @2xl:w-[100px] ' href={projectsSelection[Number(addressBarCurrent.index)].link} target='_blank'>
+                                <Link className='bg-black/10  active:bg-black/15   hover:bg-black/15 rounded-[24px] text-black flex items-center justify-center  p-2 w-[80px] @2xl:w-[100px] ' href={projectsSelection[Number(addressBarCurrent.index)].link} target='_blank'>
                                     <Label className='text-[12px] mt-[-2px] cursor-pointer font-semibold'>Full Demo</Label>
                                 </Link>
                                 <button onClick={() => {
                                     setAddressbarHistory(addressBarCurrent)
                                     setAddressBarCurrent({ index: null, label: projectsSelection[Number(addressBarCurrent.index)].link })
-                                }} className='bg-black/10    hover:bg-black/15 rounded-[24px] text-black flex items-center justify-center  p-2 w-[80px] @2xl:w-[100px] '>
+                                }} className='bg-black/10 active:bg-black/15   hover:bg-black/15 rounded-[24px] text-black flex items-center justify-center  p-2 w-[80px] @2xl:w-[100px] '>
                                     <Label className='text-[12px] mt-[-2px] cursor-pointer font-semibold'>Mini Demo</Label>
                                 </button>
                             </div>
@@ -88,7 +88,7 @@ const ProjectOverview = () => {
                                 setAddressBarCurrent({ index: index, label: `/MyWorks/${data.label}` })
                             }}
                                 key={index}
-                                className="group flex flex-col gap-1 @2xl:flex-row @2xl:gap-3 cursor-pointer hover:bg-black/5 p-2 rounded-[10px]"
+                                className="group flex flex-col gap-1 @2xl:flex-row @2xl:gap-3 cursor-pointer active:bg-black/5 hover:bg-black/5 p-2 rounded-[10px]"
                             >
                                 <div className="relative w-full @2xl:w-[60%] aspect-video border border-black/10 rounded overflow-hidden">
                                     <Image

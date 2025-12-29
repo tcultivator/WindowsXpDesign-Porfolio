@@ -25,7 +25,7 @@ export const AppInHomePage = ({ icon, label, onClick }: {
 }) => (
     <ContextMenu>
         <ContextMenuTrigger className=''>
-            <button id='MW' onDoubleClick={onClick} className='group flex flex-col items-center gap-1 justify-center aspect-square w-[90px] cursor-pointer  ' >
+            <button id='MW' onDoubleClick={onClick} className='group flex flex-col items-center gap-1 justify-start aspect-square py-2 focus:bg-white/30  border-[1px] focus:border-white/60 border-white/0 rounded  w-[87px] cursor-pointer  ' >
                 {icon}
                 {label}
             </button>
