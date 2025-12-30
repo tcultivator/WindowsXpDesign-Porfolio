@@ -62,40 +62,42 @@ const Signin = () => {
                         >
                             <div className="flex flex-col items-center h-[100dvh] md:h-screen w-screen text-white relative">
                                 <div className='bg-[#0036B3] p-1 w-full h-[23%] md:h-[12%] border-b-[3px] border-white' />
-                                <div className='p-1 w-full h-full flex items-center bg-[linear-gradient(to_bottom_right,#8aa8ff,#587FDB)]'>
-                                    <div className=' p-1 h-full w-[100%] md:w-[50%] flex justify-end items-center border-r-[1px] border-transparent [border-image:linear-gradient(180deg,#8aa8ff,#b2c3db,#8aa8ff)_1]'>
+                                <div className='p-1 w-full h-full flex flex-col md:flex-row items-center bg-[linear-gradient(to_bottom_right,#8aa8ff,#587FDB)]'>
+                                    <div className=' p-1 h-full w-[80%] md:w-[50%] flex justify-center md:justify-end items-center border-b-[2px] md:border-b-[0px] [border-image:linear-gradient(90deg,#8aa8ff,#b2c3db,#8aa8ff)_1] md:border-r-[1px] border-transparent md:[border-image:linear-gradient(180deg,#8aa8ff,#b2c3db,#8aa8ff)_1]'>
                                         <div className='flex flex-col gap-7 justify-end items-end px-5'>
                                             <div className="w-max flex flex-col gap-4 md:gap-5 justify-center items-center ">
-                                                <div className="pl-10">
+                                                <div className="pl-8 md:pl-10">
                                                     <div className=" px-1 flex justify-start ">
-                                                        <div className="flex items-end gap-5 leading-none ">
-                                                            <Label className="leading-none text-[13px] md:text-[16px] font-geist-sans font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]">Luigie Panahon</Label>
+                                                        <div className="flex items-end gap-1 md:gap-3 leading-none ">
+                                                            <Label className="leading-none text-[11px] md:text-[16px] font-geist-sans font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]">Luigie Panahon</Label>
                                                             <div className="relative mb-[-5px]">
-                                                                <Image src={Logo} alt="" height={100} width={100} className="w-20 md:w-20 filter drop-shadow-[0_0_.5px_black]" />
-                                                                <Label className=" text-[8px] md:text-[8px] absolute bottom-3 right-1 md:right-0 leading-none font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]">TM</Label>
+                                                                <Image src={Logo} alt="" height={100} width={100} className="w-17 md:w-25 filter drop-shadow-[0_0_.5px_black]" />
+                                                                <Label className=" text-[6px] md:text-[8px] absolute bottom-3 right-0 md:right-0 leading-none font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]">TM</Label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div className="mt-[-5px] md:mt-[-5px] flex justify-start flex-col">
-                                                        <Label className="text-[50px] md:text-[50px] font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black] leading-none">Portfolio <sup className="text-[#D96C29] text-[35px] md:text-[30px]">xp</sup></Label>
-                                                        <Label className="text-[20px] md:text-[20px] font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black] font-geist-sans  leading-none px-3">Web Developer</Label>
+                                                        <Label className="text-[35px] md:text-[50px] font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black] leading-none">Portfolio <sup className="text-[#D96C29] ml-[-7px] md:ml-[0px] text-[26px] md:text-[30px]">xp</sup></Label>
+                                                        <Label className="text-[15px] md:text-[20px] font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black] font-geist-sans  leading-none px-3">Web Developer</Label>
                                                     </div>
                                                 </div>
-                                                <Label className='text-[16px] font-mono font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]'>To begin, click profile to login</Label>
+                                                <Label className='text-[16px] hidden md:block font-mono font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]'>To begin, click profile to login</Label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className=' p-1 h-full w-[50%] flex justify-start items-center p-5'>
-                                        <button onClick={login} className='rounded flex justify-start items-center p-3 h-max gap-2 cursor-pointer hover:bg-gradient-to-r from-[#0036B3] via-[#0036B3]/40 to-[#8aa8ff]/5 w-full max-w-[400px]'>
+                                    <div className=' p-1 h-full w-[100%] md:w-[50%] flex justify-center md:justify-start items-center md:p-5'>
+                                        <button onClick={login} className='rounded flex flex-col md:flex-row justify-start items-center p-3 h-max gap-2 cursor-pointer active:bg-gradient-to-r from-[#0036B3] via-[#0036B3]/40 to-[#8aa8ff]/5 hover:bg-gradient-to-r from-[#0036B3] via-[#0036B3]/40 to-[#8aa8ff]/5 w-max md:w-full max-w-[400px]'>
                                             <Image src={"/profile.gif"} alt="" height={100} width={100} className="w-17 md:w-17 border-[3px] rounded border-white filter drop-shadow-[0_0_.5px_black]" />
                                             <div>
-                                                <Label className='text-[20px] font-semibold cursor-pointer [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]'>Luigie Panahon</Label>
-                                                <Label className='text-[15px] font-mono font-semibold italic cursor-pointer [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]'>Web Developer</Label>
+                                                <Label className='text-[15px] md:text-[20px] leading-none md:leading-tight  w-full flex justify-center md:justify-start font-semibold cursor-pointer [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]'>Luigie Panahon</Label>
+                                                <Label className='text-[12px] md:text-[15px]  w-full flex justify-center md:justify-start font-mono font-semibold italic cursor-pointer [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black]'>Web Developer</Label>
                                             </div>
                                         </button>
                                     </div>
                                 </div>
-                                <div className='bg-[#0036B3] p-3 px-10 w-full h-[26%] md:h-[15%] border-t-[3px] border-white' />
+                                <div className='bg-[#0036B3] p-3 flex justify-center items-center px-10 w-full h-[26%] md:h-[15%] border-t-[3px] border-white' >
+                                    <Label className='text-[13px] font-mono font-semibold  [text-shadow:.5px_.5px_.5px_black] [-webkit-text-stroke:0.1px_black] block md:hidden'>To begin, click profile to login</Label>
+                                </div>
                             </div>
                         </motion.div>
                     )
