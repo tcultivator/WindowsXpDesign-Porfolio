@@ -1,36 +1,45 @@
-"use client"
-import Loading_screen from "./loading-screen/loading-screen";
+"use client";
 import { useState, useEffect } from "react";
-import Signin from "./signin/signin";
 import { AnimatePresence, motion } from "framer-motion";
-export default function Startup() {
-    const [loadingScreen, setLoadingScreen] = useState(true)
+import Loading_screen from "./loading-screen/loading-screen";
+import HomeScreen from "../homeScreen/HomeScreen";
+
+const Startup: React.FC = () => {
+
+    const [session, setSession] = useState<string | null>(null);
+
     useEffect(() => {
-        setTimeout(() => {
-            setLoadingScreen(false)
-        }, 3000);
-    }, [])
+        const storedSession = sessionStorage.getItem("session");
+
+        if (storedSession === null) {
+            setSession(storedSession);
+        }
+    }, []);
+
     return (
         <AnimatePresence mode="wait">
-            {loadingScreen ? (
-                <motion.div
-                    key="loading"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1, transition: { duration: 1 } }}
-                    exit={{ opacity: 0, transition: { duration: 0.3 } }}
-                >
-                    <Loading_screen />
-                </motion.div>
-            ) : (
-                <motion.div
-                    key="signin"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1, transition: { duration: 0.9 } }}
-                >
-                    <Signin />
-                </motion.div>
-            )}
-        </AnimatePresence>
+            {session ?
 
+                (
+                    <motion.div
+                        key="home"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { duration: 0.9 } }}
+                    >
+                        <HomeScreen />
+                    </motion.div>
+                ) : (
+                    <motion.div
+                        key="loading"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { duration: 1 } }}
+                        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+                    >
+                        <Loading_screen />
+                    </motion.div>
+                )}
+        </AnimatePresence>
     );
-}
+};
+
+export default Startup;

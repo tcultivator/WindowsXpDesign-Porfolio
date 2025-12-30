@@ -146,7 +146,7 @@ const HomeScreen = () => {
 
 
     return (
-        <div className='h-[100dvh] overflow-hidden'>
+        <div className='h-[100dvh] w-screen overflow-hidden'>
 
             <ContextMenu>
                 <ContextMenuTrigger>
