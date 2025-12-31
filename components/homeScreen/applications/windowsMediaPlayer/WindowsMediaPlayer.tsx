@@ -31,7 +31,7 @@ const WindowsMediaPlayer = () => {
     const currentMusicPlaying = useWindowsMediaPlayerStore((state) => state.currentMusicPlaying)
     const setCurrentMusicPlaying = useWindowsMediaPlayerStore((state) => state.setCurrentMusicPlaying)
     const togglePlay = () => {
-        
+
         const audio = playerRef.current?.audio.current
         if (!audio) return
 
@@ -39,12 +39,12 @@ const WindowsMediaPlayer = () => {
             audio.play()
             vidRef.current?.play()
             setIsPlaying(true)
-            
+
         } else {
             audio.pause()
             setIsPlaying(false)
             vidRef.current?.pause()
-            
+
         }
     }
 
@@ -114,18 +114,6 @@ const WindowsMediaPlayer = () => {
     return (
         <div className="flex-1 h-full bg-[#ece9d8] flex flex-col border border-black/30">
 
-            {/* Top Menu */}
-            {/* <div className="flex items-center px-1 py-[2px] bg-[#edebd8] border-b border-black/20">
-                {topMenuItems.map((item) => (
-                    <Label
-                        key={item}
-                        className="text-[10px] text-black px-2 hover:bg-[#235ddb] hover:text-white"
-                    >
-                        {item}
-                    </Label>
-                ))}
-            </div> */}
-
             {/* Main Content */}
             <div className="flex-1 flex bg-black  items-center justify-center relative">
                 {currentMusicPlaying ? (
@@ -135,7 +123,7 @@ const WindowsMediaPlayer = () => {
                         loop
                         muted
                         playsInline
-                        className='w-full'
+                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                     />
                 ) :
                     <div className='p-3 bg-white/50 w-full max-w-[150px]'>
