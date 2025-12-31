@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Loading_screen from "./loading-screen/loading-screen";
 import HomeScreen from "../homeScreen/HomeScreen";
+import { useStartMenufunctionStore } from "@/stores/startMenuFunctionStore";
 
 const Startup: React.FC = () => {
 
     const [session, setSession] = useState<string | null>(null);
-
+    
     useEffect(() => {
         const storedSession = sessionStorage.getItem("session");
 
@@ -15,6 +16,7 @@ const Startup: React.FC = () => {
             setSession(storedSession);
         }
     }, []);
+
 
     return (
         <AnimatePresence mode="wait">

@@ -12,11 +12,15 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 //zustand store data
 import { useApplicationStore } from '@/stores/application';
+import { useStartMenufunctionStore } from '@/stores/startMenuFunctionStore';
 
 const startMenu = () => {
     const applicationData = useApplicationStore((state) => state.applicationsData)
     const setErrorWindowItem = useApplicationStore((state) => state.setErrorWindowItem)
     const sysAppData = useApplicationStore((state) => state.sysAppData)
+
+    const setTurnOffModal = useStartMenufunctionStore((state) => state.setTurnOffModal)
+    const setLogOffModal = useStartMenufunctionStore((state) => state.setLogOffModal)
     return (
 
         <DropdownMenu>
@@ -92,7 +96,7 @@ const startMenu = () => {
                                                 <div className='bg-white w-[150px] border border-black/10 text-black  flex flex-col gap-2'>
                                                     {
                                                         applicationData.map((data, index) => (
-                                                            
+
                                                             <div key={index} onClick={data.applicationOpenFunction} className='flex items-center gap-1 p-1  hover:bg-[#346eed] hover:text-white active:bg-[#346eed] active:text-white cursor-pointer'>
                                                                 <Image src={data.applicationIcon} alt='' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                                                                 <div>
@@ -176,8 +180,14 @@ const startMenu = () => {
                         </div>
                     </div>
                     <div className='p-3 flex items-center gap-4 justify-end'>
-                        <button className='flex gap-1 items-center cursor-pointer bg-transparent hover:bg-black/10'><Image src="/logoffbtn.ico" alt='folder icon' width={20} height={20} className='w-[22px] select-none ' draggable={false} /><Label className='font-thin text-[13px] cursor-pointer'>Log Off</Label></button>
-                        <button className='flex gap-1 items-center cursor-pointer bg-transparent hover:bg-black/10'><Image src="/poweroffbtn.ico" alt='folder icon' width={20} height={20} className='w-[22px] select-none ' draggable={false} /><Label className='font-thin text-[13px] cursor-pointer'>Turn Off Computer</Label></button>
+
+                        <DropdownMenuItem>
+                            <button onClick={() => setLogOffModal(true)} className='flex gap-1 items-center cursor-pointer bg-transparent hover:bg-black/10'><Image src="/logoffbtn.ico" alt='folder icon' width={20} height={20} className='w-[22px] select-none ' draggable={false} /><Label className='font-thin text-[13px] cursor-pointer'>Log Off</Label></button>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <button onClick={() => setTurnOffModal(true)} className='flex gap-1 items-center cursor-pointer bg-transparent hover:bg-black/10'><Image src="/poweroffbtn.ico" alt='folder icon' width={20} height={20} className='w-[22px] select-none ' draggable={false} /><Label className='font-thin text-[13px] cursor-pointer'>Turn Off Computer</Label></button>
+                        </DropdownMenuItem>
+
                     </div>
                 </div>
             </DropdownMenuContent>

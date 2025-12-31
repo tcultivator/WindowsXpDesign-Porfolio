@@ -84,7 +84,7 @@ const IEBar = ({ icon, title, id }: props) => {
                         }
 
                     </Menubar>
-                
+
                 </div>
                 <div className='px-2 border-l border-black/30 bg-white'>
                     <Image src={Logo} alt='' width={50} height={50} className='w-[15px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
@@ -149,9 +149,9 @@ const IEBar = ({ icon, title, id }: props) => {
             <div className='bg-[#edebd8]  flex items-center gap-1 border-b-[.5px] border-b-black/15'>
                 <Label className='font-light text-black/50 text-[10px] p-[2px] px-2'>Address</Label>
                 <div className='bg-white border-t border-[#edebd8] w-full h-full  flex justify-between items-center '>
-                    <div className='flex items-center relative  pl-1 w-full'>
+                    <div className='flex items-center relative  pl-1 w-full '>
                         <Label className='w-[13px]'>{icon}</Label>
-                        <Label className='font-light text-black/60 text-[10px] p-[2px] px-2'>{addressBarCurrent.label}</Label>
+                        <Label className='font-light text-black/60 text-[10px] p-[2px] px-2 overflow-ellipsis min-w-0 inline-block overflow-hidden whitespace-nowrap' style={{ maxWidth: 'calc(100% - 20px)' }}>{addressBarCurrent.label}</Label>
                         <div
                             className={`absolute left-0 top-0 h-full ${addressBarLoading == 0 ? 'bg-blue-400/0' : 'bg-blue-400/30'} transition-[width] duration-75`}
                             style={{ width: `${addressBarLoading}%` }}
