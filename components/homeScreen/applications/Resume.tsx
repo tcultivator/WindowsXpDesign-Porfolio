@@ -1,10 +1,146 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
+import Image from 'next/image'
+import { Label } from '@/components/ui/label'
+import { openEmail } from '@/utils/OpenApplication'
+const clamp = (v: number, min: number, max: number) =>
+    Math.min(Math.max(v, min), max)
 
 const Resume = () => {
+    const [zoomed, setZoomed] = useState(false)
+    const [origin, setOrigin] = useState('50% 50%')
+    const [position, setPosition] = useState({ x: 0, y: 0 })
+    const [dragging, setDragging] = useState(false)
+
+    const containerRef = useRef<HTMLDivElement>(null)
+    const imageRef = useRef<HTMLDivElement>(null)
+    const startPos = useRef({ x: 0, y: 0 })
+    const hasMoved = useRef(false)
+
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (hasMoved.current) {
+            hasMoved.current = false
+            return
+        }
+
+        const rect = e.currentTarget.getBoundingClientRect()
+        const x = ((e.clientX - rect.left) / rect.width) * 100
+        const y = ((e.clientY - rect.top) / rect.height) * 100
+
+        setOrigin(`${x}% ${y}%`)
+        setZoomed((prev) => !prev)
+
+        if (zoomed) setPosition({ x: 0, y: 0 })
+    }
+
+    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!zoomed) return
+        setDragging(true)
+        hasMoved.current = false
+        startPos.current = {
+            x: e.clientX - position.x,
+            y: e.clientY - position.y,
+        }
+    }
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!dragging || !zoomed || !containerRef.current || !imageRef.current)
+            return
+
+        const container = containerRef.current.getBoundingClientRect()
+        const image = imageRef.current.getBoundingClientRect()
+
+        const nextX = e.clientX - startPos.current.x
+        const nextY = e.clientY - startPos.current.y
+
+        const maxX = (image.width - container.width)
+        const maxY = (image.height - container.height)
+
+        hasMoved.current = true
+
+        setPosition({
+            x: clamp(nextX, -maxX, maxX),
+            y: clamp(nextY, -maxY, maxY),
+        })
+    }
+
+    const handleMouseUp = () => setDragging(false)
+
+    const handleDownload = () => {
+        // Path to your PDF in the public folder
+        const link = document.createElement('a')
+        link.href = '/PANAHON LUIGIE B. RESUME.pdf' // must be in /public
+        link.download = 'PANAHON_LUIGIE_B_Resume.pdf' // file name for download
+        link.click()
+    }
+
     return (
-        <div className='w-full h-full'>
-            <embed type="application/pdf" src="PANAHON LUIGIE B. RESUME.pdf" width="100%" height="100%"></embed>
+        <div className='flex flex-col w-full h-full'>
+            <div className='flex items-center bg-[#edebd8] p-1 gap-1'>
+                <div className='border-r border-r-black/10 flex items-center justify-center px-1'>
+                    <button onClick={() => {
+                        if (zoomed) setPosition({ x: 0, y: 0 })
+                        setZoomed((prev) => !prev)
+
+                    }} className={`${zoomed && 'border-black/20'} hover:border-black/20 active:border-black/20  rounded border text-black flex items-center gap-[3px] @2xl:text-[11px] text-[10px]  p-1 cursor-pointer hover:brightness-110 active:brightness-110`}>
+                        <Image src={'/searchIcon.ico'} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                        <Label className='font-light text-black/60  @2xl:text-[11px] text-[10px]'>Zoom</Label>
+                    </button>
+                </div>
+
+                <div className='border-r border-r-black/10 flex items-center justify-center px-1'>
+                    <button onClick={handleDownload} className='hover:border-black/20 active:border-black/20  rounded border text-black flex items-center gap-[3px] @2xl:text-[11px] text-[10px]  p-1 cursor-pointer hover:brightness-110 active:brightness-110'>
+                        <Image src={'/Save.png'} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                        <Label className='font-light text-black/60  @2xl:text-[11px] text-[10px]'>Save</Label>
+                    </button>
+                </div>
+                <div className='border-r border-r-black/10 flex items-center justify-center px-1'>
+                    <button className='opacity-50 text-black flex items-center gap-[3px] @2xl:text-[11px] text-[10px]  p-1 cursor-pointer'>
+                        <Image src={'/internetExplorerHeaderTab/print.ico'} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                        <Label className='font-light text-black/60  @2xl:text-[11px] text-[10px]'>Print</Label>
+                    </button>
+                </div>
+                <div>
+                    <button onClick={openEmail} className='hover:border-black/20 active:border-black/20  rounded border text-black flex items-center gap-[3px] @2xl:text-[11px] text-[10px]  p-1 cursor-pointer hover:brightness-110 active:brightness-110'>
+                        <Image src={'/email.webp'} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                        <Label className='font-light text-black/60  @2xl:text-[11px] text-[10px]'>E-mail</Label>
+                    </button>
+                </div>
+            </div>
+            <div
+                ref={containerRef}
+                className="w-full h-full flex flex-col justify-start items-start bg-black p-2 overflow-hidden"
+            >
+
+                <div
+                    ref={imageRef}
+                    onClick={handleClick}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}
+                    style={{
+                        transformOrigin: origin,
+                        transform: `translate(${position.x}px, ${position.y}px) scale(${zoomed ? 2 : 1})`,
+                    }}
+                    className={`select-none w-full max-w-full h-max max-h-full ${zoomed
+                        ? dragging
+                            ? 'cursor-grabbing'
+                            : 'cursor-grab'
+                        : 'cursor-zoom-in'
+                        }`}
+                >
+                    <Image
+                        src="/PANAHON LUIGIE B. RESUME-1.jpg"
+                        alt="Resume"
+                        width={1500}
+                        height={2000}
+                        className="w-full max-w-full h-max max-h-full object-contain pointer-events-none"
+                        draggable={false}
+                    />
+                </div>
+            </div>
         </div>
+
     )
 }
 

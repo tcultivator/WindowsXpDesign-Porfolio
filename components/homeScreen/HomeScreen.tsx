@@ -32,6 +32,7 @@ import AccessDenied from '@/components/homeScreen/accessDenied/AccessDenied'
 import IEBar from '@/utils/IEBar'
 import EmailTopBar from '@/utils/EmailTopBar'
 import WindowsMediaPlayerTopBar from '@/utils/WindowsMediaPlayerTopBar'
+import ResumeTopMenuBar from '@/utils/ResumeTopMenuBar';
 
 
 // zustand store
@@ -496,6 +497,12 @@ const HomeScreen = () => {
                                                 id={data.id}
                                             />}
                                             {data.title == 'windows media player' && <WindowsMediaPlayerTopBar
+                                                title={data.title}
+                                                icon={data.icon}
+                                                id={data.id}
+                                            />}
+
+                                            {data.title == 'Resume' && <ResumeTopMenuBar
                                                 title={data.title}
                                                 icon={data.icon}
                                                 id={data.id}
