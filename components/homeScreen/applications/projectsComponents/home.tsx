@@ -64,7 +64,7 @@ The platform also supports real-time updates, notifications, and a personalized 
         label: 'Portfolio v1',
         link: 'https://tcultivator.github.io/myPortfolio/',
         description: `Custom Design Portfolio
-This portfolio showcases a fully custom design created from scratch to highlight your projects, skills, and personal brand. It features a modern, clean, and responsive layout that emphasizes usability and aesthetics. Every section is tailored to your style, providing an engaging experience for visitors while effectively presenting your work and achievements.`,
+This portfolio showcases a fully custom design created from scratch to highlight my projects, skills, and personal brand. It features a modern, clean, and responsive layout that emphasizes usability and aesthetics. The design incorporates unique visual elements, smooth animations, and interactive features to engage visitors and provide an immersive browsing experience. Each section is thoughtfully crafted to effectively communicate my expertise and creativity as a developer.`,
         views: '2K',
         time: '1 month ago',
         duration: '00:55',
@@ -77,7 +77,7 @@ This portfolio showcases a fully custom design created from scratch to highlight
         label: 'Portfolio Inspired WindowsXp',
         link: 'https://lpxp.vercel.app/',
         description: `Windows XP-Inspired Portfolio
-This portfolio is a creative homage to the classic Windows XP interface, blending nostalgia with modern web functionality. It features interactive elements, retro-inspired visuals, and a playful interface while maintaining responsiveness and usability. The design uniquely showcases your projects and skills, offering visitors a fun and memorable browsing experience.
+This portfolio is a creative homage to the classic Windows XP interface, blending nostalgia with modern web functionality. It features interactive elements, retro-inspired visuals, and a playful interface while maintaining responsiveness and usability. The design uniquely showcases my projects and skills, offering visitors a fun and memorable browsing experience.
 `,
         views: '1.5M',
         time: '2 months ago',
@@ -116,7 +116,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
         video: mp3PlayerV2Preview,
         label: 'Mp3 Player v.2',
         link: 'https://tcultivator.github.io/Improve-Mp3Player/',
-        description: `A sleek and responsive music player that lets users play, pause, skip tracks, and manage playlists — built for smooth audio playback and a clean user interface.
+        description: `A sleek and responsive music player that lets users play, pause, skip tracks, and manage playlists. Built for smooth audio playback and a clean user interface.
 `,
         views: '1K',
         time: '5 months ago',
@@ -129,7 +129,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
         video: mp3PlayerV1Preview,
         label: 'Mp3 Player v.1',
         link: 'https://tcultivator.github.io/MP3PLAYER/',
-        description: `A basic MP3 player that allows users to play, pause, and skip audio tracks — built with a focus on simplicity and smooth playback.
+        description: `A basic MP3 player that allows users to play, pause, and skip audio tracks. Built with a focus on simplicity and smooth playback.
 `,
         views: '300',
         time: '6 months ago',
