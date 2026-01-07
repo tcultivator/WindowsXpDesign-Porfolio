@@ -101,7 +101,7 @@ const Resume = () => {
                 </div>
                 <div>
                     <button onClick={openEmail} className='hover:border-black/20 active:border-black/20  rounded border text-black flex items-center gap-[3px] @2xl:text-[11px] text-[10px]  p-1 cursor-pointer hover:brightness-110 active:brightness-110'>
-                        <Image src={'/email.webp'} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                        <Image src={'/Outlook Express.png'} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         <Label className='font-light text-black/60  @2xl:text-[11px] text-[10px]'>E-mail</Label>
                     </button>
                 </div>

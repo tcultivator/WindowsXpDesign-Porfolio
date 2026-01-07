@@ -34,7 +34,7 @@ const startMenu = () => {
                 <div className="grid gap-0 p-1">
                     <div className='flex items-center gap-1 p-1'>
                         <div className='p-[3px] w-max rounded-[7px] bg-[#587FDB] inset-shadow-sm inset-shadow-white '>
-                            <Image src="/profile.jpg" alt='' width={50} height={50} className='w-[40px] md:w-[50px] rounded select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
+                            <Image src="/profile.gif" alt='' width={50} height={50} className='w-[40px] md:w-[50px] rounded select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         </div>
 
                     </div>

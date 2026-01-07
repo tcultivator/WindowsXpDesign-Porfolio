@@ -1,1 +1,23 @@
-{"status":"ready","originalFilePath":"videos\\OverClockedX-Client-Final.mp4","provider":"mux","providerMetadata":{"mux":{"uploadId":"OsB8JNFwVS00vINLac02W00I00O3qK01jHDdnOb00J3T7c5Rc","assetId":"eluKrEbO5LmmsH2ySlkzfXYZJkZXa2Isk7WFm27Zvzk","playbackId":"S8IoQ2V8btSE7idT5qvKOVK02j4WP00lNpsZfnWuhjzvM"}},"createdAt":1767376555503,"updatedAt":1767376572180,"size":94625895,"sources":[{"src":"https://stream.mux.com/S8IoQ2V8btSE7idT5qvKOVK02j4WP00lNpsZfnWuhjzvM.m3u8","type":"application/x-mpegURL"}],"poster":"https://image.mux.com/S8IoQ2V8btSE7idT5qvKOVK02j4WP00lNpsZfnWuhjzvM/thumbnail.webp","blurDataURL":"data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAAQAcJZwC7AD1XmTmgAD+/xiTuuP/0ZFx8KzLujuhDac6s7EHydLpcM0ZemO9A4CF5JW609xphFiuEAAA"}
+{
+    "status": "ready",
+    "originalFilePath": "videos\\OverClockedX-Client-Final.mp4",
+    "provider": "mux",
+    "providerMetadata": {
+        "mux": {
+            "uploadId": "OsB8JNFwVS00vINLac02W00I00O3qK01jHDdnOb00J3T7c5Rc",
+            "assetId": "eluKrEbO5LmmsH2ySlkzfXYZJkZXa2Isk7WFm27Zvzk",
+            "playbackId": "S8IoQ2V8btSE7idT5qvKOVK02j4WP00lNpsZfnWuhjzvM"
+        }
+    },
+    "createdAt": 1767376555503,
+    "updatedAt": 1767376572180,
+    "size": 94625895,
+    "sources": [
+        {
+            "src": "https://stream.mux.com/S8IoQ2V8btSE7idT5qvKOVK02j4WP00lNpsZfnWuhjzvM.m3u8",
+            "type": "application/x-mpegURL"
+        }
+    ],
+    "poster": "https://image.mux.com/S8IoQ2V8btSE7idT5qvKOVK02j4WP00lNpsZfnWuhjzvM/thumbnail.webp",
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAAQAcJZwC7AD1XmTmgAD+/xiTuuP/0ZFx8KzLujuhDac6s7EHydLpcM0ZemO9A4CF5JW609xphFiuEAAA"
+}

@@ -76,7 +76,7 @@ export const useApplicationStore = create<Applications>((set) => ({
         }
 
 
-        
+
 
         // Calculate perfect center
         let startX = window.innerWidth / 2 - defaultWidth / 2;
@@ -101,7 +101,7 @@ export const useApplicationStore = create<Applications>((set) => ({
                     icon,
                     content,
                     startX,
-                    startY,
+                    startY: startY - 28,
                     defaultWidth,
                     defaultHeight,
                     fullScreen: title == 'Resume' || useApplicationStore.getState().isMobileDevice == true ? true : false,
@@ -219,7 +219,7 @@ export const useApplicationStore = create<Applications>((set) => ({
         applicationOpenFunction: () => openInternetExplorer('https://www.google.com/')
     },
     {
-        applicationIcon: '/email.webp',
+        applicationIcon: '/Outlook Express.png',
         applicationName: 'E-mail',
         applicationSubName: 'Outlook Express',
         applicationOpenFunction: openEmail

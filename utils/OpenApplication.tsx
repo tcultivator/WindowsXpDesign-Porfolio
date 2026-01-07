@@ -27,7 +27,7 @@ export function openQuickStart() {
 }
 
 export function openMyWorks() {
-    const width = window.innerWidth * 0.8;
+    const width = window.innerWidth * 0.7;
     const height = window.innerHeight * 0.8;
     useApplicationStore.getState().addWindowItem('My Works', <Image src="/internetIcon.ico" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <Projects />, width, height, 'Select a project to view details.')
 }
@@ -35,7 +35,7 @@ export function openMyWorks() {
 export function openEmail() {
     const width = window.innerWidth * 0.3;
     const height = window.innerHeight * 0.6;
-    useApplicationStore.getState().addWindowItem('E-Mail', <Image src="/email.webp" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <SendEmail />, width, height, `Compose a message for Luigie Panahon.`)
+    useApplicationStore.getState().addWindowItem('E-Mail', <Image src="/Outlook Express.png" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <SendEmail />, width, height, `Compose a message for Luigie Panahon.`)
 }
 
 export function openResume() {

@@ -1,1 +1,23 @@
-{"status":"ready","originalFilePath":"videos\\overclockedx-admin.mp4","provider":"mux","providerMetadata":{"mux":{"uploadId":"I401SEpxAUxWm02GRJBnblOhZfTIPe4PMs4ESlIAFroVo","assetId":"9kagZETu4vJpkuG9KCBCHQvqgyt4baPskw77wUmgiE8","playbackId":"NEMVeLE02Z301foC6Q6HHcJXE01LSiD5tGRFMdC4Ow84fc"}},"createdAt":1767376864438,"updatedAt":1767377093970,"size":66468472,"sources":[{"src":"https://stream.mux.com/NEMVeLE02Z301foC6Q6HHcJXE01LSiD5tGRFMdC4Ow84fc.m3u8","type":"application/x-mpegURL"}],"poster":"https://image.mux.com/NEMVeLE02Z301foC6Q6HHcJXE01LSiD5tGRFMdC4Ow84fc/thumbnail.webp","blurDataURL":"data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAkAAQAcJZwC7AEPAqVs3cSwAP60L/dru3X+3u2+g3FQNDYaRg7eBPvVIRYJvztx0Zx9+X7V2JuKaoqWi5MPUzkAjUYA"}
+{
+    "status": "ready",
+    "originalFilePath": "videos\\overclockedx-admin.mp4",
+    "provider": "mux",
+    "providerMetadata": {
+        "mux": {
+            "uploadId": "I401SEpxAUxWm02GRJBnblOhZfTIPe4PMs4ESlIAFroVo",
+            "assetId": "9kagZETu4vJpkuG9KCBCHQvqgyt4baPskw77wUmgiE8",
+            "playbackId": "NEMVeLE02Z301foC6Q6HHcJXE01LSiD5tGRFMdC4Ow84fc"
+        }
+    },
+    "createdAt": 1767376864438,
+    "updatedAt": 1767377093970,
+    "size": 66468472,
+    "sources": [
+        {
+            "src": "https://stream.mux.com/NEMVeLE02Z301foC6Q6HHcJXE01LSiD5tGRFMdC4Ow84fc.m3u8",
+            "type": "application/x-mpegURL"
+        }
+    ],
+    "poster": "https://image.mux.com/NEMVeLE02Z301foC6Q6HHcJXE01LSiD5tGRFMdC4Ow84fc/thumbnail.webp",
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAkAAQAcJZwC7AEPAqVs3cSwAP60L/dru3X+3u2+g3FQNDYaRg7eBPvVIRYJvztx0Zx9+X7V2JuKaoqWi5MPUzkAjUYA"
+}

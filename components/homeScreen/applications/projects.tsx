@@ -40,6 +40,9 @@ const Projects = () => {
         }
     }, [addressBarCurrent])
 
+    const featuredProjectsOn = useAddressbarStore((state) => state.featuredProjectsOn)
+    const setFeaturedProjectsOn = useAddressbarStore((state) => state.setFeaturedProjectsOn)
+
 
     return (
         <div
@@ -92,14 +95,20 @@ const Projects = () => {
                                     </div>
 
                                     <div className="flex flex-col gap-3 text-black">
-                                        <div className="flex items-center gap-1 cursor-pointer">
-                                            <GoHome className='text-[20px]' />
-                                            <Label className='font-normal text-[16px]'>Home</Label>
+                                        <div onClick={() => {
+                                            setAddressbarHistory(addressBarCurrent)
+                                            setAddressBarCurrent({
+                                                index: null,
+                                                label: '/MyWorks',
+                                            })
+                                        }} className="flex items-center gap-1 cursor-pointer">
+                                            <GoHome className='text-[20px] cursor-pointer' />
+                                            <Label className='font-normal text-[14px] cursor-pointer'>Home</Label>
                                         </div>
 
-                                        <div className="flex items-center gap-1 cursor-pointer">
-                                            <IoIosStarOutline className='text-[20px]' />
-                                            <Label className='font-normal text-[16px] '>Featured Projects</Label>
+                                        <div onClick={setFeaturedProjectsOn} className="flex items-center gap-1 cursor-pointer">
+                                            <IoIosStarOutline className={`${featuredProjectsOn ? 'text-yellow-400' : 'text-black'} text-[20px] cursor-pointer`} />
+                                            <Label className={`${featuredProjectsOn ? 'font-bold' : 'font-normal'} text-[14px] cursor-pointer`}>Featured Projects</Label>
                                         </div>
                                     </div>
                                 </div>
@@ -151,13 +160,13 @@ const Projects = () => {
                                     }}
                                     className="flex items-center gap-1 cursor-pointer"
                                 >
-                                    <GoHome className='text-[20px]' />
-                                    <Label className='font-normal text-[16px]'>Home</Label>
+                                    <GoHome className='text-[20px] cursor-pointer' />
+                                    <Label className='font-normal text-[14px] cursor-pointer'>Home</Label>
                                 </div>
 
-                                <div className="flex items-center gap-1">
-                                    <IoIosStarOutline className='text-[20px]' />
-                                    <Label className='font-normal text-[16px] '>Featured Projects</Label>
+                                <div onClick={setFeaturedProjectsOn} className="flex items-center gap-1">
+                                    <IoIosStarOutline className={`${featuredProjectsOn ? 'text-yellow-400' : 'text-black'} text-[20px] cursor-pointer`} />
+                                    <Label className={`${featuredProjectsOn ? 'font-bold' : 'font-normal'} text-[14px] cursor-pointer`}>Featured Projects</Label>
                                 </div>
                             </div>
 

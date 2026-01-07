@@ -16,7 +16,8 @@ type addressBar = {
     setAddressBarCurrent: ({ label, index }: { label: string, index: number | null }) => void,
     prevHistory: () => void,
     indexOfprojectsSelection: number | null,
-
+    featuredProjectsOn: boolean,
+    setFeaturedProjectsOn: () => void,
 }
 export const useAddressbarStore = create<addressBar>((set) => ({
     addressBarLoading: null,
@@ -43,7 +44,7 @@ export const useAddressbarStore = create<addressBar>((set) => ({
     prevHistory: () => {
 
         const historyData = useAddressbarStore.getState().addressBarHistory
-        
+
         set({
             addressBarCurrent: historyData[historyData.length - 1]
         })
@@ -61,6 +62,13 @@ export const useAddressbarStore = create<addressBar>((set) => ({
 
     },
     indexOfprojectsSelection: null,
+    featuredProjectsOn: false,
+    setFeaturedProjectsOn: () => {
+        set((state) => ({
+            featuredProjectsOn: !state.featuredProjectsOn
+        }))
+    }
+
 
 
 }))

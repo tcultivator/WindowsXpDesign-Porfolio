@@ -87,7 +87,7 @@ const QuickStartGuide = () => {
                     {/* Contact */}
                     <QuickStartItem
                         label="Send E-mail"
-                        icon={<Image src="/email.webp" alt='' width={500} height={500} className={`${isMobileDevice ? 'w-[30px]' : 'w-[40px]'}  select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`} draggable={false} />}
+                        icon={<Image src="/Outlook Express.png" alt='' width={500} height={500} className={`${isMobileDevice ? 'w-[30px]' : 'w-[40px]'}  select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`} draggable={false} />}
                         onClick={openEmail}
                     />
 

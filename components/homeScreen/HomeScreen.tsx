@@ -285,7 +285,7 @@ const HomeScreen = () => {
                                         <AppInHomePage
                                             icon={
                                                 <Image
-                                                    src="/email.webp"
+                                                    src="/Outlook Express.png"
                                                     alt=""
                                                     width={1000}
                                                     height={1000}
