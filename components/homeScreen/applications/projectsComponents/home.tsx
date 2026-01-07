@@ -19,6 +19,7 @@ import jobApplicationManagerPreview from '@/videos/JobApplicationPreview.mp4';
 import portfolioV1Preview from '@/videos/portfolioV1Preview.mp4';
 import instagangPreview from '@/videos/instagangPreview.mp4';
 import bankAppPreview from '@/videos/bankAppPreview.mp4';
+import windowsXpPortfolioPreview from '@/videos/windowsXp-portfolio.mp4';
 export const projectsSelection = [
     {
         image: '/myWorks/overclockedx-client.png',
@@ -73,7 +74,7 @@ This portfolio showcases a fully custom design created from scratch to highlight
     },
     {
         image: '/myWorks/windowsxp.png',
-        video: overclockedXClientPreview,
+        video: windowsXpPortfolioPreview,
         label: 'Portfolio Inspired WindowsXp',
         link: 'https://lpxp.vercel.app/',
         description: `Windows XP-Inspired Portfolio
