@@ -17,10 +17,10 @@ const ProjectOverview = () => {
 
     return (
         <div className="@container w-full h-full box-border text-black p-2">
-            <div className="flex flex-col @2xl:flex-row gap-6 justify-start h-full">
+            <div className="flex flex-col @2xl:flex-row gap-2 justify-start h-full">
 
 
-                <div className="flex-1 flex flex-col gap-4">
+                <div className="flex-1 flex flex-col gap-2">
 
                     {/* video */}
                     <div className="relative w-full aspect-video border border-black/10 rounded @2xl:rounded-xl overflow-hidden shadow-2xl shadow-white/10">
@@ -31,13 +31,22 @@ const ProjectOverview = () => {
                         <Label className="text-lg font-normal font-orbitron leading-tight">
                             {projectsSelection[Number(addressBarCurrent.index)].label}
                         </Label>
-                        <div className='flex items-center gap-1 @2xl:gap-4'>
-                            <div className='flex items-center gap-1'>
-                                <FaGithub className='tet-black text-[25px] @2xl:text-[35px] ' />
-                                <Label className="text-[11px] @2xl:text-[13px] text-black/60 font-normal">
-                                    tcultivator
-                                </Label>
+                        <div className='flex flex-col items-start gap-1 @2xl:gap-4'>
+                            <div className='flex flex-col gap-1'>
+                                <div className='flex items-center gap-1'>
+                                    <FaGithub className='tet-black text-[25px] @2xl:text-[35px] ' />
+                                    <Label className="flex items-center text-[11px] @2xl:text-[13px] text-black/60 font-normal">
+                                        tcultivator
+                                        <svg className="w-3 h-3 fill-current opacity-60 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM9.8 17.3l-4.2-4.1L7 11.8l2.8 2.7L17 7.4l1.4 1.4-8.6 8.5z" /></svg>
+                                    </Label>
+                                </div>
+                                <div className="text-[#606060] flex items-center text-sm flex-wrap">
+                                    <span>{projectsSelection[Number(addressBarCurrent.index)].views} views</span>
+                                    <span className="mx-1">•</span>
+                                    <span>{projectsSelection[Number(addressBarCurrent.index)].time}</span>
+                                </div>
                             </div>
+
                             {/* links and navigation */}
                             <div className='flex items-center gap-1 @2xl:gap-2'>
                                 <Link className='bg-black active:bg-black/80 hover:bg-black/80 rounded-[24px] text-white flex items-center justify-center  p-2 w-[70px] @2xl:w-[100px] ' href={'https://github.com/tcultivator'} target='_blank'>
@@ -72,14 +81,14 @@ const ProjectOverview = () => {
 
                 {/* RIGHT: Related */}
                 <div className='w-full @2xl:w-[30%]'>
-                    <div className="w-full grid grid-cols-1 @xl:grid-cols-2  @2xl:grid-cols-1  @2xl:pr-1">
+                    <div className="w-full grid gap-1 grid-cols-1 @xl:grid-cols-2  @2xl:grid-cols-1  @2xl:pr-1">
                         {projectsSelection.map((data, index) => (
                             <div onClick={() => {
                                 setAddressbarHistory(addressBarCurrent)
                                 setAddressBarCurrent({ index: index, label: `/MyWorks/${data.label}` })
                             }}
                                 key={index}
-                                className="group flex flex-col gap-1 @2xl:flex-row @2xl:gap-3 cursor-pointer active:bg-black/5 hover:bg-black/5 p-2 rounded-[10px]"
+                                className="group flex bg-black/5 flex-col gap-1 @2xl:flex-row @2xl:gap-3 cursor-pointer active:bg-black/5 hover:bg-black/5 p-2 rounded-[10px]"
                             >
                                 <div className="relative w-full @2xl:w-[60%] aspect-video border border-black/10 rounded overflow-hidden">
                                     <Image
@@ -88,6 +97,9 @@ const ProjectOverview = () => {
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                                     />
+                                    <div className="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1.5 py-0.5 rounded-[4px]">
+                                        {data.duration}
+                                    </div>
                                 </div>
 
                                 <div className="flex flex-col gap-1 w-full @2xl:w-[40%]">
@@ -100,6 +112,11 @@ const ProjectOverview = () => {
                                         <Label className="text-[10px] text-black/60 font-normal">
                                             tcultivator
                                         </Label>
+                                    </div>
+                                    <div className="text-[#606060] flex items-center text-[12px] flex-wrap">
+                                        <span>{projectsSelection[Number(addressBarCurrent.index)].views} views</span>
+                                        <span className="mx-1">•</span>
+                                        <span>{projectsSelection[Number(addressBarCurrent.index)].time}</span>
                                     </div>
                                 </div>
                             </div>
