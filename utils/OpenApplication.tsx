@@ -39,12 +39,12 @@ export function openEmail() {
 }
 
 export function openResume() {
-    const width = window.innerWidth * 0.8;
-    const height = window.innerHeight * 0.8;
+    const width = window.innerWidth * 0.4;
+    const height = window.innerHeight * 0.9;
     useApplicationStore.getState().addWindowItem('Resume', <Image src="/pdfIcon.webp" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <Resume />, width, height, 'Click to zoom, then drag to view other areas.')
 }
 export function openAboutMe() {
-    const width = window.innerWidth * 0.6;
+    const width = window.innerWidth * 0.5;
     const height = window.innerHeight * 0.8;
     useApplicationStore.getState().addWindowItem('About Me', <Image src="/aboutmeIcon.ico" alt='' width={500} height={500} className='w-full aspect-square select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />, <AboutMe />, width, height, 'Learn more about Me.')
 }

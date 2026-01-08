@@ -104,7 +104,7 @@ export const useApplicationStore = create<Applications>((set) => ({
                     startY: startY - 28,
                     defaultWidth,
                     defaultHeight,
-                    fullScreen: title == 'Resume' || useApplicationStore.getState().isMobileDevice == true ? true : false,
+                    fullScreen: useApplicationStore.getState().isMobileDevice == true ? true : false,
                     display: true,
                     description,
                 },

@@ -82,7 +82,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
 `,
         views: '1.5M',
         time: '2 months ago',
-        duration: '02:24',
+        duration: '04:07',
         filterData: ['All', 'React', 'Next.js', 'TypeScript', 'Tailwind', 'Node.js', 'CSS', 'Html'],
         featuredProjects: true
     },
@@ -205,7 +205,7 @@ const home = () => {
                             />
                             {/* Duration Badge */}
                             <div className="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-xs font-medium px-1.5 py-0.5 rounded-[4px]">
-                                {data.duration || "10:00"}
+                                {data.duration}
                             </div>
                         </div>
 
@@ -232,9 +232,9 @@ const home = () => {
                                         <svg className="w-3 h-3 ml-1 fill-current opacity-60 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM9.8 17.3l-4.2-4.1L7 11.8l2.8 2.7L17 7.4l1.4 1.4-8.6 8.5z" /></svg>
                                     </div>
                                     <div className="flex items-center flex-wrap">
-                                        <span>{data.views || "10K"} views</span>
+                                        <span>{data.views} views</span>
                                         <span className="mx-1">•</span>
-                                        <span>{data.time || "1 month ago"}</span>
+                                        <span>{data.time}</span>
                                     </div>
                                 </div>
                             </div>
