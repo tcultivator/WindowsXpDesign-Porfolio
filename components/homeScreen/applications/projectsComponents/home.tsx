@@ -46,10 +46,10 @@ export const projectsSelection = [
         featuredProjects: true
     },
     {
-        image: '/myWorks/instagram.png',
+        image: '/myWorks/instagramImage.png',
         video: instagangPreview,
         label: 'InstaGang',
-        link: 'https://tcultivator.github.io/instagramClone-DevelopmentPhaseV2/',
+        link: 'https://tcultivator.github.io/instagang/',
         description: `
 InstaGang is a social media web application inspired by Instagram, designed to allow users to share photos, videos, and connect with others through a clean and intuitive interface. It features a responsive design, enabling seamless browsing across desktop and mobile devices. Users can create accounts, post content, like and comment on posts, follow other users, and explore trending media.
 The platform also supports real-time updates, notifications, and a personalized feed to enhance user engagement. With a focus on simplicity and user experience, InstaClone provides a modern, interactive, and social way to share moments online.`,

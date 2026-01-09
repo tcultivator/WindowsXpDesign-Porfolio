@@ -24,7 +24,7 @@ const ProjectOverview = () => {
 
                     {/* video */}
                     <div className="relative w-full aspect-video border border-black/10 rounded @2xl:rounded-xl overflow-hidden shadow-2xl shadow-white/10">
-                        <Video src={projectsSelection[Number(addressBarCurrent.index)].video}></Video>
+                        <Video src={projectsSelection[Number(addressBarCurrent.index)].video} autoPlay></Video>
                     </div>
                     <div className='flex flex-col gap-1 '>
 
