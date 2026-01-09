@@ -66,10 +66,10 @@ const Resume = () => {
     const handleMouseUp = () => setDragging(false)
 
     const handleDownload = () => {
-        // Path to your PDF in the public folder
+        
         const link = document.createElement('a')
-        link.href = '/PANAHON LUIGIE B. RESUME.pdf' // must be in /public
-        link.download = 'PANAHON_LUIGIE_B_Resume.pdf' // file name for download
+        link.href = '/Luigie Panahon - Web Developer.pdf'
+        link.download = 'Luigie Panahon - Web Developer.pdf'
         link.click()
     }
 
@@ -108,7 +108,7 @@ const Resume = () => {
             </div>
             <div
                 ref={containerRef}
-                className="w-full h-full flex flex-col justify-start items-start bg-black p-2 overflow-hidden"
+                className="w-full h-full flex flex-col justify-start items-start bg-black py-[2px] overflow-hidden"
             >
 
                 <div
@@ -130,10 +130,10 @@ const Resume = () => {
                         }`}
                 >
                     <Image
-                        src="/PANAHON LUIGIE B. RESUME-1.jpg"
+                        src="/Luigie Panahon - Web Developer.jpg"
                         alt="Resume"
-                        width={1500}
-                        height={2000}
+                        width={3000}
+                        height={4000}
                         className="w-full max-w-full h-max max-h-full object-contain pointer-events-none"
                         draggable={false}
                     />
