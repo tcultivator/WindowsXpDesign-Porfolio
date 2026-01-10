@@ -16,7 +16,7 @@ const Resume = () => {
     const startPos = useRef({ x: 0, y: 0 })
     const hasMoved = useRef(false)
 
-    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleClick = (e: React.PointerEvent<HTMLDivElement>) => {
         if (hasMoved.current) {
             hasMoved.current = false
             return
@@ -32,7 +32,7 @@ const Resume = () => {
         if (zoomed) setPosition({ x: 0, y: 0 })
     }
 
-    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleMouseDown = (e: React.PointerEvent<HTMLDivElement>) => {
         if (!zoomed) return
         setDragging(true)
         hasMoved.current = false
@@ -115,10 +115,10 @@ const Resume = () => {
                 <div
                     ref={imageRef}
                     onClick={handleClick}
-                    onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseUp}
+                    onPointerDown={handleMouseDown}
+                    onPointerMove={handleMouseMove}
+                    onPointerUp={handleMouseUp}
+                    onPointerLeave={handleMouseUp}
                     style={{
                         transformOrigin: origin,
                         transform: `translate(${position.x}px, ${position.y}px) scale(${zoomed ? 2 : 1})`,
