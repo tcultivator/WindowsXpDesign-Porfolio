@@ -34,13 +34,17 @@ const Resume = () => {
 
     const handleMouseDown = (e: React.PointerEvent<HTMLDivElement>) => {
         if (!zoomed) return
+
+        e.currentTarget.setPointerCapture(e.pointerId) // ✅
         setDragging(true)
         hasMoved.current = false
+
         startPos.current = {
             x: e.clientX - position.x,
             y: e.clientY - position.y,
         }
     }
+
 
     const handleMouseMove = (e: React.PointerEvent<HTMLDivElement>) => {
         if (!dragging || !zoomed || !containerRef.current || !imageRef.current)
@@ -52,8 +56,11 @@ const Resume = () => {
         const nextX = e.clientX - startPos.current.x
         const nextY = e.clientY - startPos.current.y
 
-        const maxX = image.width - container.width
-        const maxY = image.height - container.height
+        const scale = zoomed ? 2 : 1
+
+        const maxX = image.width * scale - container.width
+        const maxY = image.height * scale - container.height
+
 
         hasMoved.current = true
 
@@ -64,7 +71,10 @@ const Resume = () => {
     }
 
 
-    const handleMouseUp = () => setDragging(false)
+    const handleMouseUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.releasePointerCapture(e.pointerId)
+    setDragging(false)
+}
 
     const handleDownload = () => {
 
@@ -120,6 +130,7 @@ const Resume = () => {
                     onPointerUp={handleMouseUp}
                     onPointerLeave={handleMouseUp}
                     style={{
+                        touchAction: 'none',
                         transformOrigin: origin,
                         transform: `translate(${position.x}px, ${position.y}px) scale(${zoomed ? 2 : 1})`,
                     }}
