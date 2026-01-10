@@ -42,7 +42,7 @@ const Resume = () => {
         }
     }
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleMouseMove = (e: React.PointerEvent<HTMLDivElement>) => {
         if (!dragging || !zoomed || !containerRef.current || !imageRef.current)
             return
 
@@ -52,8 +52,8 @@ const Resume = () => {
         const nextX = e.clientX - startPos.current.x
         const nextY = e.clientY - startPos.current.y
 
-        const maxX = (image.width - container.width)
-        const maxY = (image.height - container.height)
+        const maxX = image.width - container.width
+        const maxY = image.height - container.height
 
         hasMoved.current = true
 
@@ -63,10 +63,11 @@ const Resume = () => {
         })
     }
 
+
     const handleMouseUp = () => setDragging(false)
 
     const handleDownload = () => {
-        
+
         const link = document.createElement('a')
         link.href = '/Luigie Panahon - Web Developer.pdf'
         link.download = 'Luigie Panahon - Web Developer.pdf'
