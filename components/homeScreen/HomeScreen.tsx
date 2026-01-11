@@ -239,6 +239,7 @@ const HomeScreen = () => {
                                                     height={1000}
                                                     className={`w-[45px] select-none`}
                                                     draggable={false}
+                                                    priority
                                                 />
                                             }
                                             label={
@@ -266,6 +267,7 @@ const HomeScreen = () => {
                                                     height={1000}
                                                     className={`w-[45px] select-none filter drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] `}
                                                     draggable={false}
+                                                    priority
                                                 />
                                             }
                                             label={
@@ -291,6 +293,7 @@ const HomeScreen = () => {
                                                     height={1000}
                                                     className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] `}
                                                     draggable={false}
+                                                    priority
                                                 />
                                             }
                                             label={
@@ -316,6 +319,7 @@ const HomeScreen = () => {
                                                     height={1000}
                                                     className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
                                                     draggable={false}
+                                                    priority
                                                 />
                                             }
                                             label={
@@ -340,6 +344,7 @@ const HomeScreen = () => {
                                                     height={1000}
                                                     className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
                                                     draggable={false}
+                                                    priority
                                                 />
                                             }
                                             label={
@@ -366,6 +371,7 @@ const HomeScreen = () => {
                                                     height={1000}
                                                     className={`w-[45px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]`}
                                                     draggable={false}
+                                                    priority
                                                 />
                                             }
                                             label={
@@ -550,23 +556,23 @@ const HomeScreen = () => {
                         </div >
                     </ContextMenuTrigger>
                     <ContextMenuContent className="w-45">
-                        <ContextMenuItem inset >View</ContextMenuItem>
-                        <ContextMenuItem inset>Sort by</ContextMenuItem>
+                        <ContextMenuItem disabled inset >View</ContextMenuItem>
+                        <ContextMenuItem disabled inset>Sort by</ContextMenuItem>
                         <ContextMenuItem inset onClick={refreshTheScreen}>Refresh</ContextMenuItem>
 
                         <ContextMenuSeparator />
 
-                        <ContextMenuItem inset disabled>Paste</ContextMenuItem>
-                        <ContextMenuItem inset disabled>Paste Shortcut</ContextMenuItem>
+                        <ContextMenuItem disabled inset >Paste</ContextMenuItem>
+                        <ContextMenuItem disabled inset >Paste Shortcut</ContextMenuItem>
 
                         <ContextMenuSeparator />
 
-                        <ContextMenuItem inset>New</ContextMenuItem>
+                        <ContextMenuItem disabled inset>New</ContextMenuItem>
 
                         <ContextMenuSeparator />
 
-                        <ContextMenuItem inset>Display</ContextMenuItem>
-                        <ContextMenuItem inset>Personalized</ContextMenuItem>
+                        <ContextMenuItem disabled inset>Display</ContextMenuItem>
+                        <ContextMenuItem disabled inset>Personalized</ContextMenuItem>
 
                     </ContextMenuContent>
                 </ContextMenu>

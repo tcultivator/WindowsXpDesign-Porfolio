@@ -15,7 +15,7 @@ const AccessDenied = ({ id }: { id: string }) => {
         <div className='flex items-center gap-1 w-full drag-handle'>
           {/* <FaFolderOpen className='text-[#f5d78c] text-[15px]' /> */}
           <div className='w-[20px] aspect-square'>
-            <Image src="/Critical.png" alt='' width={20} height={20} className='w-full aspect-square select-none' />
+            <Image src="/Critical.png" alt='' width={20} height={20} priority className='w-full aspect-square select-none' />
           </div>
           <Label className='text-[12px]'>{'Local Disk (C:)'}</Label>
         </div>
@@ -28,6 +28,7 @@ const AccessDenied = ({ id }: { id: string }) => {
             width={100}
             height={100}
             className='w-[20px] cursor-pointer hover:brightness-125'
+            priority
           />
 
 

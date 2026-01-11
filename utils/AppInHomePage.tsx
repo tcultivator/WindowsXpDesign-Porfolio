@@ -32,24 +32,24 @@ export const AppInHomePage = ({ icon, label, onClick }: {
         </ContextMenuTrigger>
         <ContextMenuContent className="w-52">
             <ContextMenuItem onClick={onClick} inset className='font-bold'>Open</ContextMenuItem>
-            <ContextMenuItem inset>Explore</ContextMenuItem>
-            <ContextMenuItem inset>Search...</ContextMenuItem>
-            <ContextMenuItem inset>Manage</ContextMenuItem>
+            <ContextMenuItem disabled inset>Explore</ContextMenuItem>
+            <ContextMenuItem disabled inset>Search...</ContextMenuItem>
+            <ContextMenuItem disabled inset>Manage</ContextMenuItem>
 
             <ContextMenuSeparator />
 
-            <ContextMenuItem inset>Map Network Drive</ContextMenuItem>
-            <ContextMenuItem inset>Disconnect Network Drive</ContextMenuItem>
+            <ContextMenuItem disabled inset>Map Network Drive</ContextMenuItem>
+            <ContextMenuItem disabled inset>Disconnect Network Drive</ContextMenuItem>
 
             <ContextMenuSeparator />
 
-            <ContextMenuItem inset>Create Shortcut</ContextMenuItem>
-            <ContextMenuItem inset>Delete</ContextMenuItem>
-            <ContextMenuItem inset>Rename</ContextMenuItem>
+            <ContextMenuItem disabled inset>Create Shortcut</ContextMenuItem>
+            <ContextMenuItem disabled inset>Delete</ContextMenuItem>
+            <ContextMenuItem disabled inset>Rename</ContextMenuItem>
 
             <ContextMenuSeparator />
 
-            <ContextMenuItem inset>Properties</ContextMenuItem>
+            <ContextMenuItem disabled inset>Properties</ContextMenuItem>
 
         </ContextMenuContent>
     </ContextMenu>

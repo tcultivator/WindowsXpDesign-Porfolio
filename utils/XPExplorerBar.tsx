@@ -98,22 +98,22 @@ const XPExplorerBar = ({ icon, title, id }: props) => {
                         <FaArrowRight className=' bg-[#b0b0b0] shadow-[inset_0_2px_5px_rgba(255,255,255,0.5),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] text-white p-[3px] text-[18px] rounded-[50%]' />
                         <IoMdArrowDropdown className='text-[11px] mt-[2px]' />
                     </button>
-                    <button className='relative h-full  py-1 rounded px-[2px] border hover:border-black/30'>
+                    <button className='relative h-full  py-1 rounded px-[2px] border hover:border-black/30 opacity-50'>
                         <Image src={folderwithicon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                     </button>
                 </div>
                 <div className='flex items-center w-max border-r border-black/20 px-1'>
-                    <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1'>
+                    <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1 opacity-50'>
                         <Image src={searchIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         <Label className='text-black font-normal text-[11px]'>Search</Label>
                     </button>
-                    <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1'>
+                    <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1 opacity-50'>
                         <Image src={folderIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         <Label className='text-black font-normal text-[11px]'>Folders</Label>
                     </button>
                 </div>
                 <div className='flex items-center w-max px-1'>
-                    <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1 text-black'>
+                    <button className=' h-full  py-1 rounded px-[2px] pr-1 border hover:border-black/30 flex items-center gap-1 text-black opacity-50'>
                         <Image src={folderLayoutIcon} alt='folder icon' width={20} height={20} className='w-[18px] select-none drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black] drop-shadow-[0_0_.5px_black]' draggable={false} />
                         <IoMdArrowDropdown className='text-[11px] mt-[2px]' />
                     </button>
@@ -128,11 +128,11 @@ const XPExplorerBar = ({ icon, title, id }: props) => {
                         <Label className='w-[13px]'>{icon}</Label>
                         <Label className='font-light text-black/60 text-[10px] p-[2px] px-2'>{title}</Label>
                     </div>
-                    <RiArrowDownSLine className='text-black bg-[#acc8fc] h-full px-1 text-[18px] aspect-square border border-black/10' />
+                    <RiArrowDownSLine className='text-black bg-[#acc8fc] h-full px-1 text-[18px] aspect-square border border-black/10 ' />
                 </div>
                 <div className='flex items-center gap-1 p-[2px] pr-2'>
-                    <FaArrowRight className=' bg-[#2eb32e] shadow-[inset_0_2px_5px_rgba(255,255,255,0.5),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] text-white p-[2px] text-[16px] rounded-[2px]' />
-                    <Label className='font-thin text-black text-[10px]'>Go</Label>
+                    <FaArrowRight className=' bg-[#2eb32e] shadow-[inset_0_2px_5px_rgba(255,255,255,0.5),inset_0_-2px_6px_rgba(0,0,0,0.3),0_2px_4px_rgba(0,0,0,0.5)] text-white p-[2px] text-[16px] rounded-[2px] opacity-50' />
+                    <Label className='font-thin text-black text-[10px] '>Go</Label>
                 </div>
             </div>
         </div>

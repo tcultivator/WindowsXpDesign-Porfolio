@@ -16,7 +16,7 @@ const ProjectOverview = () => {
 
 
     return (
-        <div className="@container w-full h-full box-border text-gray-100 p-2">
+        <div className="@container w-full h-full box-border text-gray-100">
             <div className="flex flex-col @2xl:flex-row gap-2 justify-start h-full">
 
 
@@ -26,7 +26,7 @@ const ProjectOverview = () => {
                     <div className="relative w-full aspect-video rounded-[2px] overflow-hidden">
                         <Video src={projectsSelection[Number(addressBarCurrent.index)].video}></Video>
                     </div>
-                    <div className='flex flex-col gap-1 '>
+                    <div className='flex flex-col gap-1 px-2 '>
 
                         <Label className="text-lg font-normal font-orbitron leading-tight">
                             {projectsSelection[Number(addressBarCurrent.index)].label}
@@ -75,7 +75,7 @@ const ProjectOverview = () => {
                     </div>
 
                     {/* Description */}
-                    <div className="text-[12px] text-gray-200 bg-[#262626] rounded-md p-4 ">
+                    <div className="text-[12px] text-gray-200 bg-[#262626] rounded-md p-4 mx-2 ">
                         <ReactMarkdown>
                             {projectsSelection[Number(addressBarCurrent.index)].description}
                         </ReactMarkdown>

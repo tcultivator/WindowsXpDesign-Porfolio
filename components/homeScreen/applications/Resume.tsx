@@ -79,8 +79,8 @@ const Resume = () => {
     const handleDownload = () => {
 
         const link = document.createElement('a')
-        link.href = '/Luigie Panahon - Web Developer.pdf'
-        link.download = 'Luigie Panahon - Web Developer.pdf'
+        link.href = '/Luigie Panahon-Web Developer.pdf'
+        link.download = 'Luigie Panahon-Web Developer.pdf'
         link.click()
     }
 
@@ -142,7 +142,7 @@ const Resume = () => {
                         }`}
                 >
                     <Image
-                        src="/Luigie Panahon - Web Developer.jpg"
+                        src="/Luigie Panahon-Web Developer.jpg"
                         alt="Resume"
                         width={3000}
                         height={4000}
