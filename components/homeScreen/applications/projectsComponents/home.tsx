@@ -20,13 +20,27 @@ import portfolioV1Preview from '@/videos/portfolioV1Preview.mp4';
 import instagangPreview from '@/videos/instagangPreview.mp4';
 import bankAppPreview from '@/videos/bankAppPreview.mp4';
 import windowsXpPortfolioPreview from '@/videos/windowsXp-portfolio.mp4';
+
+
+// projects Descriptions
+import { OverClockedXClientDescription } from '@/utils/projectsDescriptions/OverClockedX-Client-Description';
+import { OverClockedXAdminDescription } from '@/utils/projectsDescriptions/OverClockedX-Admin-Description';
+import { InstagangDescription } from '@/utils/projectsDescriptions/Instagang-Description';
+import { PersonalPortfolioDescription } from '@/utils/projectsDescriptions/PersonalPortfolio-Description';
+import { WindowsXpDesignDescription } from '@/utils/projectsDescriptions/WindowsXpDesign-Portfolio-Description';
+import { JobApplicationManagerDescription } from '@/utils/projectsDescriptions/Job-Application-Manager-Description';
+import { BankAppDescription } from '@/utils/projectsDescriptions/BankApp-Description';
+import { Mp3PlayerV2Description } from '@/utils/projectsDescriptions/Mp3PlayerV2-Description';
+import { Mp3PlayerV1Description } from '@/utils/projectsDescriptions/Mp3PlayerV1-Description';
+import { CalculatorDescription } from '@/utils/projectsDescriptions/Calculator-Description';
+
 export const projectsSelection = [
     {
         image: '/myWorks/overclockedx-client.png',
         video: overclockedXClientPreview,
         label: 'OverClockedX-Client',
         link: 'https://overclockedx-client.vercel.app/',
-        description: 'OverclockedX is an e-commerce website where you can purchase computers, laptops, computer parts, peripherals, and much more. It features an AI assistant that helps you check compatibility and provides relevan information to ensure you make informed decisions. With its responsive design and clean, user-friendly interface, OverClockedX offers an easy and seamless browseing experience across all device',
+        description: OverClockedXClientDescription,
         views: '12K',
         time: '2 days ago',
         duration: '02:24',
@@ -38,7 +52,7 @@ export const projectsSelection = [
         video: overclockedXAdminPreview,
         label: 'OverClockedX-Admin',
         link: 'https://overclockedx-admin.vercel.app/',
-        description: 'OverClockedX Admin is the official administrative dashboard for the OverClockedX e-commerce platform. It allows administrators to efficiently manage the client-facing store by handling inventory, orders, promotions, analytics, and more through a modern, responsive interface.',
+        description: OverClockedXAdminDescription,
         views: '8.5K',
         time: '1 week ago',
         duration: '02:51',
@@ -50,9 +64,7 @@ export const projectsSelection = [
         video: instagangPreview,
         label: 'InstaGang',
         link: 'https://tcultivator.github.io/instagang/',
-        description: `
-InstaGang is a social media web application inspired by Instagram, designed to allow users to share photos, videos, and connect with others through a clean and intuitive interface. It features a responsive design, enabling seamless browsing across desktop and mobile devices. Users can create accounts, post content, like and comment on posts, follow other users, and explore trending media.
-The platform also supports real-time updates, notifications, and a personalized feed to enhance user engagement. With a focus on simplicity and user experience, InstaClone provides a modern, interactive, and social way to share moments online.`,
+        description: InstagangDescription,
         views: '102K',
         time: '3 weeks ago',
         duration: '02:42',
@@ -64,8 +76,7 @@ The platform also supports real-time updates, notifications, and a personalized 
         video: portfolioV1Preview,
         label: 'Portfolio v1',
         link: 'https://tcultivator.github.io/myPortfolio/',
-        description: `Custom Design Portfolio
-This portfolio showcases a fully custom design created from scratch to highlight my projects, skills, and personal brand. It features a modern, clean, and responsive layout that emphasizes usability and aesthetics. The design incorporates unique visual elements, smooth animations, and interactive features to engage visitors and provide an immersive browsing experience. Each section is thoughtfully crafted to effectively communicate my expertise and creativity as a developer.`,
+        description: PersonalPortfolioDescription,
         views: '2K',
         time: '1 month ago',
         duration: '00:55',
@@ -73,13 +84,11 @@ This portfolio showcases a fully custom design created from scratch to highlight
         featuredProjects: true
     },
     {
-        image: '/myWorks/windowsxp.png',
+        image: '/myWorks/windowsxp/windowsxp.png',
         video: windowsXpPortfolioPreview,
         label: 'Portfolio Inspired WindowsXp',
         link: 'https://lpxp.vercel.app/',
-        description: `Windows XP-Inspired Portfolio
-This portfolio is a creative homage to the classic Windows XP interface, blending nostalgia with modern web functionality. It features interactive elements, retro-inspired visuals, and a playful interface while maintaining responsiveness and usability. The design uniquely showcases my projects and skills, offering visitors a fun and memorable browsing experience.
-`,
+        description: WindowsXpDesignDescription,
         views: '1.5M',
         time: '2 months ago',
         duration: '04:07',
@@ -91,8 +100,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
         video: jobApplicationManagerPreview,
         label: 'Job Manager',
         link: 'https://tcultivator.github.io/Job-Applying-Manager/',
-        description: `A simple tool that helps you organize and track your job applications. Easily monitor the companies you've applied to, update the status of each application, and stay on top of your job hunt.
-`,
+        description: JobApplicationManagerDescription,
         views: '500',
         time: '3 months ago',
         duration: '01:05',
@@ -104,8 +112,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
         video: bankAppPreview,
         label: 'Bank App',
         link: 'https://tcultivator.github.io/LoginSystem-with-httpOnly-Cookie-and-JWT/index.html',
-        description: `A web-based banking app that lets users create accounts, manage balances, demo transaction history, and perform basic banking operations
-`,
+        description: BankAppDescription,
         views: '4.2K',
         time: '4 months ago',
         duration: '01:25',
@@ -117,8 +124,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
         video: mp3PlayerV2Preview,
         label: 'Mp3 Player v.2',
         link: 'https://tcultivator.github.io/Improve-Mp3Player/',
-        description: `A sleek and responsive music player that lets users play, pause, skip tracks, and manage playlists. Built for smooth audio playback and a clean user interface.
-`,
+        description: Mp3PlayerV2Description,
         views: '1K',
         time: '5 months ago',
         duration: '01:00',
@@ -130,8 +136,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
         video: mp3PlayerV1Preview,
         label: 'Mp3 Player v.1',
         link: 'https://tcultivator.github.io/MP3PLAYER/',
-        description: `A basic MP3 player that allows users to play, pause, and skip audio tracks. Built with a focus on simplicity and smooth playback.
-`,
+        description: Mp3PlayerV1Description,
         views: '300',
         time: '6 months ago',
         duration: '00:34',
@@ -143,8 +148,7 @@ This portfolio is a creative homage to the classic Windows XP interface, blendin
         video: calculatorPreview,
         label: 'Calculator',
         link: 'https://tcultivator.github.io/Calculator/',
-        description: `A simple and user-friendly calculator app that handles basic arithmetic operations like addition, subtraction, multiplication, and division. Designed for quick calculations with a clean interface and responsive design.
-`,
+        description: CalculatorDescription,
         views: '8K',
         time: '1 year ago',
         duration: '00:31',

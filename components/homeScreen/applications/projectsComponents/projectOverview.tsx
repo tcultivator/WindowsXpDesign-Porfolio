@@ -7,13 +7,19 @@ import { FaGithub } from "react-icons/fa";
 
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from "remark-gfm";
+import "github-markdown-css/github-markdown-dark.css";
 import Video from 'next-video'
+
+import { useState } from 'react';
 
 const ProjectOverview = () => {
     const addressBarCurrent = useAddressbarStore((state) => state.addressBarCurrent)
     const setAddressbarHistory = useAddressbarStore((state) => state.setAddressbarHistory)
     const setAddressBarCurrent = useAddressbarStore((state) => state.setAddressBarCurrent)
 
+
+    const [descriptionButton, setDescriptionButton] = useState(false);
 
     return (
         <div className="@container w-full h-full box-border text-gray-100">
@@ -75,13 +81,18 @@ const ProjectOverview = () => {
                     </div>
 
                     {/* Description */}
-                    <div className="text-[12px] text-gray-200 bg-[#262626] rounded-md p-4 mx-2 ">
-                        <ReactMarkdown>
+                    <div className={`markdown-body p-4 rounded-md overflow-hidden transition-all duration-200 ${descriptionButton ? 'h-full' : 'h-[220px]'}  relative`}>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
                             {projectsSelection[Number(addressBarCurrent.index)].description}
                         </ReactMarkdown>
+                        <div className='absolute bottom-0 right-0 w-full flex items-center justify-center bg-black/20 backdrop-blur-md '>
+                            <button onClick={() => setDescriptionButton(prev => !prev)} className=' active:bg-[#a1a1a1] hover:[#a1a1a1] rounded-[24px] text-white flex items-center justify-center  p-2 w-[100px] '>
+                                <Label className='text-[12px] cursor-pointer font-semibold'>{descriptionButton ? 'Show less' : 'Show more'}</Label>
+                            </button>
+                        </div>
 
                     </div>
-                    
+
                 </div>
 
                 {/* RIGHT: Related */}
@@ -93,7 +104,7 @@ const ProjectOverview = () => {
                                 setAddressBarCurrent({ index: index, label: `/MyWorks/${data.label}` })
                             }}
                                 key={index}
-                                className="group flex bg-black/5 flex-col gap-1 @2xl:flex-row @2xl:gap-3 cursor-pointer active:bg-black/5 hover:bg-black/5 p-2 rounded-[10px]"
+                                className={`${addressBarCurrent.index == index ? 'hidden' : 'flex'} group bg-black/5 flex-col gap-1 @2xl:flex-row @2xl:gap-3 cursor-pointer active:bg-black/5 hover:bg-black/5 p-2 rounded-[10px]`}
                             >
                                 <div className="relative w-full @2xl:w-[60%] aspect-video border border-black/10 rounded overflow-hidden">
                                     <Image
