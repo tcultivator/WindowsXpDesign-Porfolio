@@ -261,17 +261,7 @@ button#p1:focus #p1label {
 
 
 
-::-webkit-scrollbar {
-  width: 16px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #edebd8;
-  border: 1px solid #e8e6e6;
-  box-shadow: inset 0 0 10px #c4c4c4;
-
-}
 
 .start-menu-button {
 
@@ -413,51 +403,86 @@ textarea::placeholder {
 
 
 
+/* Hide scrollbar everywhere (mobile default) */
+/* Mobile-first: hide scrollbar */
+* {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE / old Edge */
+}
 
-
-
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #b4ccde;
-  border: 1.5px solid white;
-  border-radius: 2px;
-  box-shadow: 0 0 2px #000000;
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 
 
-/* Hide ALL scrollbar buttons */
-::-webkit-scrollbar-button {
-  display: none;
+@media (hover: hover) and (pointer: fine) {
+
+  * {
+    scrollbar-width: auto;
+    /* Firefox */
+  }
+
+  *::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Track */
+  *::-webkit-scrollbar-track {
+    background: #edebd8;
+    border: 1px solid #e8e6e6;
+    box-shadow: inset 0 0 10px #c4c4c4;
+  }
+
+  /* Handle */
+  *::-webkit-scrollbar-thumb {
+    background: #b4ccde;
+    border: 1.5px solid white;
+    border-radius: 2px;
+    box-shadow: 0 0 2px #000;
+  }
+
+  /* Hide ALL buttons */
+  *::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+
+  /* Up arrow */
+  *::-webkit-scrollbar-button:vertical:single-button:decrement {
+    width: 16px;
+    height: 18px;
+    background:
+      #b4ccde url("data:image/svg+xml;utf8,\
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'>\
+        <path d='M4 1 L7 5 H1 Z' fill='blue'/>\
+      </svg>") center no-repeat;
+    border: 1.5px solid white;
+    box-shadow: 0 0 2px #000;
+  }
+
+  /* Down arrow */
+  *::-webkit-scrollbar-button:vertical:single-button:increment {
+    width: 16px;
+    height: 18px;
+    background:
+      #b4ccde url("data:image/svg+xml;utf8,\
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 2 8 5'>\
+        <path d='M1 3 L7 3 L4 7 Z' fill='blue'/>\
+      </svg>") center no-repeat;
+    border: 1.5px solid white;
+    box-shadow: 0 0 2px #000;
+  }
 }
 
-/* Show ONLY the single-step buttons */
-::-webkit-scrollbar-button:vertical:single-button:decrement {
-  display: block;
-  height: 18px;
-  background:
-    #b4ccde url("data:image/svg+xml;utf8,\
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'>\
-      <path d='M4 1 L7 5 H1 Z' fill='blue'/>\
-    </svg>") center no-repeat;
-  border: 1.5px solid white;
-  border-radius: 2px;
-  box-shadow: 0 0 2px #000;
-}
 
-::-webkit-scrollbar-button:vertical:single-button:increment {
-  display: block;
-  height: 18px;
-  background:
-    #b4ccde url("data:image/svg+xml;utf8,\
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 2 8 5'>\
-      <path d='M1 3 L7 3 L4 7 Z' fill='blue'/>\
-    </svg>") center no-repeat;
-  border: 1.5px solid white;
-  border-radius: 2px;
-  box-shadow: 0 0 2px #000;
-}
+
+
+
 
 
 
